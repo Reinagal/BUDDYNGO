@@ -10,10 +10,92 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_26_112522) do
+ActiveRecord::Schema.define(version: 2019_02_26_152413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.bigint "event_user_id"
+    t.bigint "poll_id"
+    t.integer "budget_max"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "theme_ranking", default: [], array: true
+    t.string "chosen_date", default: [], array: true
+    t.index ["event_user_id"], name: "index_answers_on_event_user_id"
+    t.index ["poll_id"], name: "index_answers_on_poll_id"
+  end
+
+  create_table "choices", force: :cascade do |t|
+    t.bigint "poll_id"
+    t.string "choice_type"
+    t.string "theme"
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["poll_id"], name: "index_choices_on_poll_id"
+  end
+
+  create_table "destination_answers", force: :cascade do |t|
+    t.bigint "event_user_id"
+    t.bigint "poll_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "destination_ranking", default: [], array: true
+    t.index ["event_user_id"], name: "index_destination_answers_on_event_user_id"
+    t.index ["poll_id"], name: "index_destination_answers_on_poll_id"
+  end
+
+  create_table "destination_choices", force: :cascade do |t|
+    t.bigint "poll_id"
+    t.bigint "destination_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["destination_id"], name: "index_destination_choices_on_destination_id"
+    t.index ["poll_id"], name: "index_destination_choices_on_poll_id"
+  end
+
+  create_table "destinations", force: :cascade do |t|
+    t.string "theme"
+    t.string "name"
+    t.integer "average_daily_cost"
+    t.integer "travel_cost"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "event_users", force: :cascade do |t|
+    t.bigint "event_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_event_users_on_event_id"
+    t.index ["user_id"], name: "index_event_users_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.bigint "user_id"
+    t.integer "budget"
+    t.string "destination"
+    t.date "start_date"
+    t.date "end_date"
+    t.string "theme"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "polls", force: :cascade do |t|
+    t.date "deadline"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_polls_on_event_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +109,15 @@ ActiveRecord::Schema.define(version: 2019_02_26_112522) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "event_users"
+  add_foreign_key "answers", "polls"
+  add_foreign_key "choices", "polls"
+  add_foreign_key "destination_answers", "event_users"
+  add_foreign_key "destination_answers", "polls"
+  add_foreign_key "destination_choices", "destinations"
+  add_foreign_key "destination_choices", "polls"
+  add_foreign_key "event_users", "events"
+  add_foreign_key "event_users", "users"
+  add_foreign_key "events", "users"
+  add_foreign_key "polls", "events"
 end
