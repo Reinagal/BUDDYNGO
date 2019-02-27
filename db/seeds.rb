@@ -7,22 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Destroying all...."
 
-EventUser.destroy_all
-p '-'
-Event.destroy_all
-p '-'
-User.destroy_all
-p '-'
-Destination.destroy_all
-p '-'
-Theme.destroy_all
-p '-'
-Poll.destroy_all
-p '-'
 Choice.destroy_all
-p '-'
-Answer.destroy_all
-
+p 'choice destroy'
+Poll.destroy_all
+p 'poll destroy'
+EventUser.destroy_all
+p 'eventuser destroy'
+Destination.destroy_all
+p 'destination destroy'
+Theme.destroy_all
+p 'theme destroy'
+Event.destroy_all
+p 'event destroy'
+User.destroy_all
+p 'user destroy'
 
 puts "Creating Users...."
 
