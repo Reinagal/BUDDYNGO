@@ -1,3 +1,4 @@
 class Destination < ApplicationRecord
-  has_many :destination_choices
+  has_many :destinations
+  belongs_to :theme
 end
