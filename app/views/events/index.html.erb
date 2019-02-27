@@ -14,7 +14,8 @@
   <!-- Current event dashboard row -->
   <div class="row">
     <div class="tab-containt">
-      <p>DASHBOARD PER EVENT called in JS in challah</p>
+      <!-- Should show the event licked in the tab with JS -->
+      <%= render 'events/show', event: @myevents.first %>
     </div>
   </div>
 
