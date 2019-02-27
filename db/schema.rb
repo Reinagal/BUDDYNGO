@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 2019_02_27_111014) do
     t.string "theme"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "step", default: 1
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
