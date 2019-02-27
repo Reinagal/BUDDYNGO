@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_27_092016) do
+ActiveRecord::Schema.define(version: 2019_02_27_111014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_02_27_092016) do
     t.datetime "updated_at", null: false
     t.string "theme_ranking", default: [], array: true
     t.string "chosen_date", default: [], array: true
+    t.string "destination_ranking"
     t.index ["event_user_id"], name: "index_answers_on_event_user_id"
     t.index ["poll_id"], name: "index_answers_on_poll_id"
   end
@@ -30,40 +31,26 @@ ActiveRecord::Schema.define(version: 2019_02_27_092016) do
   create_table "choices", force: :cascade do |t|
     t.bigint "poll_id"
     t.string "choice_type"
-    t.string "theme"
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["poll_id"], name: "index_choices_on_poll_id"
-  end
-
-  create_table "destination_answers", force: :cascade do |t|
-    t.bigint "event_user_id"
-    t.bigint "poll_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "destination_ranking", default: [], array: true
-    t.index ["event_user_id"], name: "index_destination_answers_on_event_user_id"
-    t.index ["poll_id"], name: "index_destination_answers_on_poll_id"
-  end
-
-  create_table "destination_choices", force: :cascade do |t|
-    t.bigint "poll_id"
     t.bigint "destination_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["destination_id"], name: "index_destination_choices_on_destination_id"
-    t.index ["poll_id"], name: "index_destination_choices_on_poll_id"
+    t.bigint "theme_id"
+    t.index ["destination_id"], name: "index_choices_on_destination_id"
+    t.index ["poll_id"], name: "index_choices_on_poll_id"
+    t.index ["theme_id"], name: "index_choices_on_theme_id"
   end
 
   create_table "destinations", force: :cascade do |t|
-    t.string "theme"
     t.string "name"
     t.integer "average_daily_cost"
     t.integer "travel_cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "theme_id"
+    t.string "photo"
+    t.index ["theme_id"], name: "index_destinations_on_theme_id"
   end
 
   create_table "event_users", force: :cascade do |t|
@@ -98,6 +85,13 @@ ActiveRecord::Schema.define(version: 2019_02_27_092016) do
     t.index ["event_id"], name: "index_polls_on_event_id"
   end
 
+  create_table "themes", force: :cascade do |t|
+    t.string "name"
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -124,11 +118,10 @@ ActiveRecord::Schema.define(version: 2019_02_27_092016) do
 
   add_foreign_key "answers", "event_users"
   add_foreign_key "answers", "polls"
+  add_foreign_key "choices", "destinations"
   add_foreign_key "choices", "polls"
-  add_foreign_key "destination_answers", "event_users"
-  add_foreign_key "destination_answers", "polls"
-  add_foreign_key "destination_choices", "destinations"
-  add_foreign_key "destination_choices", "polls"
+  add_foreign_key "choices", "themes"
+  add_foreign_key "destinations", "themes"
   add_foreign_key "event_users", "events"
   add_foreign_key "event_users", "users"
   add_foreign_key "events", "users"
