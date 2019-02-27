@@ -39,8 +39,11 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
+      <a href="" data-toggle="modal" data-target="#modalRegisterForm">Sign up</a>
+
       <%= link_to t(".sign_up", default: "Sign Up"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link sign-up-navbar" %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link btn btn-action button-home" %>
+</div>
     <% end %>
   </div>
 
