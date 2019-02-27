@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   def index
     @myevents = Event.where(user_id: current_user.id)
   end
-  
+
   def new
     @event = Event.new
   end
@@ -15,15 +15,10 @@ class EventsController < ApplicationController
       render :new
     end
   end
-  
+
 private
 
   def event_params
     params.require(:event).permit(:name, :description, :theme, :start_date, :end_date, :step)
   end
-
 end
-
-
-
-
