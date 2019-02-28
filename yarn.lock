@@ -2456,6 +2456,11 @@ find-up@^2.0.0, find-up@^2.1.0:
   dependencies:
     locate-path "^2.0.0"
 
+flatpickr@^4.5.4:
+  version "4.5.4"
+  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.5.4.tgz#7d46fc539d2a97daf80ac261994d4b45d5a4e5f6"
+  integrity sha512-AZOu3l6jUJtNofUKW4UGf9R5wKoLBb52VcQJhbL88G1sekJiXTPqqWJyZwGShjIMFjAIgnajEPglRd2fv/FaYg==
+
 flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
@@ -5865,6 +5870,11 @@ sort-keys@^1.0.0:
   integrity sha1-RBttTTRnmPG05J6JIK37oOVD+a0=
   dependencies:
     is-plain-obj "^1.0.0"
+
+sortablejs@^1.8.3:
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/sortablejs/-/sortablejs-1.8.3.tgz#5ae908ef96300966e95440a143340f5dd565a0df"
+  integrity sha512-AftvD4hdKcR5QlGi7L/JST506zGNGrysE8/QohDpwKXJarHWqCt+TUlrtoMk/wkECB607Q019/OZlJViyWiD6A==
 
 source-list-map@^2.0.0:
   version "2.0.1"

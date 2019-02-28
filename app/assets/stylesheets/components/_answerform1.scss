@@ -1,0 +1,42 @@
+.wrapper {
+  background-color: #C4C4C4;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.answer-form-1 {
+  background-color: white;
+  min-height: calc(100vh - 140px);
+  border-color: #565656;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  padding-bottom: 30px;
+}
+
+.answer-form-1 h2 {
+  color: #2B7A78;
+  font-weight: bold;
+}
+
+.answer-form-1 h5 {
+  color: #17252A;
+  font-weight: bold;
+}
+
+.answer-form-1 p {
+  color: #565656;
+}
+
+.list-group-item.choice-date {
+  font-weight: 100;
+  &:hover {
+    background-color: #DEF2F1;
+    color: #565656;
+  }
+  &.active {
+    background: #3AAFA9;
+    color: white;
+    border-color: lightgrey;
+  }
+}

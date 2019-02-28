@@ -1,0 +1,8 @@
+const formchoice = '<%= j render "choices/formthemechoice" %>'
+
+function refreshForm(innerHTML) {
+  const newEventForm = document.querySelector('.modal-content');
+  newEventForm.outerHTML = innerHTML;
+}
+
+refreshForm(formchoice);

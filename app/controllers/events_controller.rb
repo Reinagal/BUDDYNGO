@@ -13,8 +13,13 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.build(event_params)
-    if @event.save
-      redirect_to :root
+    @event.user = current_user
+    @poll = Poll.new(event: @event)
+    if @event.save && @poll.save
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js
+      end
     else
       render :new
     end

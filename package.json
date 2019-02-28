@@ -4,6 +4,8 @@
   "dependencies": {
     "@rails/webpacker": "3.5",
     "bootstrap": "3.4.0",
+    "sortablejs": "^1.8.3",
+    "flatpickr": "^4.5.4",
     "jquery": "^3.3.1"
   },
   "devDependencies": {
