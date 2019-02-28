@@ -7,6 +7,7 @@ class ChoicesController < ApplicationController
   def create
     @choice = Choice.new(choice_params)
     @choice.poll = current_user.events.last.polls.last
+    @event = @choice.poll.event
     if !@choice.start_date.nil? && !@choice.end_date.nil?
       @choice.choice_type = "date"
     elsif !@choice.theme.nil?
