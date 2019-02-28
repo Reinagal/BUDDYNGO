@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_27_141857) do
+ActiveRecord::Schema.define(version: 2019_02_28_110133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
-    t.bigint "event_user_id"
     t.bigint "poll_id"
     t.integer "budget_max"
     t.datetime "created_at", null: false
@@ -24,7 +23,8 @@ ActiveRecord::Schema.define(version: 2019_02_27_141857) do
     t.string "theme_ranking", default: [], array: true
     t.string "chosen_date", default: [], array: true
     t.string "destination_ranking"
-    t.index ["event_user_id"], name: "index_answers_on_event_user_id"
+    t.bigint "guest_id"
+    t.index ["guest_id"], name: "index_answers_on_guest_id"
     t.index ["poll_id"], name: "index_answers_on_poll_id"
   end
 
@@ -53,15 +53,6 @@ ActiveRecord::Schema.define(version: 2019_02_27_141857) do
     t.index ["theme_id"], name: "index_destinations_on_theme_id"
   end
 
-  create_table "event_users", force: :cascade do |t|
-    t.bigint "event_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_event_users_on_event_id"
-    t.index ["user_id"], name: "index_event_users_on_user_id"
-  end
-
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -75,6 +66,15 @@ ActiveRecord::Schema.define(version: 2019_02_27_141857) do
     t.datetime "updated_at", null: false
     t.integer "step", default: 1
     t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "guests", force: :cascade do |t|
+    t.bigint "event_id"
+    t.string "email"
+    t.string "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_guests_on_event_id"
   end
 
   create_table "polls", force: :cascade do |t|
@@ -100,31 +100,18 @@ ActiveRecord::Schema.define(version: 2019_02_27_141857) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "invitation_token"
-    t.datetime "invitation_created_at"
-    t.datetime "invitation_sent_at"
-    t.datetime "invitation_accepted_at"
-    t.integer "invitation_limit"
-    t.string "invited_by_type"
-    t.bigint "invited_by_id"
-    t.integer "invitations_count", default: 0
     t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
-    t.index ["invitations_count"], name: "index_users_on_invitations_count"
-    t.index ["invited_by_id"], name: "index_users_on_invited_by_id"
-    t.index ["invited_by_type", "invited_by_id"], name: "index_users_on_invited_by_type_and_invited_by_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "answers", "event_users"
+  add_foreign_key "answers", "guests"
   add_foreign_key "answers", "polls"
   add_foreign_key "choices", "destinations"
   add_foreign_key "choices", "polls"
   add_foreign_key "choices", "themes"
   add_foreign_key "destinations", "themes"
-  add_foreign_key "event_users", "events"
-  add_foreign_key "event_users", "users"
   add_foreign_key "events", "users"
+  add_foreign_key "guests", "events"
   add_foreign_key "polls", "events"
 end
