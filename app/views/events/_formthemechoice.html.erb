@@ -12,34 +12,28 @@
         <div class="container">
           <div class="row">
             <div class="col-xs-12 col-sm-4 col-sm-offset-1">
-              <div class="form-post">
-                <h1>Write a post</h1>
-
-                <%= simple_form_for(Choice.new, url: events_path, method: :post) do |f| %>
+              <h4>Choose your themes </h4>
+              <%= simple_form_for(Choice.new, url: events_path, method: :post) do |f| %>
+                <div class="theme-choices">
                   <div class="row">
-                    <div class="col-xs-6">
+                  <% Theme.all.each do |theme| %>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="theme-choice">
+                      <input type="checkbox" class="hidden" value="<%= theme.id %>" name="event[theme_ids][]" id="event_theme_ids_<%= theme.id %>">
+                      <label for="event_theme_ids_<%= theme.id %>">
+                        <%= image_tag theme.photo, class: "img-theme" %>
+                        <%= theme.name %>
 
-                      <div class="form-group">
-                        <label class="control-label check_boxes optional">Categories</label>
-                        <input type="hidden" name="post[theme_ids][]" value="">
-                        <div class="theme-choices">
-                          <% Theme.all.each do |theme| %>
-                            <input type="checkbox" class="hidden" value="<%= theme.id %>" name="post[theme_ids][]" id="post_theme_ids_<%= theme.id %>">
-                            <label for="post_theme_ids_<%= theme.id %>">
-                              <%= theme.name %>
-                              <i class="fa fa-check"></i>
-                            </label>
-                          <% end %>
-                         </div>
-                      </div>
+                      </label>
                     </div>
                   </div>
-
-                  <div class="form-actions">
-                    <%= f.button :submit, "Next step", class: "btn btn-action" %>
-                  </div>
-                <% end %>
-              </div>
+                  <% end %>
+                </div>
+                </div>
+                <div class="form-actions">
+                  <%= f.button :submit, "Next step", class: "btn btn-action" %>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
