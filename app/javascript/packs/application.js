@@ -13,9 +13,10 @@ import "../plugins/flatpickr";
 
 const button = document.querySelector("#dirty-button");
 
-// button.addEventListener("click", (event) => {
-//       console.log(sortable.toArray());
-//       });
+button.addEventListener("click", (event) => {
+  const input = document.getElementById('answer_theme_ranking');
+  input.value = sortable.toArray();
+});
 
 $(document).ready(function(){
   $(".list-group-item.choice-date").click(function(){
