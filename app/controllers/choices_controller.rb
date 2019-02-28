@@ -7,6 +7,11 @@ class ChoicesController < ApplicationController
   def create
     @choice = Choice.new(choice_params)
     @choice.poll = current_user.events.last.polls.last
+    if !@choice.start_date.nil? && !@choice.end_date.nil?
+      @choice.choice_type = "date"
+    elsif !@choice.theme.nil?
+      @choice.choice_type = "theme"
+    end
     if @choice.save
         respond_to do |format|
           format.js
@@ -20,6 +25,6 @@ class ChoicesController < ApplicationController
   private
 
   def choice_params
-    params.require(:choice).permit(:choice_type, :start_date, :end_date, :destination_id, :theme_id)
+    params.require(:choice).permit(:start_date, :end_date, :destination_id, :theme_id)
   end
 end
