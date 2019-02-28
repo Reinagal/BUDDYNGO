@@ -29,3 +29,19 @@
    color: #3AAFA9;
   }
 }
+
+.btn-action-black-green {
+  color: white;
+  background-color: #17252A;
+  border-radius: 5px;
+  padding: 5px 15px;
+  transition: box-shadow 0.2s ease;
+  font-weight: bold;
+  &:hover {
+    box-shadow: 0 0 10px rgb(100, 100, 100);
+    color: #3AAFA9;
+  }
+  &:focus {
+   color: #3AAFA9;
+  }
+}
