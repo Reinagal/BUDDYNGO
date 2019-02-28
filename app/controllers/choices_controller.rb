@@ -8,9 +8,12 @@ class ChoicesController < ApplicationController
     @choice = Choice.new(choice_params)
     @choice.poll = current_user.events.last.polls.last
     if @choice.save
-      redirect_to :root
+        respond_to do |format|
+          format.js
+          format.html { redirect_to root_path }
+        end
     else
-      redirect_to :root
+      render :new
     end
   end
 
