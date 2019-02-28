@@ -4,11 +4,12 @@
   <div class="answer-form-1 text-center container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <h2 class="text-center">{Event Name}</h2>
-        <h5 class="text-center">Invited by {User Name}</h5>
+        <h2 class="text-center"><%= @event.name %></h2>
+        <h5 class="text-center">Invited by <%= @event.user.name %></h5>
+        <h5 class="text-center">Hello <%= @guest.name %></h5>
         <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam eveniet dolorem adipisci itaque rerum iusto totam consectetur vitae, laboriosam amet repellendus magnam cupiditate optio, libero, animi voluptas, temporibus voluptatum porro!</p>
 
-        <%= simple_form_for @answer do |f| %>
+        <%= simple_form_for [@event, @guest, @answer] do |f| %>
 
           <label class="form-control-label">Rank themes by order of preference:</label>
           <div id="simpleList" class="list-group">
