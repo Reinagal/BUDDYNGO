@@ -5,9 +5,12 @@
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
         <h2 class="text-center"><%= @event.name %></h2>
-        <h5 class="text-center">Invited by <%= @event.user.name %></h5>
-        <h5 class="text-center">Hello <%= @guest.name %></h5>
-        <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam eveniet dolorem adipisci itaque rerum iusto totam consectetur vitae, laboriosam amet repellendus magnam cupiditate optio, libero, animi voluptas, temporibus voluptatum porro!</p>
+        <h5 class="text-center">Hello <%= @guest.name %> you have been invited by <%= @event.user.name %></h5>
+        <p class="text-center"><%= @event.description %></p>
+
+        <% Choice.all.select { |choice| choice.poll_id == Poll.find_by(event_id: @event.id).id && choice.choice_type == "theme"}.each do |choice| %>
+          <p><%= choice.theme.name %></p>
+        <% end %>
 
         <%= simple_form_for [@event, @guest, @answer] do |f| %>
 
@@ -18,6 +21,8 @@
             <div data-id="3" class="list-group-item">Capital</div>
             <div data-id="4" class="list-group-item">Country Side</div>
           </div>
+
+          <input class="form-control  hidden" required="required" aria-required="true" type="text" step="1" name="answer[theme-ranking]" id="answer_theme_ranking">
 
           <label class="form-control-label">Select your availabilities:</label>
           <div class="list-group">
