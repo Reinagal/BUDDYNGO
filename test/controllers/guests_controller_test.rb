@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class EventUserTest < ActiveSupport::TestCase
+class GuestsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

@@ -17,7 +17,8 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
-gem 'devise_invitable', '~> 2.0.0'
+gem 'postmark-rails'
+gem "letter_opener", group: :development
 
 group :development do
   gem 'web-console', '>= 3.3.0'

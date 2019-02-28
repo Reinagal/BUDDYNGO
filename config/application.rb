@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module BUDDYNGO
   class Application < Rails::Application
+    config.action_view.embed_authenticity_token_in_remote_forms = true
+
     config.generators do |generate|
           generate.assets false
           generate.helper false
@@ -15,6 +17,10 @@ module BUDDYNGO
         end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
+
+    # Postmark config
+    config.action_mailer.delivery_method = :postmark
+    config.action_mailer.postmark_settings = { :api_token => "afc493e9-abc9-4e30-8085-27a077cca0a2" }
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
