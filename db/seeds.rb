@@ -31,13 +31,13 @@ guigui = User.create(name: "Guillaume", email: "guigui@yopmail.com", password: "
 olive = User.create(name: "Olivier", email: "olive@yopmail.com", password: "azerty")
 
 puts "Creating themes...."
-town = Theme.create(name:"town", photo:"cityscape.png")
-countryside = Theme.create(name:"countryside", photo:"countryscape.png")
-ski = Theme.create(name:"ski", photo:"mountainscape.png")
-sea = Theme.create(name:"sea", photo:"beachscape.png")
+town = Theme.create(name:"European Capital", photo:"cityscape.png")
+countryside = Theme.create(name:"Escape in Regions", photo:"countryscape.png")
+ski = Theme.create(name:"Ski Trip", photo:"mountainscape.png")
+sea = Theme.create(name:"Sea, Sex & Sun", photo:"beachscape.png")
 
 puts "Creating events...."
-evg = Event.create(name: "EVG en Europe", description: "Sapiens prudentior post Africani de est quam me ab gloria Laelius a putes te libro senectute tota est loquetur fere de mortem prudentior his est mortem gloria et amicitiae de.", user: flo)
+evg = Event.create(name: "Ben's bucks party weekend!", description: "As you know Ben is getting married in June. Let's have some fun beforehand...", user: flo)
 vac = Event.create(name: "Vacances été 2019", description: "Sapiens prudentior post Africani de est quam me ab gloria Laelius a putes te libro senectute tota est loquetur fere de mortem prudentior his est mortem gloria et amicitiae de.", user: nico)
 pont = Event.create(name: "Pont de mai 2019", description: "Sapiens prudentior post Africani de est quam me ab gloria Laelius a putes te libro senectute tota est loquetur fere de mortem prudentior his est mortem gloria et amicitiae de.", user: flo)
 lesmemes = Event.create(name: "On prend les mêmes et on recommence", description: "Sapiens prudentior post Africani de est quam me ab gloria Laelius a putes te libro senectute tota est loquetur fere de mortem prudentior his est mortem gloria et amicitiae de.", user: nico)
@@ -47,10 +47,10 @@ a = Guest.create(event: evg, email:"flo@yopmail.com", name: "Florent")
 b = Guest.create(event: evg, email:"guigui@yopmail.com", name: "Guillaume")
 c = Guest.create(event: evg, email:"olive@yopmail.com", name: "Olivier")
 d = Guest.create(event: evg, email:"bob@yopmail.com", name: "Bob")
-e = Guest.create(event: vac, email:"nico@yopmail.com", name: "Nicolas")
-f = Guest.create(event: vac, email:"lea@yopmail.com", name: "Lea")
-g = Guest.create(event: vac, email:"joe@yopmail.com", name: "Joe")
-h = Guest.create(event: vac, email:"michel@yopmail.com", name: "Michel")
+e = Guest.create(event: evg, email:"nico@yopmail.com", name: "Nicolas")
+f = Guest.create(event: evg, email:"leo@yopmail.com", name: "Leo")
+g = Guest.create(event: evg, email:"joe@yopmail.com", name: "Joe")
+h = Guest.create(event: evg, email:"michel@yopmail.com", name: "Michel")
 i = Guest.create(event: pont, email:"flo@yopmail.com", name: "Florent")
 j = Guest.create(event: pont, email:"emma@yopmail.com", name: "Emma")
 k = Guest.create(event: pont, email:"sara@yopmail.com", name: "Sara")
@@ -116,7 +116,13 @@ puts "Creating choices...."
 choice1 = Choice.create(poll: poll1, choice_type: "theme",theme: town)
 choice2 = Choice.create(poll: poll1, choice_type: "theme",theme: sea)
 choice3 = Choice.create(poll: poll1, choice_type: "date",start_date: "Fri, 12 Apr 2019", end_date: "Sun, 14 Apr 2019")
-choice4 = Choice.create(poll: poll1, choice_type: "date",start_date: "Thu, 18 Apr 2019", end_date: "Sun, 21 Apr 2019")
+choice4 = Choice.create(poll: poll1, choice_type: "date",start_date: "Thu, 19 Apr 2019", end_date: "Sun, 21 Apr 2019")
+choice5 = Choice.create(poll: poll1, choice_type: "theme",theme: ski)
+choice6 = Choice.create(poll: poll1, choice_type: "theme",theme: countryside)
+choice7 = Choice.create(poll: poll1, choice_type: "date",start_date: "Fri, 26 Apr 2019", end_date: "Sun, 28 Apr 2019")
+choice8 = Choice.create(poll: poll1, choice_type: "date",start_date: "Fri, 3 May 2019", end_date: "Sun, 5 May 2019")
+choice9 = Choice.create(poll: poll1, choice_type: "date",start_date: "Fri, 10 May 2019", end_date: "Sun, 12 May 2019")
+
 # puts "Creating answers...."
 
 puts "all seeded!"
