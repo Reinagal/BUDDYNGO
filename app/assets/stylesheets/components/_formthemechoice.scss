@@ -1,5 +1,5 @@
 .theme-choice {
-  background: #DEF2F1;
+  background: $light-green;
   padding: 20px;
   border-radius: 5px;
   opacity: .7;
@@ -11,7 +11,7 @@
     cursor: pointer;
   }
   &.active {
-    background: #3AAFA9;
+    background: $main-green;
     color: white;
     opacity: 1;
   }
