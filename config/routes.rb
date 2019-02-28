@@ -4,13 +4,14 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :events do
-    resources :guests #, [:new, :create]
+    resources :guests do #, [:new, :create]
+      resources :answers
+    end
   end
 
   resources :choices
 
   resources :polls
 
-  resources :answers
   resources :guests, only: [:destroy]
 end
