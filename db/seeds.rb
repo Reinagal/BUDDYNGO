@@ -11,8 +11,9 @@ Choice.destroy_all
 p 'choice destroy'
 Poll.destroy_all
 p 'poll destroy'
-EventUser.destroy_all
-p 'eventuser destroy'
+Answer.destroy_all
+Guest.destroy_all
+p 'guest destroy'
 Destination.destroy_all
 p 'destination destroy'
 Theme.destroy_all
@@ -53,22 +54,22 @@ vac = Event.create(name: "Vacances été 2019", description: "Sapiens prudentior
 pont = Event.create(name: "Pont de mai 2019", description: "Sapiens prudentior post Africani de est quam me ab gloria Laelius a putes te libro senectute tota est loquetur fere de mortem prudentior his est mortem gloria et amicitiae de.", user: flo)
 lesmemes = Event.create(name: "On prend les mêmes et on recommence", description: "Sapiens prudentior post Africani de est quam me ab gloria Laelius a putes te libro senectute tota est loquetur fere de mortem prudentior his est mortem gloria et amicitiae de.", user: nico)
 
-puts "Creating event_users...."
-a = EventUser.create(event: evg, user:flo)
-b = EventUser.create(event: evg, user:guigui)
-c = EventUser.create(event: evg, user:olive)
-d = EventUser.create(event: evg, user:bob)
-e = EventUser.create(event: vac, user:nico)
-f = EventUser.create(event: vac, user:lea)
-g = EventUser.create(event: vac, user:joe)
-h = EventUser.create(event: vac, user:michel)
-i = EventUser.create(event: pont, user:flo)
-j = EventUser.create(event: pont, user:emma)
-k = EventUser.create(event: pont, user:sara)
-l = EventUser.create(event: lesmemes, user:nico)
-m = EventUser.create(event: lesmemes, user:julien)
-n = EventUser.create(event: lesmemes, user:chloe)
-o = EventUser.create(event: lesmemes, user:megan)
+puts "Creating guests...."
+a = Guest.create(event: evg, email:"flo@yopmail.com")
+b = Guest.create(event: evg, email:"guigui@yopmail.com")
+c = Guest.create(event: evg, email:"olive@yopmail.com")
+d = Guest.create(event: evg, email:"bob@yopmail.com")
+e = Guest.create(event: vac, email:"nico@yopmail.com")
+f = Guest.create(event: vac, email:"lea@yopmail.com")
+g = Guest.create(event: vac, email:"joe@yopmail.com")
+h = Guest.create(event: vac, email:"michel@yopmail.com")
+i = Guest.create(event: pont, email:"flo@yopmail.com")
+j = Guest.create(event: pont, email:"emma@yopmail.com")
+k = Guest.create(event: pont, email:"sara@yopmail.com")
+l = Guest.create(event: lesmemes, email:"nico@yopmail.com")
+m = Guest.create(event: lesmemes, email:"julien@yopmail.com")
+n = Guest.create(event: lesmemes, email:"chloe@yopmail.com")
+o = Guest.create(event: lesmemes, email:"megan@yopmail.com")
 
 puts "Creating destinations...."
 london = Destination.create(name: "London", theme: town, photo: "town.jpg", average_daily_cost: 107, travel_cost: 96)
