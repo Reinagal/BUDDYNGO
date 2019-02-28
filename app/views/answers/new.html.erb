@@ -8,6 +8,7 @@
         <h5 class="text-center">Invited by <%= @event.user.name %></h5>
         <h5 class="text-center">Hello <%= @guest.name %></h5>
         <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam eveniet dolorem adipisci itaque rerum iusto totam consectetur vitae, laboriosam amet repellendus magnam cupiditate optio, libero, animi voluptas, temporibus voluptatum porro!</p>
+
         <%= simple_form_for [@event, @guest, @answer] do |f| %>
 
           <label class="form-control-label">Rank themes by order of preference:</label>
@@ -21,15 +22,15 @@
           <label class="form-control-label">Select your availabilities:</label>
           <div class="list-group">
 
-            <input type="checkbox" class="hidden" value="1" name="answer[choice_date_ids][]" id="post_category_ids_1">
-            <label for="post_category_ids_1"><div class="list-group-item choice-date">Date 1</div></label>
-
+            <input type="checkbox" class="hidden list-group-item choice-date" value="1" name="answer[choice_date_ids][]" id="post_category_ids_1">
+            <label class="list-group-item choice-date" for="post_category_ids_1">Date 1</label>
 
             <input type="checkbox" class="hidden" value="2" name="answer[choice_date_ids][]" id="post_category_ids_2">
-            <label for="post_category_ids_2"><div class="list-group-item choice-date">Date 2</div></label>
+            <label class="list-group-item choice-date" for="post_category_ids_2">Date 2</label>
 
             <input type="checkbox" class="hidden" value="3" name="answer[choice_date_ids][]" id="post_category_ids_3">
-            <label for="post_category_ids_3"><div class="list-group-item choice-date">Date 3</div></label>
+            <label class="list-group-item choice-date" for="post_category_ids_3">Date 3</label>
+
           </div>
 
           <label class="form-control-label">Indicate your maximum budget:</label>
@@ -38,10 +39,11 @@
           </br>
 
           <div class="create-answer-action">
-            <%= f.submit "Submit your answer", id: "dirty-button", class: "btn btn-primary" %>
+            <%= f.submit "Submit your answer", id: "dirty-button", class: "btn-action-black-green" %>
           </div>
 
         <% end %>
+
       </div>
     </div>
   </div>
