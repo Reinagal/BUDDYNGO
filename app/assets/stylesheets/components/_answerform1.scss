@@ -28,27 +28,15 @@
   color: #565656;
 }
 
-// div .list-group-item {
-//   color: #565656;
-//   background-color: #DEF2F1;
-// }
-
 .list-group-item.choice-date {
+  font-weight: 100;
   &:hover {
-    background-color: #3AAFA9;
+    background-color: #DEF2F1;
+    color: #565656;
   }
   &.active {
-  background: $brand-primary;
-  color: white;
-  opacity: 1;
+    background: #3AAFA9;
+    color: white;
+    border-color: lightgrey;
   }
 }
-
-.list-group-item.choice-date label {
-  font-family: "Roboto", "Helvetica", "sans-serif";
-  font-size: 18px;
-  line-height: 1.42857;
-  color: color;
-  font-weight: 100;
-}
-
