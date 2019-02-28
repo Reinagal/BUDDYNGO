@@ -1,8 +1,9 @@
-const formchoice = '<%= j render "choices/formthemechoice" %>'
+const form = '<%= j render "choices/formdateschoice" %>'
 
 function refreshForm(innerHTML) {
   const newEventForm = document.querySelector('.modal-content');
   newEventForm.outerHTML = innerHTML;
 }
 
-refreshForm(formchoice);
+refreshForm(form);
+window.initFlatpickr();

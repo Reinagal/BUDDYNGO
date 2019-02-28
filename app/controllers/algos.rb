@@ -74,4 +74,3 @@ def destinations_poll_outcome(poll_id)
   return hash
 end
 
-
