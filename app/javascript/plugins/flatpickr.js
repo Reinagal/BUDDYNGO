@@ -1,11 +1,15 @@
-import flatpickr from "flatpickr"
-import "flatpickr/dist/flatpickr.min.css" // Note this is important!
+import flatpickr from "flatpickr";
+import "flatpickr/dist/flatpickr.min.css"; // Note this is important!
 
-flatpickr(".datepicker", {})
+flatpickr(".datepicker", {});
 
-import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
+function initFlatpickr() {
+  flatpickr(".datepicker", {});
+}
+window.initFlatpickr = initFlatpickr;
+// import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
 
-flatpickr("#range_start", {
-  altInput: true,
-  plugins: [new rangePlugin({ input: "#range_end"})]
-})
+// flatpickr("#range_start", {
+//   altInput: true,
+//   plugins: [new rangePlugin({ input: "#range_end"})]
+// })
