@@ -1,0 +1,54 @@
+<div class="container-fluid dashboard">
+
+  <div class="row steps">
+    <div class="col-xs-12 col-sm-4 step">
+      <p>Step 1</p>
+    </div>
+    <div class="col-xs-12 col-sm-4 step">
+      <p>Step 2</p>
+    </div>
+    <div class="col-xs-12 col-sm-4 step">
+      <p>Step 3</p>
+    </div>
+  </div>
+
+  <% if event.step == 1 %>
+    <div class="row core-dashboard">
+      <div class="col-xs-12 col-sm-8 votes-dashboard">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 date-vote">
+            <p>Dynamic Dates votes view</p>
+          </div>
+          <div class="col-xs-12 col-sm-6 theme-vote">
+            <p>Dynamic Themes votes view</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 budget-vote">
+            <p>Current average budget voted : XX €</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-4 guests-dashboard">
+        <p>Guests list</p>
+        <ul>
+          <% event.event_users.each do |eventuser| %>
+          <li>
+            <%= eventuser.user.name %>
+          </li>
+          <% end %>
+        </ul>
+        <p>Here: btn send email/sms</p>
+      </div>
+    </div>
+  <% elsif event.step == 2 %>
+    <p>Dashboard grid step 2</p>
+  <% elsif event.step == 3 %>
+    <p>Dashboard grid step 3</p>
+  <% else %>
+    <p>Your event in close</p>
+  <% end %>
+
+</div>
+
