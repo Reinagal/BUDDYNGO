@@ -1,6 +1,6 @@
 /* Main navbar */
 .navbar-wagon {
-  height: 10vh;
+  height: 70px;
   padding: 0px 30px;
   display: flex;
   align-items: center;
@@ -10,6 +10,11 @@
   width: 100%;
   position: fixed;
   color: white;
+  font-weight: bold;
+}
+
+.nav-bar-all {
+  position: relative;
 }
 
 .navbar-wagon-blue {
@@ -52,6 +57,11 @@
   text-decoration: none;
 }
 
+.navbar-wagon-link:focus {
+  color: white;
+  text-decoration: none;
+}
+
 /* Dropdown menu */
 .navbar-wagon-dropdown-menu {
   margin-top: 15px;
@@ -81,4 +91,14 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+.profil-img {
+  color: white;
+  font-size: 30px;
+  text-shadow: 0 0 10px rgb(100, 100, 100);
+  &:hover {
+    color: white;
+    text-shadow: 2px -2px 15px rgb(100, 100, 100);
+  }
 }

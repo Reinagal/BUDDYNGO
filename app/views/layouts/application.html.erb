@@ -14,7 +14,18 @@
   </head>
   <body>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+    <% if params[:controller] == "pages" %>
+      <%= render 'pages/navbarhome' %>
+    <% else %>
+      <%= render 'shared/navbar' %>
+    <% end %>
+    <% unless user_signed_in? %>
+      <%= render "users/registerform" %>
+      <%= render "users/loginform" %>
+    <% end %>
+    <div class="yield-container">
+      <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
