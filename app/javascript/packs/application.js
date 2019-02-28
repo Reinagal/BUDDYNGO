@@ -1,6 +1,7 @@
 import "bootstrap";
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
+import "../plugins/flatpickr";
 initUpdateNavbarOnScroll();
 
 const sortable = Sortable.create(simpleList, {
