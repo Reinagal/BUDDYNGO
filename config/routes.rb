@@ -3,9 +3,14 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :events
+  resources :events do
+    resources :guests #, [:new, :create]
+  end
+
   resources :choices
 
   resources :polls
+
   resources :answers
+  resources :guests, only: [:destroy]
 end
