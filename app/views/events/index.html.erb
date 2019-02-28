@@ -1,15 +1,11 @@
-
-
 <div class="container-fluid">
   <h1>My events</h1>
-
   <!-- tabs row -->
   <div class="row">
     <div class="tabs">
-      <a href="#" class="tab">TEST</a>
-      <a href="#" class="tab">TEST</a>
       <% @myevents.each do |event| %>
-        <a href="#" class="tab">event.name</a>
+        <a href="<%= event_path(event) %>" class="tab <%= "active" if @myevents.first == event %>"><%= event.name %></a>
+        <!-- + js ecoute click sur les actives -->
       <% end %>
       <a href="#" class="tab"><i class="fas fa-plus"></i> Plan a new event</a>
     </div>
@@ -17,7 +13,9 @@
 
   <!-- Current event dashboard row -->
   <div class="row">
-
+    <div class="tab-containt">
+      <p>DASHBOARD PER EVENT called in JS in challah</p>
+    </div>
   </div>
 
 </div>

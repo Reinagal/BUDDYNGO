@@ -7,6 +7,10 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
+  def show
+    @event = Event.find(params[:id])
+  end
+
   def create
     @event = current_user.events.build(event_params)
     if @event.save
@@ -16,7 +20,7 @@ class EventsController < ApplicationController
     end
   end
 
-private
+  private
 
   def event_params
     params.require(:event).permit(:name, :description, :theme, :start_date, :end_date, :step)
