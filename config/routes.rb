@@ -13,5 +13,5 @@ Rails.application.routes.draw do
 
   resources :polls
 
-  resources :guests, only: [:destroy]
+  resources :guests, only: [:destroy, :new, :create]
 end

@@ -13,10 +13,10 @@ class ChoicesController < ApplicationController
       @choice.choice_type = "theme"
     end
     if @choice.save
-        respond_to do |format|
-          format.js
-          format.html { redirect_to root_path }
-        end
+      respond_to do |format|
+        format.js
+        format.html { redirect_to root_path }
+      end
     else
       render :new
     end

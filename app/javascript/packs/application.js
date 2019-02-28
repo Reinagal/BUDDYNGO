@@ -20,7 +20,6 @@ button.addEventListener("click", (event) => {
 
   const input = document.getElementById('answer_theme_ranking');
   input.value = sortable.toArray();
-});
 
 
 $(document).ready(function(){
