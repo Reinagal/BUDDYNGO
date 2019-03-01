@@ -1,9 +1,24 @@
-const form = '<%= j render "choices/formdateschoice" %>'
+function addDates() {
+  const insertDates = document.querySelector('.modal-body');
+  "<% current_user.events.last.polls.last.choices.each do |choice| %>"
+    insertDates.insertAdjacentHTML('afterbegin', '<div><%= choice.start_date %> to <%= choice.end_date %></div>');
+  "<% end %>"
+}
+
+function addTitle() {
+  const insertDates = document.querySelector('.modal-body');
+  insertDates.insertAdjacentHTML('afterbegin', '<p class="dates-title">Your chosen dates</p>');
+}
 
 function refreshForm(innerHTML) {
   const newEventForm = document.querySelector('.modal-content');
   newEventForm.outerHTML = innerHTML;
 }
 
-refreshForm(form);
+refreshForm('<%= j render "choices/formdateschoice" %>');
+"<% if @choice.choice_type == "date" %>"
+  addDates();
+  addTitle();
+"<% end %>"
+
 window.initFlatpickr();

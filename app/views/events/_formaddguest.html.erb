@@ -3,27 +3,29 @@
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-    <h4 class="modal-title w-100 font-weight-bold">Create an event</h4>
+    <h4 class="modal-title w-100 font-weight-bold">Invit your friends 4/4</h4>
   </div>
   <div class="modal-body">
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-4 col-sm-offset-1">
-          <h4>Invite your friends </h4>
-          <%= form_for @event, url: event_path(@event), method: :patch do |event_form| %>
-              <%= event_form.label :name %><br>
-              <%= event_form.text_field :name %>
-              <%= event_form.label :email %><br>
-              <%= event_form.text_field :email %>
-            <%= event_form.fields_for :guest do |guest_form| %>
-              <h4>Add a Guest</h4>
-                <%= guest_form.label :name %>
-                <%= guest_form.text_field :name %>
-                <%= guest_form.label :email %>
-                <%= guest_form.text_field :email %>
+          <%= simple_form_for(Guest.new, url: event_guests_path(@event), method: :post, remote: true) do |f| %>
+            <div class="form-inputs">
+              <%= f.input :name,
+                          required: true,
+                          autofocus: true,
+                          input_html: { autocomplete: "name" } %>
+              <%= f.input :email,
+                          required: true,
+                          input_html: { autocomplete: "email" } %>
+            </div>
+            <%= f.button :submit, "Add guest", class: "btn btn-action" %>
+            <% if !current_user.events.last.guests.last.nil? %>
+              <%= link_to "Finish", events_path, class: "btn btn-action", remote: true %>
+            <% else %>
+              <%= link_to "Finish",  events_path, class: "btn btn-action disabled", remote: true %>
             <% end %>
-            <%= event_form.submit 'Invite' %>
-        <% end %>
+          <% end %>
         </div>
       </div>
     </div>

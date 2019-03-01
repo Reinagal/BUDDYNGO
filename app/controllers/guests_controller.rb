@@ -1,8 +1,13 @@
 class GuestsController < ApplicationController
   def new
     @guest = Guest.new
+    @event = current_user.events.last
     # @event = Event.find(params[:event_id])
     # @guest = @event.guests.build
+    respond_to do |format|
+      format.js
+      format.html { redirect_to root_path }
+    end
   end
 
   def create
