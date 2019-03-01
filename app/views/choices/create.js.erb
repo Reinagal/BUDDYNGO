@@ -16,7 +16,7 @@ function refreshForm(innerHTML) {
 }
 
 refreshForm('<%= j render "choices/formdateschoice" %>');
-"<% if @choice.choice_type == "date" %>"
+"<% if @choice.choice_type == "date" && !current_user.events.last.polls.last.choices.empty? %>"
   addDates();
   addTitle();
 "<% end %>"

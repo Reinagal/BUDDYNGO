@@ -6,3 +6,17 @@ function refreshForm(innerHTML) {
 }
 
 refreshForm(formchoice);
+
+console.log("dfdfdf");
+
+function activeThemeChoice() {
+  const cards = document.querySelectorAll('.theme-choice')
+  console.log(cards)
+  cards.forEach((card) => {
+    card.addEventListener('click', event => {
+      event.target.classList.toggle('active')
+    })
+  })
+}
+
+activeThemeChoice();

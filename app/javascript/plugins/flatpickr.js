@@ -1,9 +1,16 @@
-import flatpickr from "flatpickr";
-import "flatpickr/dist/flatpickr.min.css";
+import flatpickr from "flatpickr"
+import "flatpickr/dist/themes/airbnb.css" // A path to the theme CSS
 
-flatpickr(".datepicker", {});
+flatpickr(".datepicker", {
+    dateFormat: "d-m-Y",
+    minDate: "today",
+})
 
 function initFlatpickr() {
-  flatpickr(".datepicker", {});
+  flatpickr(".datepicker", {
+    dateFormat: "d-m-Y",
+    minDate: "today",
+  })
 }
+
 window.initFlatpickr = initFlatpickr;
