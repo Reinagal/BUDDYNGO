@@ -7,7 +7,6 @@ class AnswersController < ApplicationController
   end
 
   def create
-    raise
     @guest = Guest.find(params[:guest_id])
     @answer = Answer.new
     @answer.poll_id = Poll.find_by(event_id: params[:event_id]).id
