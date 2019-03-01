@@ -1,7 +1,7 @@
 function addDates() {
   const insertDates = document.querySelector('.modal-body');
   "<% current_user.events.last.polls.last.choices.each do |choice| %>"
-    insertDates.insertAdjacentHTML('afterbegin', '<div><%= choice.start_date %> to <%= choice.end_date %></div>');
+    insertDates.insertAdjacentHTML('afterbegin', '<div class="js-chosen-dates"><%= choice.start_date %> to <%= choice.end_date %></div>');
   "<% end %>"
 }
 
@@ -9,6 +9,15 @@ function addTitle() {
   const insertDates = document.querySelector('.modal-body');
   insertDates.insertAdjacentHTML('afterbegin', '<p class="dates-title">Your chosen dates</p>');
 }
+
+function deleteEmptyDates() {
+  const deleteDates = document.querySelectorAll('.js-chosen-dates');
+  deleteDates.forEach((el) => {
+    if (el.innerText == "to") {
+      el.remove();
+    }
+  })
+};
 
 function refreshForm(innerHTML) {
   const newEventForm = document.querySelector('.modal-content');
@@ -18,6 +27,7 @@ function refreshForm(innerHTML) {
 refreshForm('<%= j render "choices/formdateschoice" %>');
 "<% if @choice.choice_type == "date" && !current_user.events.last.polls.last.choices.empty? %>"
   addDates();
+  deleteEmptyDates();
   addTitle();
 "<% end %>"
 
