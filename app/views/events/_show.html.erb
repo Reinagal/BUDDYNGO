@@ -1,51 +1,176 @@
-<div class="container-fluid dashboard">
+<!DOCTYPE HTML>
+  <html>
+    <head>
+      <script>
+        window.onload = function () {
 
-  <div class="row steps">
-    <div class="col-xs-12 col-sm-4 step">
-      <p>Step 1</p>
-    </div>
-    <div class="col-xs-12 col-sm-4 step">
-      <p>Step 2</p>
-    </div>
-    <div class="col-xs-12 col-sm-4 step">
-      <p>Step 3</p>
-    </div>
-  </div>
+        var chartdate = new CanvasJS.Chart("chartDateContainer", {
+          animationEnabled: true,
+          title:{
+            text: "Dates Votes"
+          },
+          axisX: {
+            valueFormatString: "YYYY"
+          },
+          axisY: {
+            suffix: ""
+          },
+          toolTip: {
+            shared: true
+          },
+          legend: {
+            reversed: true,
+            verticalAlign: "center",
+            horizontalAlign: "right"
+          },
+          data: [{
+            type: "stackedColumn100",
+            name: "number of votes",
+            showInLegend: false,
+            xValueFormatString: "YYYY",
+            yValueFormatString: "#,##0\"%\"",
+            dataPoints: [
+              { x: new Date(2010,0), y: 40 },
+              { x: new Date(2011,0), y: 50 },
+              { x: new Date(2012,0), y: 60 },
+              { x: new Date(2013,0), y: 61 },
+              { x: new Date(2014,0), y: 63 },
+              { x: new Date(2015,0), y: 65 },
+              { x: new Date(2016,0), y: 67 }
+            ]
+          },
+          {
+            type: "stackedColumn100",
+            name: "unvoted",
+            showInLegend: false,
+            xValueFormatString: "YYYY",
+            yValueFormatString: "#,##0\"%\"",
+            dataPoints: [
+              { x: new Date(2010,0), y: 28 },
+              { x: new Date(2011,0), y: 18 },
+              { x: new Date(2012,0), y: 12 },
+              { x: new Date(2013,0), y: 10 },
+              { x: new Date(2014,0), y: 10 },
+              { x: new Date(2015,0), y: 7 },
+              { x: new Date(2016,0), y: 5 }
+            ]
+          },
+          ]
+        });
+        chartdate.render();
 
-  <% if event.step == 1 %>
-    <div class="row core-dashboard">
-      <div class="col-xs-12 col-sm-8 votes-dashboard">
-        <div class="row">
-          <div class="col-xs-12 col-sm-6 date-vote">
-            <p>Dynamic Dates votes view</p>
+        var charttheme = new CanvasJS.Chart("chartThemeContainer", {
+          animationEnabled: true,
+          theme: "light2", // "light1", "light2", "dark1", "dark2"
+          title:{
+            text: "Themes Votes"
+          },
+          axisY: {
+            title: ""
+          },
+          data: [{
+            type: "column",
+            showInLegend: false,
+            legendMarkerColor: "grey",
+            legendText: "",
+            dataPoints: [
+              { y: 3, label: "Town" },
+              { y: 2,  label: "Countryside" },
+              { y: 1,  label: "Seaside" },
+              { y: 1,  label: "Mountain" },
+            ]
+          }]
+        });
+        charttheme.render();
+
+      var chartbudget = new CanvasJS.Chart("chartBudgetContainer", {
+        animationEnabled: true,
+        title: {
+          text: "Budget"
+        },
+        axisX: {
+          minimum: new Date(2015, 01, 25),
+          maximum: new Date(2017, 02, 15),
+          valueFormatString: "MMM YY"
+
+        },
+        axisY: {
+          title: "",
+          titleFontColor: "#4F81BC",
+          suffix: "€"
+        },
+        data: [{
+          indexLabelFontColor: "darkSlateGray",
+          name: "views",
+          type: "area",
+          yValueFormatString: "#,##0.0mn",
+          dataPoints: [
+            { x: new Date(2015, 11, 1), y: 48.0, label: "Q4-2015" },
+            { x: new Date(2016, 11, 1), y: 45.5, label: "Q4-2016" },
+          ]
+        }]
+      });
+      chartbudget.render();
+
+        }
+
+      </script>
+    </head>
+    <body>
+      <div class="container-fluid dashboard">
+
+        <div class="row steps">
+          <div class="col-xs-12 col-sm-4 step">
+            <p>Step 1</p>
           </div>
-          <div class="col-xs-12 col-sm-6 theme-vote">
-            <p>Dynamic Themes votes view</p>
+          <div class="col-xs-12 col-sm-4 step">
+            <p>Step 2</p>
+          </div>
+          <div class="col-xs-12 col-sm-4 step">
+            <p>Step 3</p>
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 budget-vote">
-            <p>Current average budget voted : XX €</p>
+
+        <% if event.step == 1 %>
+          <div class="row core-dashboard">
+            <div class="col-xs-12 col-sm-8 votes-dashboard">
+              <div class="row">
+                <div class="col-xs-12 col-sm-6 date-vote">
+                  <p>Dynamic Dates votes view</p>
+                  <div id="chartDateContainer" style="height: 300px; width: 100%;"></div>
+                  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                </div>
+                <div class="col-xs-12 col-sm-6 theme-vote">
+                  <p>Dynamic Themes votes view</p>
+                  <div id="chartThemeContainer" style="height: 300px; width: 100%;"></div>
+                  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 budget-vote">
+                  <p>Current average budget voted : XX €</p>
+                  <div id="chartBudgetContainer" style="height: 300px; width: 100%;"></div>
+                  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 guests-dashboard">
+              <p>Guests list</p>
+                <li>
+                  Guests here
+                </li>
+              </ul>
+              <p>Here: btn send email/sms</p>
+            </div>
           </div>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-4 guests-dashboard">
-        <p>Guests list</p>
-          <li>
-            Guests here
-          </li>
-        </ul>
-        <p>Here: btn send email/sms</p>
-      </div>
+        <% elsif event.step == 2 %>
+          <p>Dashboard grid step 2</p>
+        <% elsif event.step == 3 %>
+          <p>Dashboard grid step 3</p>
+        <% else %>
+          <p>Your event in close</p>
+        <% end %>
     </div>
-  <% elsif event.step == 2 %>
-    <p>Dashboard grid step 2</p>
-  <% elsif event.step == 3 %>
-    <p>Dashboard grid step 3</p>
-  <% else %>
-    <p>Your event in close</p>
-  <% end %>
-
-</div>
-
+  </body>
+</html>

@@ -9,6 +9,10 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    raise
+    @datapoints = [
+      { x: D }
+    ]
   end
 
   def create
