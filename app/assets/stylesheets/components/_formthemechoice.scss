@@ -6,6 +6,7 @@
   flex: 0 0 30%;
   text-align: center;
   margin: 25px 10px;
+  min-height: 190px;
   &:hover {
     opacity: 1;
     cursor: pointer;
@@ -20,4 +21,3 @@
 .img-theme {
   width: 90%;
 }
-
