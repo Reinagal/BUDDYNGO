@@ -23,9 +23,32 @@ class ChoicesController < ApplicationController
     end
   end
 
+  def createthemeschoices
+    params[:theme_ids].each do |theme_id|
+      @choice = Choice.new
+      @choice.poll = current_user.events.last.polls.last
+      @event = @choice.poll.event
+      @choice.choice_type = "theme"
+      @choice.theme_id = theme_id
+      if @choice.save
+        respond_to do |format|
+        format.js
+        format.html { redirect_to root_path }
+        end
+      else
+      render :new
+      end
+    end
+  end
+
   private
 
   def choice_params
     params.require(:choice).permit(:start_date, :end_date, :destination_id, :theme_id)
+  end
+
+  def themes_choices_params
+    params.permit(:theme_ids)
+
   end
 end

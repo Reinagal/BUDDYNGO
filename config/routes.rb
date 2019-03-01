@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :choices
+  resources :choices do
+    collection do                       # collection => no restaurant id in URL
+      post 'createthemeschoices'                         # RestaurantsController#top
+    end
+  end
 
   resources :polls
 

@@ -17,8 +17,8 @@ class EventsController < ApplicationController
     @poll = Poll.new(event: @event)
     if @event.save && @poll.save
       respond_to do |format|
-        format.html { redirect_to root_path }
         format.js
+        format.html { redirect_to root_path }
       end
     else
       render :new
