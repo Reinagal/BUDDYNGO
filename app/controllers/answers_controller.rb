@@ -7,9 +7,19 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @answer = Answer.new(c_params)
-    if @cocktail.save
-      redirect_to cocktail_path(@cocktail)
+    raise
+    @guest = Guest.find(params[:guest_id])
+    @answer = Answer.new
+    @answer.poll_id = Poll.find_by(event_id: params[:event_id]).id
+    @answer.budget_max = params[:answer][:budget_max]
+    @answer.theme_ranking = params[:answer][:theme_ranking]
+    @answer.chosen_date = params[:answer][:chosen_date_ids]
+    @answer.guest_id = @guest.id
+    @guest.status = 2
+    @answer.save
+    @guest.save
+    if @answer.save && @guest.save
+      redirect_to root_path
     else
       render :new
     end
