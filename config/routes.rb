@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :guests do #, [:new, :create]
-      resources :answers
+      resources :answers, only: [:new, :create]
     end
   end
 
