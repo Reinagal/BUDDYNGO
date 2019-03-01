@@ -6,7 +6,14 @@
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
         <h2 class="text-center"><%= @event.name %></h2>
         <h5 class="text-center"><%= @guest.name %> you have been invited to this event by <%= @event.user.name %></h5>
-        <p class="text-center"><%= @event.description %></p>
+        <p class="text-center"><% @event.guests.each_with_index do |guest, i| %>
+          <% if i == @event.guests.count - 1 %>
+            and <%= guest.name %> have also been invited.
+          <% else %>
+            <%= guest.name %>,
+          <% end %>
+        <% end %>
+        </p>
 
         <%= simple_form_for [@event, @guest, @answer] do |f| %>
 

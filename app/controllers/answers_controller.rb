@@ -5,4 +5,8 @@ class AnswersController < ApplicationController
     @guest = Guest.find(params[:guest_id])
     @answer = Answer.new
   end
+
+  def create
+
+  end
 end
