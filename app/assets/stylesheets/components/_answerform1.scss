@@ -24,12 +24,17 @@
   font-weight: bold;
 }
 
+.form-control-label label {
+  color: red;
+}
+
 .answer-form-1 p {
   color: #565656;
 }
 
 .list-group-item.choice-date {
   font-weight: 100;
+  cursor: pointer;
   &:hover {
     background-color: #DEF2F1;
     color: #565656;
@@ -39,4 +44,8 @@
     color: white;
     border-color: lightgrey;
   }
+}
+
+.list-group-item.choice-theme {
+  cursor: pointer;
 }
