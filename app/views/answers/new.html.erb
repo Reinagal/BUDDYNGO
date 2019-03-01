@@ -15,6 +15,10 @@
             <p class="text-center">Out of the <strong><%= @event.guests.count %></strong> participants, <%= @event.user.name %> has already received <strong><%= @event.guests.select { |guest| guest.status == 1 }.count %></strong> answer(s):</p>
 
           <% elsif @event.step != 1 %>
+            <h5 class="text-center">Deadline expired. The host has closed the votes...</h5>
+            <div class="too-late"><%= image_tag "toolate.jpg", alt: "alttext", width: '400px' %></div>
+
+          <% else %>
             <h5 class="text-center"><%= @guest.name %> you have been invited to this event by <%= @event.user.name %></h5>
             <p class="text-center"><% @event.guests.each_with_index do |guest, i| %>
               <% if i == @event.guests.count - 1 %>
@@ -24,10 +28,6 @@
               <% end %>
             <% end %>
             </p>
-            <h5 class="text-center">Deadline expired. The host has closed the votes...</h5>
-            <div class="too-late"><%= image_tag "toolate.jpg", alt: "alttext", width: '400px' %></div>
-
-          <% else %>
             <%= render 'answers/form1', event: @event, guest: @guest, answer: @answer %>
 
           <% end %>
