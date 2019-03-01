@@ -2,8 +2,6 @@
 
 <p>Your friends need your vote for <strong>"<%= @guest.event.name %>"</strong> organization, on <strong>Buddy'nGo</strong>!</p>
 
-<p><%= @event.description %></p>
-
 <a href="<%= url_for(action: 'new', controller: 'answers', event_id: @guest.event.id, guest_id: @guest.id) %>"><strong>Click here to vote</strong></a>
 
 <p>See ya!</p>
