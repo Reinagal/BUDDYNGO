@@ -1,19 +1,25 @@
 <div class="container-fluid dashboard">
   <div class="row steps">
     <div class="col-xs-12 col-sm-4 step">
-      <p>Step 1</p>
+      <div id="pointer1">
+        <p class="text-center" id="step1">Step 1</p>
+      </div>
     </div>
     <div class="col-xs-12 col-sm-4 step">
-      <p>Step 2</p>
+      <div id="pointer2">
+        <p class="text-center">Step 2</p>
+      </div>
     </div>
     <div class="col-xs-12 col-sm-4 step">
-      <p>Step 3</p>
+      <div id="pointer3">
+        <p class="text-center">Step 3</p>
+      </div>
     </div>
   </div>
 
   <% if event.step == 1 %>
     <div class="row core-dashboard">
-      <div class="col-xs-12 col-sm-8 votes-dashboard">
+      <div class="col-xs-12 col-sm-9 votes-dashboard">
         <div class="row">
           <div class="col-xs-12 col-sm-6 date-vote">
             <p>Dynamic Dates votes view</p>
@@ -22,21 +28,28 @@
           <div class="col-xs-12 col-sm-6 theme-vote">
             <p>Dynamic Themes votes view</p>
             <canvas id="myChart2" width="400" height="200" data-themes="5-6-5-8" ></canvas>
+          </div>
         </div>
         <div class="row">
           <div class="col-xs-12 col-sm-12 budget-vote">
             <p>Current average budget voted : XX €</p>
-            <canvas id="myChart3" width="200" height="100" data-budgets="3-4-7-8" ></canvas>
+            <canvas id="myChart3" width="200" height="50" data-budgets="3-4-7-8" ></canvas>
           </div>
         </div>
+      </div>
 
-      <div class="col-xs-12 col-sm-4 guests-dashboard">
+      <div class="col-xs-12 col-sm-3 guests-dashboard">
         <p>Guests list</p>
-          <li>
-            Guests here
-          </li>
-        </ul>
-        <p>Here: btn send email/sms</p>
+        <% @event.guests.each do |guest| %>
+          <ul class="list-inline status-guest-list">
+            <li><%= guest.name %></li>
+            <% if guest.status == 0 %>
+              <li class="status-pending"><%= "Pending"  %></li>
+            <% elsif guest.status == 1 %>
+              <li class="status-voted"><%= "Voted" %></li>
+            <% end %>
+          </ul>
+        <% end %>
       </div>
     </div>
   <% elsif event.step == 2 %>

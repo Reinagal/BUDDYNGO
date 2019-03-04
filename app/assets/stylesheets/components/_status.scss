@@ -1,0 +1,23 @@
+.status-pending {
+  background-color: #FF3A20;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.status-voted {
+  background-color: $main-green;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.list-inline {
+  padding: 0;
+}
+
+.status-guest-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
