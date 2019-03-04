@@ -9,9 +9,13 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @datapoints = [
-      { x: D }
-    ]
+
+    # @datapoints = @events.map do |event|
+    #   {
+    #     x: event.longitud,
+    #     y: event.latitude
+    #   }
+    # end
   end
 
   def create
