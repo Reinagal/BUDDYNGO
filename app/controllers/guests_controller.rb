@@ -4,10 +4,6 @@ class GuestsController < ApplicationController
     @event = current_user.events.last
     # @event = Event.find(params[:event_id])
     # @guest = @event.guests.build
-    respond_to do |format|
-      format.js
-      format.html { redirect_to root_path }
-    end
   end
 
   def create
@@ -15,9 +11,10 @@ class GuestsController < ApplicationController
     @guest = @event.guests.build(guest_params)
     @guest.event = @event
     @guest.save
-    # @event = Event.find(params[:event_id])
-    # @guest = @event.guests.create(guest_params)
-    # redirect_to edit_event_path(@event)
+    respond_to do |format|
+      format.js
+      format.html { redirect_to root_path }
+    end
   end
 
   private

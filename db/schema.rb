@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_28_171326) do
+ActiveRecord::Schema.define(version: 2019_03_01_104344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,10 +20,10 @@ ActiveRecord::Schema.define(version: 2019_02_28_171326) do
     t.integer "budget_max"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "theme_ranking", default: [], array: true
     t.string "chosen_date", default: [], array: true
-    t.string "destination_ranking"
     t.bigint "guest_id"
+    t.string "destination_ranking"
+    t.string "theme_ranking"
     t.index ["guest_id"], name: "index_answers_on_guest_id"
     t.index ["poll_id"], name: "index_answers_on_poll_id"
   end
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2019_02_28_171326) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.string "status", default: "false"
+    t.integer "status", default: 0
     t.index ["event_id"], name: "index_guests_on_event_id"
   end
 

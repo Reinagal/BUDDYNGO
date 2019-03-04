@@ -5,11 +5,15 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :guests do #, [:new, :create]
-      resources :answers
+      resources :answers, only: [:new, :create]
     end
   end
 
-  resources :choices
+  resources :choices do
+    collection do                       # collection => no restaurant id in URL
+      post 'createthemeschoices'                         # RestaurantsController#top
+    end
+  end
 
   resources :polls
 

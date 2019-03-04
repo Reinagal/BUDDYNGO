@@ -4,39 +4,33 @@
   <div class="answer-form-1 text-center container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <h2 class="text-center"><%= @event.name %></h2>
-        <h5 class="text-center"><%= @guest.name %> you have been invited to this event by <%= @event.user.name %></h5>
-        <p class="text-center"><%= @event.description %></p>
+        <% if @guest.event_id != @event.id %>
+          <h2 class="text-center">Wrong event!</h2>
+          <div class="not-invited"><%= image_tag "Invited.jpg", alt: "alttext", width: '350px', class:"rounded"  %></div>
+        <% else %>
+          <h2 class="text-center"><%= @event.name %></h2>
 
-        <%= simple_form_for [@event, @guest, @answer] do |f| %>
+          <% if @guest.status != 0 %>
+            <h5 class="text-center">Thank you for your feedback!</h5>
+            <p class="text-center">Out of the <strong><%= @event.guests.count %></strong> participants, <%= @event.user.name %> has already received <strong><%= @event.guests.select { |guest| guest.status == 1 }.count %></strong> answer(s):</p>
 
-          <h5 class="text-center">Rank themes by order of preference:</h5>
-          <input class="form-control  hidden" required="required" aria-required="true" type="text" step="1" name="answer[theme-ranking]" id="answer_theme_ranking">
+          <% elsif @event.step != 1 %>
+            <h5 class="text-center">Deadline expired. The host has closed the votes...</h5>
+            <div class="too-late"><%= image_tag "toolate.jpg", alt: "alttext", width: '400px' %></div>
 
-          <div id="simpleList" class="list-group">
-            <% Choice.all.select { |choice| choice.poll_id == Poll.find_by(event_id: @event.id).id && choice.choice_type == "theme"}.each do |choice| %>
-              <div data-id="<%= choice.id %>" class="list-group-item choice-theme"><%= choice.theme.name %></div>
+          <% else %>
+            <h5 class="text-center"><%= @guest.name %> you have been invited to this event by <%= @event.user.name %></h5>
+            <p class="text-center"><% @event.guests.each_with_index do |guest, i| %>
+              <% if i == @event.guests.count - 1 %>
+                and <%= guest.name %> are invited.
+              <% else %>
+                <%= guest.name %>,
+              <% end %>
             <% end %>
-          </div>
+            </p>
+            <%= render 'answers/form1', event: @event, guest: @guest, answer: @answer %>
 
-          <h5 class="text-center">Select your availabilities:</h5>
-          <div class="list-group">
-
-          <% Choice.all.select { |choice| choice.poll_id == Poll.find_by(event_id: @event.id).id && choice.choice_type == "date"}.each do |choice| %>
-            <input type="checkbox" class="hidden list-group-item choice-date" value="<%= choice.id %>" name="answer[choice_date_ids][]" id="post_category_ids_<%= choice.id %>">
-            <label class="list-group-item choice-date" for="post_category_ids_<%= choice.id %>"><%= choice.start_date.day %> <%= ["Nil", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][choice.start_date.month] %>  -  <%= choice.end_date.day %> <%= ["Nil", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][choice.start_date.month] %></label>
-            <% end %>
-
-          </div>
-
-          <h5 class="text-center">Indicate your maximum budget:</h5>
-          <input class="form-control" required="required" aria-required="true" type="number" step="1" name="answer[budget_max]" id="answer_budget_max">
-
-          </br>
-
-          <div class="create-answer-action">
-            <%= f.submit "Submit your answer", id: "dirty-button", class: "btn-action-black-green" %>
-          </div>
+          <% end %>
 
         <% end %>
 

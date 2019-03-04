@@ -1,0 +1,22 @@
+function addGuests() {
+  const insertGuests = document.querySelector('.modal-body');
+  "<% current_user.events.last.guests.each do |guest| %>"
+    insertGuests.insertAdjacentHTML('afterbegin', '<div><%= guest.name %></div>');
+  "<% end %>"
+}
+
+function addTitle() {
+  const insertGuests = document.querySelector('.modal-body');
+  insertGuests.insertAdjacentHTML('afterbegin', '<p class="dates-title">Friends already invited</p>');
+}
+
+function refreshForm(innerHTML) {
+  const newEventForm = document.querySelector('.modal-content');
+  newEventForm.outerHTML = innerHTML;
+}
+
+refreshForm('<%= j render "events/formaddguest" %>');
+"<% if current_user.events.last.guests.last != nil %>"
+  addGuests();
+  addTitle();
+"<% end %>"
