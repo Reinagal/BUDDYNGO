@@ -18,6 +18,9 @@
               <%= f.input :email,
                           required: true,
                           input_html: { autocomplete: "email" } %>
+              <%= f.input :phone_number,
+                          required: true,
+                          input_html: { autocomplete: "phone number" } %>
             </div>
             <%= f.button :submit, "Add guest", class: "btn btn-action" %>
             <% if !current_user.events.last.guests.last.nil? %>

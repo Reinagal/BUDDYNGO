@@ -153,11 +153,15 @@ q.status = 1
 r.status = 1
 s.status = 1
 t.status = 1
-q.status = 1
-r.status = 1
-s.status = 1
-t.status = 1
 
+l.save
+m.save
+n.save
+o.save
+q.save
+r.save
+s.save
+t.save
 
 
 puts "all seeded!"
