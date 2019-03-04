@@ -22,6 +22,6 @@ class Guest < ApplicationRecord
   end
 
   def sms_vote_2_link
-    SendSmsService.call2(self)
+    SendSmsService.new(self).call2
   end
 end
