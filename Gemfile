@@ -20,6 +20,8 @@ gem 'webpacker'
 gem 'postmark-rails'
 gem "letter_opener", group: :development
 
+gem 'twilio-ruby'
+
 gem "chartkick"
 gem 'groupdate'
 
