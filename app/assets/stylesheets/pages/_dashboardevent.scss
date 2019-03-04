@@ -1,5 +1,5 @@
 #pointer1 {
-      width: 440px;
+      width: 98%;
       height: 40px;
       position: relative;
       background: #3AAFA9;
@@ -28,7 +28,7 @@
     }
 
 #pointer2 {
-      width: 440px;
+      width: 98%;
       height: 40px;
       position: relative;
       background: #DEF2F1;
@@ -57,7 +57,10 @@
     }
 
 #pointer3 {
-      width: 440px;
+      // display: flex; /* contexte sur le parent */
+      // flex-direction: column; /* direction d'affichage verticale */
+      // justify-content: center;
+      width: 98%;
       height: 40px;
       position: relative;
       background: #DEF2F1;
@@ -87,4 +90,22 @@
 
 #step1 {
   color: white;
+  font-size: 28px;
+  font-family: $citation-font;
+}
+#step2 {
+  color: #565656;
+  font-size: 28px;
+  font-family: $citation-font;
+}
+#step3 {
+  color: #565656;
+  font-size: 28px;
+  font-family: $citation-font;
+}
+#nameEvent {
+  color: $dark-green;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  font-family: $citation-font;
 }
