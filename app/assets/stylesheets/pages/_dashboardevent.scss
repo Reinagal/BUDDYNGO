@@ -1,1 +1,90 @@
+#pointer1 {
+      width: 440px;
+      height: 40px;
+      position: relative;
+      background: #3AAFA9;
+    }
+    #pointer1:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-left: 20px solid #f9f9f9;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+    }
+    #pointer1:before {
+      content: "";
+      position: absolute;
+      right: -20px;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-left: 20px solid #3AAFA9;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+    }
 
+#pointer2 {
+      width: 440px;
+      height: 40px;
+      position: relative;
+      background: #DEF2F1;
+    }
+    #pointer2:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-left: 20px solid #f9f9f9;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+    }
+    #pointer2:before {
+      content: "";
+      position: absolute;
+      right: -20px;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-left: 20px solid #DEF2F1;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+    }
+
+#pointer3 {
+      width: 440px;
+      height: 40px;
+      position: relative;
+      background: #DEF2F1;
+    }
+    #pointer3:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-left: 20px solid #f9f9f9;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+    }
+    #pointer3:before {
+      content: "";
+      position: absolute;
+      right: -20px;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-left: 20px solid #DEF2F1;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+    }
+
+#step1 {
+  color: white;
+}
