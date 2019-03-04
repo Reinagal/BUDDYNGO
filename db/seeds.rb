@@ -7,17 +7,18 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Destroying all...."
 
+Answer.destroy_all
+p 'answer destroy'
 Choice.destroy_all
 p 'choice destroy'
-Poll.destroy_all
-p 'poll destroy'
-Answer.destroy_all
-Guest.destroy_all
-p 'guest destroy'
 Destination.destroy_all
 p 'destination destroy'
 Theme.destroy_all
 p 'theme destroy'
+Poll.destroy_all
+p 'poll destroy'
+Guest.destroy_all
+p 'guest destroy'
 Event.destroy_all
 p 'event destroy'
 User.destroy_all
@@ -134,13 +135,34 @@ choice17 = Choice.create(poll: poll2, choice_type: "date",start_date: "Fri, 3 Ma
 choice18 = Choice.create(poll: poll2, choice_type: "date",start_date: "Fri, 10 May 2020", end_date: "Sun, 12 May 2020")
 
 puts "Creating answers...."
-answer1 = Answer.create(poll: poll2, theme_ranking: "15,10,11,14", chosen_date: ["12", "16", "18"], budget_max: 350)
-answer2 = Answer.create(poll: poll2, theme_ranking: "15,10,11,14", chosen_date: ["12", "13", "16", "17", "18"], budget_max: 350)
-answer3 = Answer.create(poll: poll2, theme_ranking: "14,10,11,15", chosen_date: ["13", "16", "17", "18"], budget_max: 350)
-answer4 = Answer.create(poll: poll2, theme_ranking: "14,11,10,15", chosen_date: ["12", "18"], budget_max: 275)
-answer5 = Answer.create(poll: poll2, theme_ranking: "11,15,10,14", chosen_date: ["12", "13", "16", "17", "18"], budget_max: 450)
-answer6 = Answer.create(poll: poll2, theme_ranking: "10,11,14,15", chosen_date: ["12"], budget_max: 500)
-answer7 = Answer.create(poll: poll2, theme_ranking: "15,10,11,14", chosen_date: ["12", "13", "17", "18"], budget_max: 250)
-answer8 = Answer.create(poll: poll2, theme_ranking: "10,11,14,15", chosen_date: ["12", "13", "17", "18"], budget_max: 450)
+answer1 = Answer.create(guest: l, poll: poll2, theme_ranking: "15,10,11,14", chosen_date: ["12", "16", "18"], budget_max: 350)
+answer2 = Answer.create(guest: m, poll: poll2, theme_ranking: "15,10,11,14", chosen_date: ["12", "13", "16", "17", "18"], budget_max: 350)
+answer3 = Answer.create(guest: n, poll: poll2, theme_ranking: "14,10,11,15", chosen_date: ["13", "16", "17", "18"], budget_max: 350)
+answer4 = Answer.create(guest: o, poll: poll2, theme_ranking: "14,11,10,15", chosen_date: ["12", "18"], budget_max: 275)
+answer5 = Answer.create(guest: q, poll: poll2, theme_ranking: "11,15,10,14", chosen_date: ["12", "13", "16", "17", "18"], budget_max: 450)
+answer6 = Answer.create(guest: r, poll: poll2, theme_ranking: "10,11,14,15", chosen_date: ["12"], budget_max: 500)
+answer7 = Answer.create(guest: s, poll: poll2, theme_ranking: "15,10,11,14", chosen_date: ["12", "13", "17", "18"], budget_max: 250)
+answer8 = Answer.create(guest: t, poll: poll2, theme_ranking: "10,11,14,15", chosen_date: ["12", "13", "17", "18"], budget_max: 450)
+
+puts "Updating status of guests...."
+l.status = 1
+m.status = 1
+n.status = 1
+o.status = 1
+q.status = 1
+r.status = 1
+s.status = 1
+t.status = 1
+
+l.save = 1
+m.save = 1
+n.save = 1
+o.save = 1
+q.status = 1
+r.status = 1
+s.status = 1
+t.status = 1
+
+
 
 puts "all seeded!"
