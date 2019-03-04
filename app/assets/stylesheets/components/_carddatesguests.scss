@@ -1,0 +1,14 @@
+.carddate {
+  color: white;
+  background-color: $main-green;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.selecteddates {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0 auto;
+}
