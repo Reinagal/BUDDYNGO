@@ -41,7 +41,7 @@ puts "Creating events...."
 evg = Event.create!(name: "Ben's bucks party weekend!", description: "As you know Ben is getting married in June. Let's have some fun beforehand...", user: flo)
 vac = Event.create!(name: "Vacances été 2019", description: "Sapiens prudentior post Africani de est quam me ab gloria Laelius a putes te libro senectute tota est loquetur fere de mortem prudentior his est mortem gloria et amicitiae de.", user: nico)
 pont = Event.create!(name: "Pont de mai 2019", description: "Sapiens prudentior post Africani de est quam me ab gloria Laelius a putes te libro senectute tota est loquetur fere de mortem prudentior his est mortem gloria et amicitiae de.", user: flo)
-lesmemes = Event.create!(name: "On prend les mêmes et on recommence", description: "Sapiens prudentior post Africani de est quam me ab gloria Laelius a putes te libro senectute tota est loquetur fere de mortem prudentior his est mortem gloria et amicitiae de.", user: nico, step: 1)
+lesmemes = Event.create!(name: "On prend les mêmes et on recommence", description: "Sapiens prudentior post Africani de est quam me ab gloria Laelius a putes te libro senectute tota est loquetur fere de mortem prudentior his est mortem gloria et amicitiae de.", user: nico
 
 puts "Creating guests...."
 a = Guest.create!(event: evg, email:"flo@yopmail.com", name: "Florent")
