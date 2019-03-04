@@ -1,0 +1,22 @@
+.tab {
+  background-color: $light-green;
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: $dark-gray;
+  text-decoration: none;
+  &.active {
+    background-color: $dark-green;
+    color: white;
+    text-decoration: none;
+  }
+  &:hover {
+    box-shadow: 0 0 10px rgb(100, 100, 100);
+    background-color: $main-green;
+    text-decoration: none;
+    color: $dark-gray;
+  }
+}
+.tabs {
+  margin-top: 20px;
+  margin-left: 10px;
+}
