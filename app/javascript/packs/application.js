@@ -1,6 +1,7 @@
 import "bootstrap";
 import "../plugins/flatpickr";
 import {initChart} from "../plugins/chart";
+import "../components/close_flashes"
 
 if(document.getElementById("myChart")){
   initChart();
@@ -29,11 +30,12 @@ const sortable = Sortable.create(simpleList, {
                dataIdAttr: 'data-id' });
 
 const button = document.querySelector("#dirty-button");
-
-button.addEventListener("click", (event) => {
-      const input = document.getElementById('answer_theme_ranking');
-      input.value = sortable.toArray();
-      });
+if (button) {
+  button.addEventListener("click", (event) => {
+        const input = document.getElementById('answer_theme_ranking');
+        input.value = sortable.toArray();
+        });
+}
 
 $(document).ready(function(){
   $(".list-group-item.choice-date").click(function(){
