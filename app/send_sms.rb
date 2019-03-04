@@ -8,7 +8,7 @@ from = { phone_number: ENV['TWILIO_NUMBER'] } # Your Twilio number
 to = '+33689571444' # Your mobile phone number
 
 client.messages.create(
-from: from,
-to: to,
-body: "Hey friend!"
+  from: from,
+  to: to,
+  body: "Hey friend!"
 )
