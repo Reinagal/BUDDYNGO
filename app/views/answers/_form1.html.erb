@@ -1,9 +1,10 @@
 <%= simple_form_for [event, guest, answer] do |f| %>
 
   <h5 class="text-center">Rank themes by order of preference:</h5>
+
   <input class="form-control  hidden" required="required" aria-required="true" type="text" step="1" name="answer[theme_ranking]" id="answer_theme_ranking">
 
-  <div id="simpleList" class="list-group">
+  <div id="simpleList1" class="list-group">
     <% Choice.all.select { |choice| choice.poll_id == Poll.find_by(event_id: @event.id).id && choice.choice_type == "theme"}.each do |choice| %>
       <div data-id="<%= choice.id %>" class="list-group-item choice-theme"><%= choice.theme.name %></div>
     <% end %>
@@ -25,7 +26,7 @@
   </br>
 
   <div class="create-answer-action">
-    <%= f.submit "Submit your answer", id: "dirty-button", class: "btn-action-black-green" %>
+    <%= f.submit "Submit your answer", id: "dirty-button1", class: "btn-action-black-green" %>
   </div>
 
 <% end %>
