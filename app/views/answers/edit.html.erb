@@ -1,1 +1,55 @@
-<p> Coucou donc  </p>
+<script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+
+<div class="wrapper">
+  <div class="answer-form-1 text-center container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <% if @guest.event_id != @event.id %>
+          <h2 class="text-center">Wrong event!</h2>
+          <div class="not-invited"><%= image_tag "Invited.jpg", alt: "alttext", width: '350px', class:"rounded"  %></div>
+        <% else %>
+          <h2 class="text-center"><%= @event.name %></h2>
+
+          <% if @guest.status > 1 %>
+            <h5 class="text-center">Thank you for this second feedback!</h5>
+            <p class="text-center">Out of the <strong><%= @event.guests.count %></strong> participants, <%= @event.user.name %> has already received <strong><%= @event.guests.select { |guest| guest.status == 2 }.count %></strong> answer(s) for this second step:</p>
+            <% @event.guests.each do |guest| %>
+              <ul class="text-left">
+                <li class = "list-unstyled">
+                  <% if guest.status >= 2 %>
+                    <i class="fas fa-check green"></i>
+                  <% else %>
+                    <i class="fas fa-hourglass-half red"></i>
+                  <% end %>
+                <%= guest.name %></li>
+              </ul>
+            <% end %>
+
+          <% elsif @event.step <= 1 %>
+          <h5 class="text-center">You are going too fast. Please come back when you are invited to by the event host...</h5>
+          <div class="too-early"><%= image_tag "tooearly.jpg", alt: "alttext", width: '350px', class:"rounded" %></div>
+
+          <% elsif @event.step > 2 %>
+            <h5 class="text-center">Deadline expired. The host has closed the votes...</h5>
+            <div class="too-late"><%= image_tag "toolate.jpg", alt: "alttext", width: '400px' %></div>
+
+          <% else %>
+            <h5 class="text-center"><%= @guest.name %> you have been invited to this event by <%= @event.user.name %></h5>
+            <p class="text-center"><% @event.guests.each_with_index do |guest, i| %>
+              <% if i == @event.guests.count - 1 %>
+                and <%= guest.name %> are invited.
+              <% else %>
+                <%= guest.name %>,
+              <% end %>
+            <% end %>
+            </p>
+            <%= render 'answers/form2', event: @event, guest: @guest, answer: @answer %>
+
+          <% end %>
+
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

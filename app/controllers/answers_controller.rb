@@ -25,6 +25,26 @@ class AnswersController < ApplicationController
     end
   end
 
+  def edit
+    @event = Event.find(params[:event_id])
+    @guest = Guest.find(params[:guest_id])
+    @answer = Answer.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:event_id])
+    @guest = Guest.find(params[:guest_id])
+    @answer = Answer.find(params[:id])
+    @answer.destination_ranking = params[:answer][:destination_ranking]
+    @guest.status = 2
+    @guest.save
+    if @answer.save && @guest.save
+      redirect_to edit_event_guest_answer_path(@event, @guest, @answer)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def answer_params

@@ -10,11 +10,22 @@
         <% else %>
           <h2 class="text-center"><%= @event.name %></h2>
 
-          <% if @guest.status != 0 %>
-            <h5 class="text-center">Thank you for your feedback!</h5>
-            <p class="text-center">Out of the <strong><%= @event.guests.count %></strong> participants, <%= @event.user.name %> has already received <strong><%= @event.guests.select { |guest| guest.status == 1 }.count %></strong> answer(s):</p>
+          <% if @guest.status > 0 %>
+            <h5 class="text-center">Thank you for this first feedback!</h5>
+            <p class="text-center">Out of the <strong><%= @event.guests.count %></strong> participants, <%= @event.user.name %> has already received <strong><%= @event.guests.select { |guest| guest.status == 1 }.count %></strong> answer(s) for this first step:</p>
+            <% @event.guests.each do |guest| %>
+              <ul class="text-left">
+                <li class = "list-unstyled">
+                  <% if guest.status >= 1 %>
+                    <i class="fas fa-check green"></i>
+                  <% else %>
+                    <i class="fas fa-hourglass-half red"></i>
+                  <% end %>
+                <%= guest.name %></li>
+              </ul>
+            <% end %>
 
-          <% elsif @event.step != 1 %>
+          <% elsif @event.step > 1 %>
             <h5 class="text-center">Deadline expired. The host has closed the votes...</h5>
             <div class="too-late"><%= image_tag "toolate.jpg", alt: "alttext", width: '400px' %></div>
 
