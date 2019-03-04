@@ -14,7 +14,7 @@ class SendSmsService
 
     from = ENV['TWILIO_NUMBER']
 
-    to = '+33689571444' # Guest mobile phone number
+    to = @guest.phone_number # Guest mobile phone number
 
     host = ENV["HOST"] || "localhost:3000"
     url = Rails.application.routes.url_helpers.new_event_guest_answer_url(@guest.event, @guest, host: host)
