@@ -33,3 +33,5 @@ $(document).ready(function(){
   });
 });
 
+import {tabsEvent} from "../plugins/tab";
+tabsEvent();

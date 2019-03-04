@@ -153,11 +153,6 @@ q.status = 1
 r.status = 1
 s.status = 1
 t.status = 1
-
-l.save = 1
-m.save = 1
-n.save = 1
-o.save = 1
 q.status = 1
 r.status = 1
 s.status = 1
