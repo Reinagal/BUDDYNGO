@@ -5,7 +5,7 @@ function initChart () {
   var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: ["Red", "Blue", "Yellow", "Green"],
         datasets: [{
             label: '# of Votes',
             data: dates,
@@ -43,7 +43,7 @@ function initChart2 () {
   var myChart2 = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: ["Red", "Blue", "Yellow", "Green"],
         datasets: [{
             label: '# of Votes',
             data: themes,
@@ -81,7 +81,7 @@ function initChart3 () {
   var myChart3 = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: ["Red", "Blue", "Yellow", "Green"],
         datasets: [{
             label: 'Budget',
             data: budgets,
