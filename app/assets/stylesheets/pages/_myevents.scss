@@ -1,1 +1,42 @@
+#MyEvents {
+  color: $dark-green;
+  margin-top: 10px;
+  font-family: $citation-font;
+}
 
+#EventTabs {
+  background-color: $light-green;
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: $dark-gray;
+  text-decoration: none;
+  &:hover {
+    box-shadow: 0 0 10px rgb(100, 100, 100);
+    background-color: $main-green;
+  }
+}
+
+#addNewEvent {
+  background-color: $main-green;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-family: $citation-font;
+  text-decoration: none;
+  color: white;
+  &:hover {
+    box-shadow: 0 0 10px rgb(100, 100, 100);
+    background-color: $dark-green;
+  }
+}
+
+// .tabs {
+//   width: 100%; /* à modifier selon vos besoins */
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+// }
+
+// #EventTabs a {
+//   width: 100px;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+// }
