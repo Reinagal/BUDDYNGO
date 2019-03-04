@@ -111,6 +111,7 @@ cote_dor = Destination.create(name: "La Côte-d'Or", theme: countryside, photo: 
 puts "Creating polls...."
 
 poll1 = Poll.create(deadline: "Fri, 01 Mar 2019",event: evg)
+poll2 = Poll.create(deadline: "Fri, 01 Mar 2020",event: lesmemes)
 
 puts "Creating choices...."
 choice1 = Choice.create(poll: poll1, choice_type: "theme",theme: town)
@@ -122,7 +123,24 @@ choice6 = Choice.create(poll: poll1, choice_type: "theme",theme: countryside)
 choice7 = Choice.create(poll: poll1, choice_type: "date",start_date: "Fri, 26 Apr 2019", end_date: "Sun, 28 Apr 2019")
 choice8 = Choice.create(poll: poll1, choice_type: "date",start_date: "Fri, 3 May 2019", end_date: "Sun, 5 May 2019")
 choice9 = Choice.create(poll: poll1, choice_type: "date",start_date: "Fri, 10 May 2019", end_date: "Sun, 12 May 2019")
+choice10 = Choice.create(poll: poll2, choice_type: "theme",theme: sea)
+choice11 = Choice.create(poll: poll2, choice_type: "theme",theme: town)
+choice12 = Choice.create(poll: poll2, choice_type: "date",start_date: "Fri, 12 Apr 2020", end_date: "Sun, 14 Apr 2020")
+choice13 = Choice.create(poll: poll2, choice_type: "date",start_date: "Thu, 19 Apr 2020", end_date: "Sun, 21 Apr 2020")
+choice14 = Choice.create(poll: poll2, choice_type: "theme",theme: countryside)
+choice15 = Choice.create(poll: poll2, choice_type: "theme",theme: ski)
+choice16 = Choice.create(poll: poll2, choice_type: "date",start_date: "Fri, 26 Apr 2020", end_date: "Sun, 28 Apr 2020")
+choice17 = Choice.create(poll: poll2, choice_type: "date",start_date: "Fri, 3 May 2020", end_date: "Sun, 5 May 2020")
+choice18 = Choice.create(poll: poll2, choice_type: "date",start_date: "Fri, 10 May 2020", end_date: "Sun, 12 May 2020")
 
-# puts "Creating answers...."
+puts "Creating answers...."
+answer1 = Answer.create(poll: poll2, theme_ranking: "15,10,11,14", chosen_date: ["12", "16", "18"], budget_max: 350)
+answer2 = Answer.create(poll: poll2, theme_ranking: "15,10,11,14", chosen_date: ["12", "13", "16", "17", "18"], budget_max: 350)
+answer3 = Answer.create(poll: poll2, theme_ranking: "14,10,11,15", chosen_date: ["13", "16", "17", "18"], budget_max: 350)
+answer4 = Answer.create(poll: poll2, theme_ranking: "14,11,10,15", chosen_date: ["12", "18"], budget_max: 275)
+answer5 = Answer.create(poll: poll2, theme_ranking: "11,15,10,14", chosen_date: ["12", "13", "16", "17", "18"], budget_max: 450)
+answer6 = Answer.create(poll: poll2, theme_ranking: "10,11,14,15", chosen_date: ["12"], budget_max: 500)
+answer7 = Answer.create(poll: poll2, theme_ranking: "15,10,11,14", chosen_date: ["12", "13", "17", "18"], budget_max: 250)
+answer8 = Answer.create(poll: poll2, theme_ranking: "10,11,14,15", chosen_date: ["12", "13", "17", "18"], budget_max: 450)
 
 puts "all seeded!"

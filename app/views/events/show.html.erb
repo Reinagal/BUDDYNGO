@@ -1,1 +1,14 @@
+<p> POLL OUTCOME for THEMES: Hash with i) (theme) choice id AS KEY ii) Number of POINTS (i.e votes weighted by ranking) AS VALUE:<p>
+<p><%= @event.theme_poll_outcome %></p>
+
+<p> POLL OUTCOME for DATES: Hash with i) (date) choice id AS KEY ii) Number of votes (i.e 1 vote =  1 point) AS VALUE:<p>
+<p><%= @event.date_poll_outcome %></p>
+
+<p> POLL OUTCOME for BUDGET: Hash with i) budget amount AS KEY ii) Number of participants who can afford it AS VALUE:<p>
+<p><%= @event.budget_repartition_function %></p>
+
+<p> IF NEED ALTERNATIVE POLL OUTCOME for BUDGET: Hash with i) Proposed budget AS KEY ii) Number of votes (i.e 1 vote =  1 point) AS VALUE:<p>
+<p><%= @event.budget_poll_outcome %></p>
+
+
 <%= render 'show', event: @event %>
