@@ -1,6 +1,7 @@
 import "bootstrap";
 import "../plugins/flatpickr";
 import {initChart} from "../plugins/chart";
+import "../components/close_flashes"
 
 if(document.getElementById("myChart")){
   initChart();
@@ -21,7 +22,6 @@ if(document.getElementById("myChart3")){
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 initUpdateNavbarOnScroll();
 
-
 import {initSortable1} from "../plugins/sortable"
 import {initSortable2} from "../plugins/sortable"
 if(document.getElementById("simpleList1")){
@@ -37,3 +37,5 @@ $(document).ready(function(){
   });
 });
 
+import {tabsEvent} from "../plugins/tab";
+tabsEvent();

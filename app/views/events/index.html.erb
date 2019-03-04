@@ -1,12 +1,12 @@
 <div class="container-fluid">
-  <h1 class="text-center" id="MyEvents">My events</h1>
+  <!-- <h1 class="text-center" id="MyEvents">My events</h1> -->
   <!-- NE PAS SUPPRIMER Renvoie la modal lorsqu'on click sur le bouton add trip -->
   <%= render 'events/formnewevent' %>
   <!-- tabs row -->
   <div class="row">
     <div class="tabs">
       <% @myevents.each do |event| %>
-        <a href="<%= event_path(event) %>" id="EventTabs" class="tab <%= "active" if @myevents.first == event %>"><%= event.name %></a>
+        <a href="<%= event_path(event) %>" class="tab <%= "active" if @myevents.first == event %>" data-target="#tab-content-event_<%= event.id %>"><%= event.name.truncate(20) %></a>
         <!-- + js ecoute click sur les actives -->
       <% end %>
       <a href="#" class="tab" id="addNewEvent"><i class="fas fa-plus"></i> Plan a new event</a>
@@ -15,10 +15,12 @@
 
   <!-- Current event dashboard row -->
   <div class="row">
-    <div class="tab-containt">
-      <!-- Should show the event licked in the tab with JS -->
-      <%= render 'events/show', event: @myevents.first %>
-    </div>
+    <% @myevents.each do |event| %>
+      <div class="tab-content <%= "hidden" if @myevents.first != event %>" id="tab-content-event_<%= event.id %>">
+        <!-- Should show the event licked in the tab with JS -->
+        <%= render 'events/show', event: event %>
+      </div>
+    <% end %>
   </div>
 
 </div>
