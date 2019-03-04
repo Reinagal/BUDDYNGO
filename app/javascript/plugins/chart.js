@@ -5,7 +5,7 @@ function initChart () {
   var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green"],
+        labels: ["Date 1", "Date 2", "Date 3", "Date 4", "Date 5"],
         datasets: [{
             label: '# of Votes',
             data: dates,
@@ -13,9 +13,11 @@ function initChart () {
                 'rgba(58, 175, 169, 0.2)',
                 'rgba(58, 175, 169, 0.2)',
                 'rgba(58, 175, 169, 0.2)',
+                'rgba(58, 175, 169, 0.2)',
                 'rgba(58, 175, 169, 0.2)'
             ],
             borderColor: [
+                'rgba(43, 122, 120, 1)',
                 'rgba(43, 122, 120, 1)',
                 'rgba(43, 122, 120, 1)',
                 'rgba(43, 122, 120, 1)',
@@ -43,7 +45,7 @@ function initChart2 () {
   var myChart2 = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green"],
+        labels: ["Capital", "Regions", "Ski", "Sea"],
         datasets: [{
             label: '# of Votes',
             data: themes,
