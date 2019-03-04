@@ -41,6 +41,18 @@ class ChoicesController < ApplicationController
     end
   end
 
+  def destroy
+    @choice = Choice.find(params[:id])
+    @choice.destroy
+    if @choice.save
+      respond_to do |format|
+        format.js
+      end
+    else
+    render :root
+    end
+  end
+
   private
 
   def choice_params
