@@ -74,6 +74,11 @@ class EventsController < ApplicationController
       @event.step = 2
       @event.save
       redirect_to newdestinationchoices_poll_choices_path(@poll)
+    elsif @event.step == 2
+      @event.destination = Choice.find(@event.destination_poll_outcome.max_by { |_k, v| v }[0]).destination
+      @event.step = 3
+      @event.save
+      redirect_to event_path(@event)
     else
       redirect_to root_path
     end
