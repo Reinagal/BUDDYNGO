@@ -335,11 +335,17 @@
   font-family: $citation-font;
   &:hover {
     box-shadow: 0 0 10px rgb(100, 100, 100);
-    color: #3AAFA9;
+    // color: #3AAFA9;
+    background-color: $dark-green;
   }
   &:focus {
    color: #3AAFA9;
   }
+}
+
+.btn-close a {
+  color: white;
+  text-decoration: none;
 }
 
 .titledash {
