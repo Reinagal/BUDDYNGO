@@ -6,7 +6,8 @@ class ChoicesController < ApplicationController
 
   def create
     @choice = Choice.new(choice_params)
-    @choice.poll = current_user.events.last.polls.last
+    @poll = Poll.find(params[:poll_id])
+    @choice.poll = @poll
     @event = @choice.poll.event
     @choice.choice_type = "date"
 
@@ -23,7 +24,8 @@ class ChoicesController < ApplicationController
   def createthemeschoices
     params[:theme_ids].each do |theme_id|
       @choice = Choice.new
-      @choice.poll = current_user.events.last.polls.last
+      @poll = Poll.find(params[:poll_id])
+      @choice.poll = @poll
       @event = @choice.poll.event
       @choice.choice_type = "theme"
       @choice.theme_id = theme_id
@@ -36,6 +38,10 @@ class ChoicesController < ApplicationController
       render :new
       end
     end
+  end
+
+  def createdestinationschoices
+
   end
 
   def destroy
@@ -59,6 +65,5 @@ class ChoicesController < ApplicationController
 
   def themes_choices_params
     params.permit(:theme_ids)
-
   end
 end

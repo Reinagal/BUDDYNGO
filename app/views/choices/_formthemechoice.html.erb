@@ -11,7 +11,7 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-6">
-          <%= simple_form_for(Choice.new, url: createthemeschoices_choices_path, method: :post, remote: true) do |f| %>
+          <%= simple_form_for(Choice.new, url: createthemeschoices_poll_choices_path(@poll), method: :post, remote: true) do |f| %>
             <div class="theme-choices">
               <div class="row">
               <% Theme.all.each do |theme| %>
