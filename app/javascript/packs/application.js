@@ -21,9 +21,13 @@ if(document.getElementById("myChart3")){
 
 import {initChart4} from "../plugins/chart";
 
-if(document.getElementById("myChart3")){
+if(document.getElementById("myChart4")){
   initChart4();
 }
+
+// import { showSpinner } from "../plugins/spinner";
+// if(document.getElementById("spinner")){
+//   showSpinner();
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 initUpdateNavbarOnScroll();
@@ -42,3 +46,4 @@ $(document).ready(function(){
     $(this).toggleClass("active");
   });
 });
+

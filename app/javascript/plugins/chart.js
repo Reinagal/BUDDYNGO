@@ -118,11 +118,11 @@ function initChart3 () {
 }
 
 function initChart4 () {
-  var canvas3 = document.getElementById("myChart4");
-  var ctx = canvas3.getContext('2d');
-  var destinations = canvas3.dataset.destinations.split("/");
-  var labels = canvas3.dataset.labels.split("/");
-  var myChart3 = new Chart(ctx, {
+  var canvas4 = document.getElementById("myChart4");
+  var ctx = canvas4.getContext('2d');
+  var destinations = canvas4.dataset.destinations.split("/");
+  var labels = canvas4.dataset.labels.split("/");
+  var myChart4 = new Chart(ctx, {
     type: 'horizontalBar',
     data: {
         labels: labels,
