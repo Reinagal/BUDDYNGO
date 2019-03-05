@@ -133,6 +133,9 @@ choice15 = Choice.create!(poll: poll2, choice_type: "theme",theme: ski)
 choice16 = Choice.create!(poll: poll2, choice_type: "date",start_date: "Fri, 26 Apr 2020", end_date: "Sun, 28 Apr 2020")
 choice17 = Choice.create!(poll: poll2, choice_type: "date",start_date: "Fri, 3 May 2020", end_date: "Sun, 5 May 2020")
 choice18 = Choice.create!(poll: poll2, choice_type: "date",start_date: "Fri, 10 May 2020", end_date: "Sun, 12 May 2020")
+choice19 = Choice.create!(poll: poll2, choice_type: "destination", destination: amsterdam)
+choice20 = Choice.create!(poll: poll2, choice_type: "destination", destination: london)
+choice21 = Choice.create!(poll: poll2, choice_type: "destination", destination: barcelona)
 
 puts "Creating answers...."
 answer1 = Answer.create!(guest: l, poll: poll2, theme_ranking: "15,10,11,14", chosen_date: ["12", "16", "18"], budget_max: 350)
@@ -162,5 +165,6 @@ q.save
 r.save
 s.save
 t.save
+
 
 puts "all seeded!"
