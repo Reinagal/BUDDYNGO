@@ -1,2 +1,13 @@
-<p>coucou</p>
-<p>Event Name: <%= @poll.event.name %></p>
+<div class="container first_poll_results">
+  <h3><%= @poll.event.user.name.capitalize %>, we found you awesome <strong>"<%= @poll.event.theme.name %>"</strong> destinations where the average daily and travel costs are the closests matches to your average budget group</h3>
+
+  <h3><strong>Pick 3 to 5 of theses destinations</strong> and click on the magic button bellow!</h3>
+
+  <div>
+    <!-- encapsulation simple form HERE voir form1, card à l'interieur du label vers ligne 19-->
+    <%= render 'choices/cards', destinations: Destination.where(theme_id: @event.theme_id) %>
+  </div>
+
+  <p>BTN HERE ligne 28, class à changer pour renvoyer vers class -> createdestinationchoices-choice-action + ds l'input, name="answer params[:answer][:destination_ids]</p>
+
+</div>
