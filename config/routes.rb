@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :guests do #, [:new, :create]
-      resources :answers
+      resources :answers do
+        collection do
+          get 'recap'
+        end
+      end
     end
   end
 

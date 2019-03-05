@@ -45,6 +45,11 @@ class AnswersController < ApplicationController
     end
   end
 
+  def recap
+    @event = Event.find(params[:event_id])
+    @guest = Guest.find(params[:guest_id])
+  end
+
   private
 
   def answer_params
