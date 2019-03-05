@@ -16,6 +16,7 @@ class EventsController < ApplicationController
     @poll_dates = []
     @poll_themes = []
     @poll_budgets = []
+    @poll_destinations = []
 
     # Management of the dates
     @event.date_poll_outcome.each_key { |key| @poll_dates << key }
@@ -37,7 +38,7 @@ class EventsController < ApplicationController
     end
     @poll_themes = @poll_themes.join("/")
     @poll_themes_value = []
-    @event.date_poll_outcome.each_value { |value| @poll_themes_value << value }
+    @event.theme_poll_outcome.each_value { |value| @poll_themes_value << value }
     @poll_themes_value = @poll_themes_value.join("/")
 
     # Management of the budget
@@ -47,6 +48,19 @@ class EventsController < ApplicationController
     @poll_budgets_value = []
     @event.budget_repartition_function.sort.to_h.each_value { |value| @poll_budgets_value << value }
     @poll_budgets_value = @poll_budgets_value.join("/")
+
+    # Management of the destinations
+    @event.destination_poll_outcome.each_key { |key| @poll_destinations << key }
+    @poll_destinations.map! do |choice_id|
+      Choice.find(choice_id).destination_id
+    end
+    @poll_destinations.map! do |destination_id|
+      Theme.find(destination_id).name
+    end
+    @poll_destinations = @poll_destinations.join("/")
+    @poll_destinations_value = []
+    @event.destination_poll_outcome.each_value { |value| @poll_destinations_value << value }
+    @poll_destinations_value = @poll_destinations_value.join("/")
   end
 
   def create
