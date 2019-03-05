@@ -36,6 +36,3 @@ $(document).ready(function(){
     $(this).toggleClass("active");
   });
 });
-
-import {tabsEvent} from "../plugins/tab";
-tabsEvent();

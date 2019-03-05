@@ -11,6 +11,8 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @poll = Poll.find_by(event_id: params[:id])
+
+    @myevents = Event.where(user_id: current_user.id)
     @poll_dates = []
     @poll_themes = []
     @poll_budgets = []
@@ -45,6 +47,7 @@ class EventsController < ApplicationController
     @poll_budgets_value = []
     @event.budget_repartition_function.sort.to_h.each_value { |value| @poll_budgets_value << value }
     @poll_budgets_value = @poll_budgets_value.join("/")
+
   end
 
   def create
