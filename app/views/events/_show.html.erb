@@ -25,17 +25,22 @@
         <div class="row">
           <div class="col-xs-12 col-sm-6 date-vote">
             <p class="text-center">Dynamic Dates votes view</p>
-            <canvas id="myChart" width="400" height="180" data-dates="3-4-7-2-8" ></canvas>
+            <canvas id="myChart" width="400" height="200"
+              data-dates= "<%= @poll_dates_value %>"
+              data-labels= "<%= @poll_dates %>" ></canvas>
           </div>
           <div class="col-xs-12 col-sm-6 theme-vote">
             <p class="text-center">Dynamic Themes votes view</p>
-            <canvas id="myChart2" width="400" height="180" data-themes="5-6-5-8" ></canvas>
+            <canvas id="myChart2" width="400" height="200"
+              data-themes= "<%= @poll_themes_value %>"
+              data-labels= "<%= @poll_themes %>" ></canvas>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12 col-sm-12 budget-vote">
-            <p class="text-center">Current average budget voted : XX €</p>
-            <canvas id="myChart3" width="200" height="40" data-budgets="3-4-7-8" ></canvas>
+            <canvas id="myChart3" width="200" height="60"
+            data-budgets="<%= @poll_budgets_value %>"
+            data-labels= "<%= @poll_budgets %>" ></canvas>
           </div>
         </div>
       </div>

@@ -1,7 +1,8 @@
 function addGuests() {
-  const insertGuests = document.querySelector('.modal-body');
+  const insertGuests = document.querySelector('.selecteddates');
+  insertGuests.insertAdjacentHTML('beforebegin', '<p class="dates-title">Your guests</p>');
   "<% current_user.events.last.guests.each do |guest| %>"
-    insertGuests.insertAdjacentHTML('afterbegin', '<div><%= guest.name %></div>');
+    insertGuests.insertAdjacentHTML('beforeend', '<%= j render "guests/delete", guest: guest %>');
   "<% end %>"
 }
 
