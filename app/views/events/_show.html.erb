@@ -63,7 +63,7 @@
   </div>
   <div class="row">
     <div class="col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-3">
-      <div class="btn-close"><%= link_to "Close the vote & generate destination", event_path(@event), method: :path %></div>
+      <div class="btn-close"><%= link_to "Close the vote & generate destination", event_path(@event), method: 'patch' %></div>
     </div>
   </div>
   <% elsif event.step == 2 %>
@@ -116,6 +116,10 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-3">
+      <div class="btn-close"><%= link_to "Close the vote & send the result", edit_event_path(@event), method: :path %></div>
+    </div>
   <% elsif event.step == 3 %>
   <div class="row steps">
     <br>
