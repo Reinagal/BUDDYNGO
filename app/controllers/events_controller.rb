@@ -72,7 +72,7 @@ class EventsController < ApplicationController
       @event.budget = @event.budget_poll_outcome.min_by { |k, _v| k }[0]
       @event.step = 2
       @event.save
-      redirect_to edit_event_path(@event)
+      redirect_to newdestinationchoices_poll_choices_path(@event.poll)
     else
       redirect_to root_path
     end

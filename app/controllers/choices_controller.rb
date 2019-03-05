@@ -40,6 +40,20 @@ class ChoicesController < ApplicationController
     end
   end
 
+  def createdestinationchoices
+    @poll = Poll.find(params[:poll_id])
+    @event = @poll.event
+    params[:destination_ids].each do |destination_id|
+      @choice = Choice.new
+      @choice.poll = @poll
+      @event = @choice.poll.event
+      @choice.choice_type = "destination"
+      @choice.destination_id = destination_id
+      @choice.save
+    end
+    redirect_to event_path(@event)
+  end
+
   def newdestinationchoices
     @poll = Poll.find(params[:poll_id])
   end
