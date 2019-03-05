@@ -19,50 +19,53 @@
       </div>
     </div>
   </div>
-
-    <div class="row core-dashboard">
-      <div class="col-xs-12 col-sm-9 votes-dashboard">
-        <div class="row">
-          <div class="col-xs-12 col-sm-6 date-vote">
-            <p class="titledash">Dates votes</p>
-            <canvas id="myChart" width="400" height="200"
-              data-dates= "<%= @poll_dates_value %>"
-              data-labels= "<%= @poll_dates %>" ></canvas>
-          </div>
-          <div class="col-xs-12 col-sm-6 theme-vote">
-            <p class="titledash">Themes votes</p>
-            <canvas id="myChart2" width="400" height="200"
-              data-themes= "<%= @poll_themes_value %>"
-              data-labels= "<%= @poll_themes %>" ></canvas>
-          </div>
+  <div class="row core-dashboard">
+    <div class="col-xs-12 col-sm-3 guests-dashboard">
+      <p class="titledash">Guests list</p>
+      <ul class="list-inline boutonremind">
+        <li class="reminder btn-action-black-green">Reminder by Email</li>
+        <li class="reminder btn-action-black-green">Reminder by Phone</li>
+      </ul>
+      <% @event.guests.each do |guest| %>
+        <ul class="list-inline status-guest-list">
+          <li><%= guest.name %></li>
+          <% if guest.status == 0 %>
+            <li class="status-pending"><%= "Pending"  %></li>
+          <% elsif guest.status == 1 %>
+            <li class="status-voted"><%= "Voted" %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+    <div class="col-xs-12 col-sm-9 votes-dashboard">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 date-vote">
+          <p class="titledash">Dates votes</p>
+          <canvas id="myChart" width="400" height="200"
+            data-dates= "<%= @poll_dates_value %>"
+            data-labels= "<%= @poll_dates %>" ></canvas>
         </div>
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 budget-vote">
-            <canvas id="myChart3" width="200" height="60"
-            data-budgets="<%= @poll_budgets_value %>"
-            data-labels= "<%= @poll_budgets %>" ></canvas>
-          </div>
+        <div class="col-xs-12 col-sm-6 theme-vote">
+          <p class="titledash">Themes votes</p>
+          <canvas id="myChart2" width="400" height="200"
+            data-themes= "<%= @poll_themes_value %>"
+            data-labels= "<%= @poll_themes %>" ></canvas>
         </div>
       </div>
-
-      <div class="col-xs-12 col-sm-3 guests-dashboard">
-        <p class="titledash">Guests list</p>
-        <ul class="list-inline boutonremind">
-          <li class="reminder btn-action-black-green">Reminder by Email</li>
-          <li class="reminder btn-action-black-green">Reminder by Phone</li>
-        </ul>
-        <% @event.guests.each do |guest| %>
-          <ul class="list-inline status-guest-list">
-            <li><%= guest.name %></li>
-            <% if guest.status == 0 %>
-              <li class="status-pending"><%= "Pending"  %></li>
-            <% elsif guest.status == 1 %>
-              <li class="status-voted"><%= "Voted" %></li>
-            <% end %>
-          </ul>
-        <% end %>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 budget-vote">
+          <canvas id="myChart3" width="200" height="60"
+          data-budgets="<%= @poll_budgets_value %>"
+          data-labels= "<%= @poll_budgets %>" ></canvas>
+        </div>
       </div>
     </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-3">
+      <div class="btn-close">Close the vote & generate destination</div>
+    </div>
+  </div>
   <% elsif event.step == 2 %>
   <div class="row steps">
     <br>
@@ -82,19 +85,7 @@
       </div>
     </div>
   </div>
-    <p>Dashboard grid step 2</p>
-
   <div class="row core-dashboard">
-    <div class="col-xs-12 col-sm-12 votes-dashboard">
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 destination-vote">
-          <canvas id="myChart4" width="200" height="60"
-          data-budgets="<%= @poll_destinations_value %>"
-          data-labels= "<%= @poll_destinations %>" ></canvas>
-        </div>
-      </div>
-    </div>
-
     <div class="col-xs-12 col-sm-3 guests-dashboard">
       <p class="titledash">Guests list</p>
       <ul class="list-inline boutonremind">
@@ -112,8 +103,22 @@
         </ul>
       <% end %>
     </div>
+    <div class="col-xs-12 col-sm-9 votes-dashboard">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 summary">
+          <ul class="list-inline status-guest-list">
+<!--             <li><%= event.description %></li>
+            <li><%= event.date %></li>
+            <li><%= event.theme %></li> -->
+        </div>
+        <div class="col-xs-12 col-sm-6 destination-vote">
+          <canvas id="myChart4" width="200" height="60"
+          data-budgets="<%= @poll_destinations_value %>"
+          data-labels= "<%= @poll_destinations %>" ></canvas>
+        </div>
+      </div>
+    </div>
   </div>
-
   <% elsif event.step == 3 %>
   <div class="row steps">
     <br>
@@ -137,10 +142,6 @@
   <% else %>
     <p>Your event in close</p>
   <% end %>
-  <div class="row">
-    <div class="col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-3">
-      <div class="btn-close">Close the vote & generate destination</div>
-    </div>
-  </div>
+
 </div>
 
