@@ -40,20 +40,38 @@ class ChoicesController < ApplicationController
     end
   end
 
+  def createdestinationchoices
+    @poll = Poll.find(params[:poll_id])
+    @event = @poll.event
+    params[:destination_ids].each do |destination_id|
+      @choice = Choice.new
+      @choice.poll = @poll
+      @event = @choice.poll.event
+      @choice.choice_type = "destination"
+      @choice.destination_id = destination_id
+      @choice.save
+    end
+    redirect_to event_path(@event)
+  end
+
   def newdestinationchoices
     @poll = Poll.find(params[:poll_id])
   end
 
   def destroy
-    @choice = Choice.find(params[:id])
-    @event = @choice.poll.event
-    @choice.destroy
-    if @choice.save
+    choice = Choice.find(params[:id])
+    @choice_id = choice.id
+    @choice_destroyed = false
+
+    if choice.destroy!
+      @choice_destroyed = true
       respond_to do |format|
         format.js
       end
     else
-    render :root
+      respond_to do |format|
+        format.js
+      end
     end
   end
 
