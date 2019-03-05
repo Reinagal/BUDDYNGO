@@ -1,0 +1,6 @@
+<div class="carddate col-xs-12 col-md-5 col-md-offset-1" id="<%= choice.id %>">
+  From <%= choice.start_date %> </br> To <%= choice.end_date %>
+  <%= link_to choice_path(choice), method: :delete, id: "link-delete", remote: true do %>
+    <i class="fas fa-times-circle"></i>
+  <% end %>
+</div>

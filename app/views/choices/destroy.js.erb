@@ -1,19 +1,9 @@
-function addDates() {
-  const insertDates = document.querySelector('.selecteddates');
-  insertDates.insertAdjacentHTML('beforebegin', '<p class="dates-title">Your chosen dates</p>');
-    '<% current_user.events.last.polls.last.choices.where("choice_type" == "date").each do |choice| %>'
-      insertDates.insertAdjacentHTML('beforeend', '<%= j render "choices/delete", choice: choice %>');
-    '<% end %>'
+function deleteDates() {
+  const deleteDates = document.getElementById(<%= choice.id %>);
+  delete deleteDates;
 }
 
-function refreshForm(innerHTML) {
-  const newEventForm = document.querySelector('.modal-content');
-  newEventForm.outerHTML = innerHTML;
-}
-
-refreshForm('<%= j render "choices/formdateschoice" %>');
-'<% if @choice.choice_type == "date" && !current_user.events.last.polls.last.choices.empty? %>'
-  addDates();
-'<% end %>'
+deleteDates();
+window.deleteDates();
 
 window.initFlatpickr();
