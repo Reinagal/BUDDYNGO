@@ -27,6 +27,17 @@ class EventsController < ApplicationController
     end
   end
 
+  def update
+    @event = Event.find(params[:id])
+    @event.theme = Choice.find(@event.theme_poll_outcome.max_by { |_k, v| v }[0]).theme
+    @event.start_date = Choice.find(@event.date_poll_outcome.max_by { |_k, v| v }[0]).start_date
+    @event.end_date = Choice.find(@event.date_poll_outcome.max_by { |_k, v| v }[0]).end_date
+    @event.budget = @event.budget_poll_outcome.min_by { |k, _v| k }[0]
+    @event.step = 2
+    @event.save
+    redirect_to root_path
+  end
+
   private
 
   def event_params

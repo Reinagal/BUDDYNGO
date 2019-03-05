@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_01_104344) do
+ActiveRecord::Schema.define(version: 2019_03_05_102123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,13 +58,15 @@ ActiveRecord::Schema.define(version: 2019_03_01_104344) do
     t.text "description"
     t.bigint "user_id"
     t.integer "budget"
-    t.string "destination"
     t.date "start_date"
     t.date "end_date"
-    t.string "theme"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "step", default: 1
+    t.bigint "theme_id"
+    t.bigint "destination_id"
+    t.index ["destination_id"], name: "index_events_on_destination_id"
+    t.index ["theme_id"], name: "index_events_on_theme_id"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -113,6 +115,8 @@ ActiveRecord::Schema.define(version: 2019_03_01_104344) do
   add_foreign_key "choices", "polls"
   add_foreign_key "choices", "themes"
   add_foreign_key "destinations", "themes"
+  add_foreign_key "events", "destinations"
+  add_foreign_key "events", "themes"
   add_foreign_key "events", "users"
   add_foreign_key "guests", "events"
   add_foreign_key "polls", "events"
