@@ -40,8 +40,8 @@ class ChoicesController < ApplicationController
     end
   end
 
-  def createdestinationschoices
-
+  def newdestinationchoices
+    @poll = Poll.find(params[:poll_id])
   end
 
   def destroy
