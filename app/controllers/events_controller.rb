@@ -11,6 +11,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @poll = Poll.find_by(event_id: params[:id])
+    @myevents = Event.where(user_id: current_user.id)
   end
 
   def create

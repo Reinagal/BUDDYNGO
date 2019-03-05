@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <!-- <h1 class="text-center" id="MyEvents">My events</h1> -->
+  <!-- NE PAS SUPPRIMER Renvoie la modal lorsqu'on click sur le bouton add trip -->
+  <%= render 'events/formnewevent' %>
+  <!-- tabs row -->
+  <div class="row">
+    <div class="tabs">
+      <% @myevents.each do |event| %>
+        <a href="<%= event_path(event) %>" class="tab <%= 'active' if @event == event %>" data-target="#tab-content-event_<%= event.id %>"><%= event.name.truncate(20) %></a>
+        <!-- + js ecoute click sur les actives -->
+      <% end %>
+      <a href="#" class="tab" id="addNewEvent"><i class="fas fa-plus"></i> Plan a new event</a>
+    </div>
+  </div>
+</div>
+
+
+
