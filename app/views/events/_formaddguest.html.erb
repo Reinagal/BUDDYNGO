@@ -28,7 +28,7 @@
             <% if !current_user.events.last.guests.last.nil? %>
               <%= link_to "Finish", events_path, class: "btn btn-action" %>
             <% else %>
-              <%= link_to "Finish",  events_path, class: "btn btn-action disabled" %>
+              <%= link_to "Finish",  events_path, class: "btn btn-action" %>
             <% end %>
           <% end %>
         </div>
