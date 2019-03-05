@@ -19,6 +19,9 @@ Rails.application.routes.draw do
       collection do
         post 'createdestinationchoices'
       end
+      collection do
+        get 'newdestinationchoices'
+      end
     end
   end
 
