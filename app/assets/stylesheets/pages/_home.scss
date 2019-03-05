@@ -1,1 +1,54 @@
 // Specific CSS for your home-page
+.wrapper {
+  background-color: white;
+  padding: 0px;
+}
+
+
+.home-args {
+  // display: block;
+  text-align: center;
+}
+
+.home-args h2 {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: $headers-font;
+  padding: 20px;
+}
+
+.all-arguments {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.argument {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 33%;
+  padding: 20px;
+}
+
+.img-home {
+  height: 100px;
+  width: 100px;
+}
+
+.argument h3 {
+  font-size: 25px;
+  font-weight: bold;
+  font-family: $citation-font;
+  margin-top: 5px;
+}
+
+.argument p {
+  font-size: 16px;
+  font-family: $body-font;
+}
+
+.banner2 a {
+  margin-top: 130px;
+}
