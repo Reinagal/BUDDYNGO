@@ -117,8 +117,49 @@ function initChart3 () {
 });
 }
 
+function initChart4 () {
+  var canvas3 = document.getElementById("myChart4");
+  var ctx = canvas3.getContext('2d');
+  var destinations = canvas3.dataset.destinations.split("/");
+  var labels = canvas3.dataset.labels.split("/");
+  var myChart3 = new Chart(ctx, {
+    type: 'horizontalBar',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Destination',
+            data: destinations,
+            backgroundColor: [
+                'rgba(58, 175, 169, 0.2)',
+                'rgba(58, 175, 169, 0.2)',
+                'rgba(58, 175, 169, 0.2)',
+                'rgba(58, 175, 169, 0.2)'
+            ],
+            borderColor: [
+                'rgba(43, 122, 120, 1)',
+                'rgba(43, 122, 120, 1)',
+                'rgba(43, 122, 120, 1)',
+                'rgba(43, 122, 120, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+}
+
 export {initChart}
 
 export {initChart2}
 
 export {initChart3}
+
+export {initChart4}

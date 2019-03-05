@@ -19,6 +19,12 @@ if(document.getElementById("myChart3")){
   initChart3();
 }
 
+import {initChart4} from "../plugins/chart";
+
+if(document.getElementById("myChart3")){
+  initChart4();
+}
+
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 initUpdateNavbarOnScroll();
 
