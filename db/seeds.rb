@@ -55,7 +55,7 @@ h = Guest.create!(event: evg, email:"michel@yopmail.com", name: "Michel")
 i = Guest.create!(event: pont, email:"flo@yopmail.com", name: "Florent")
 j = Guest.create!(event: pont, email:"emma@yopmail.com", name: "Emma")
 k = Guest.create!(event: pont, email:"sara@yopmail.com", name: "Sara")
-l = Guest.create!(event: pont, email:"nico@yopmail.com", name: "Nico")
+l = Guest.create!(event: lesmemes, email:"nico@yopmail.com", name: "Nico")
 m = Guest.create!(event: lesmemes, email:"julien@yopmail.com", name: "Julien")
 n = Guest.create!(event: lesmemes, email:"chloe@yopmail.com", name: "Chloe")
 o = Guest.create!(event: lesmemes, email:"megan@yopmail.com", name: "Megan")
@@ -165,6 +165,5 @@ q.save
 r.save
 s.save
 t.save
-
 
 puts "all seeded!"

@@ -18,7 +18,7 @@
             <% if current_user.events.last.polls.last.choices.last.choice_type == "date" %>
               <%= link_to "Next step", new_event_guest_path(@event), class: "btn btn-action", remote: true %>
             <% else %>
-              <%= link_to "Next step", new_event_guest_path(@event), class: "btn btn-action disabled", remote: true %>
+              <%= link_to "Next step", new_event_guest_path(@event), class: "btn btn-action", remote: true %>
             <% end %>
           <% end %>
         </div>

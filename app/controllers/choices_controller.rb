@@ -8,11 +8,8 @@ class ChoicesController < ApplicationController
     @choice = Choice.new(choice_params)
     @choice.poll = current_user.events.last.polls.last
     @event = @choice.poll.event
-    if !@choice.start_date.nil? && !@choice.end_date.nil?
-      @choice.choice_type = "date"
-    elsif !@choice.theme.nil?
-      @choice.choice_type = "theme"
-    end
+    @choice.choice_type = "date"
+
     if @choice.save
       respond_to do |format|
         format.js
@@ -43,6 +40,7 @@ class ChoicesController < ApplicationController
 
   def destroy
     @choice = Choice.find(params[:id])
+    @event = @choice.poll.event
     @choice.destroy
     if @choice.save
       respond_to do |format|
