@@ -65,6 +65,7 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
+    @poll = Poll.find_by(event_id: @event.id)
     if @event.step == 1
       @event.theme = Choice.find(@event.theme_poll_outcome.max_by { |_k, v| v }[0]).theme
       @event.start_date = Choice.find(@event.date_poll_outcome.max_by { |_k, v| v }[0]).start_date
@@ -72,7 +73,7 @@ class EventsController < ApplicationController
       @event.budget = @event.budget_poll_outcome.min_by { |k, _v| k }[0]
       @event.step = 2
       @event.save
-      redirect_to edit_event_path(@event)
+      redirect_to newdestinationchoices_poll_choices_path(@poll)
     else
       redirect_to root_path
     end
