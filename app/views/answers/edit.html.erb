@@ -7,6 +7,11 @@
         <% if @guest.event_id != @event.id %>
           <h2 class="text-center">Wrong event!</h2>
           <div class="not-invited"><%= image_tag "Invited.jpg", alt: "alttext", width: '350px', class:"rounded"  %></div>
+
+        <% elsif @answer.guest_id != @guest.id %>
+          <h2 class="text-center">This is not your answer form!</h2>
+          <div class="not-invited"><%= image_tag "stop.jpg", alt: "alttext", width: '350px', class:"rounded"  %></div>
+
         <% else %>
           <h2 class="text-center"><%= @event.name %></h2>
 

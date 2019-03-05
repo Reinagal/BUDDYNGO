@@ -1,13 +1,14 @@
 function initChart () {
   var canvas = document.getElementById("myChart");
   var ctx = canvas.getContext('2d');
-  var dates = canvas.dataset.dates.split("-");
+  var dates = canvas.dataset.dates.split("/");
+  var labels = canvas.dataset.labels.split("/");
   var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'horizontalBar',
     data: {
-        labels: ["Date 1", "Date 2", "Date 3", "Date 4", "Date 5"],
+        labels: labels,
         datasets: [{
-            label: '# of Votes',
+            label: 'Number of Votes',
             data: dates,
             backgroundColor: [
                 'rgba(58, 175, 169, 0.2)',
@@ -28,7 +29,7 @@ function initChart () {
     },
     options: {
         scales: {
-            yAxes: [{
+            xAxes: [{
                 ticks: {
                     beginAtZero:true
                 }
@@ -41,13 +42,14 @@ function initChart () {
 function initChart2 () {
   var canvas2 = document.getElementById("myChart2");
   var ctx = canvas2.getContext('2d');
-  var themes = canvas2.dataset.themes.split("-");
+  var themes = canvas2.dataset.themes.split("/");
+  var labels = canvas2.dataset.labels.split("/");
   var myChart2 = new Chart(ctx, {
-    type: 'bar',
+    type: 'horizontalBar',
     data: {
-        labels: ["Capital", "Regions", "Ski", "Sea"],
+        labels: labels,
         datasets: [{
-            label: '# of Votes',
+            label: 'Number of Votes',
             data: themes,
             backgroundColor: [
                 'rgba(58, 175, 169, 0.2)',
@@ -66,7 +68,7 @@ function initChart2 () {
     },
     options: {
         scales: {
-            yAxes: [{
+            xAxes: [{
                 ticks: {
                     beginAtZero:true
                 }
@@ -79,13 +81,14 @@ function initChart2 () {
 function initChart3 () {
   var canvas3 = document.getElementById("myChart3");
   var ctx = canvas3.getContext('2d');
-  var budgets = canvas3.dataset.budgets.split("-");
+  var budgets = canvas3.dataset.budgets.split("/");
+  var labels = canvas3.dataset.labels.split("/");
   var myChart3 = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green"],
+        labels: labels,
         datasets: [{
-            label: 'Budget',
+            label: 'Budget / pers.',
             data: budgets,
             backgroundColor: [
                 'rgba(58, 175, 169, 0.2)',
