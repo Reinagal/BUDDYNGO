@@ -1,5 +1,6 @@
 <div class="container-fluid dashboard">
   <h1 class="text-center" id="nameEvent"><%= event.name %></h1>
+  <% if event.step == 1 %>
   <div class="row steps">
     <br>
     <div class="col-xs-4 col-sm-4 step">
@@ -19,18 +20,17 @@
     </div>
   </div>
 
-  <% if event.step == 1 %>
     <div class="row core-dashboard">
       <div class="col-xs-12 col-sm-9 votes-dashboard">
         <div class="row">
           <div class="col-xs-12 col-sm-6 date-vote">
-            <p class="text-center">Dynamic Dates votes view</p>
+            <p class="titledash">Dates votes</p>
             <canvas id="myChart" width="400" height="200"
               data-dates= "<%= @poll_dates_value %>"
               data-labels= "<%= @poll_dates %>" ></canvas>
           </div>
           <div class="col-xs-12 col-sm-6 theme-vote">
-            <p class="text-center">Dynamic Themes votes view</p>
+            <p class="titledash">Themes votes</p>
             <canvas id="myChart2" width="400" height="200"
               data-themes= "<%= @poll_themes_value %>"
               data-labels= "<%= @poll_themes %>" ></canvas>
@@ -46,10 +46,10 @@
       </div>
 
       <div class="col-xs-12 col-sm-3 guests-dashboard">
-        <p>Guests list</p>
+        <p class="titledash">Guests list</p>
         <ul class="list-inline boutonremind">
-          <li class="btn-action-black-green">Reminder by Email</li>
-          <li class="btn-action-black-green">Reminder by Phone</li>
+          <li class="reminder btn-action-black-green">Reminder by Email</li>
+          <li class="reminder btn-action-black-green">Reminder by Phone</li>
         </ul>
         <% @event.guests.each do |guest| %>
           <ul class="list-inline status-guest-list">
@@ -64,15 +64,82 @@
       </div>
     </div>
   <% elsif event.step == 2 %>
+  <div class="row steps">
+    <br>
+    <div class="col-xs-4 col-sm-4 step">
+      <div id="pointer12">
+        <p class="text-center" id="step12">Step 1</p>
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-4 step">
+      <div id="pointer22">
+        <p class="text-center" id="step22">Step 2</p>
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-4 step">
+      <div id="pointer32">
+        <p class="text-center" id="step32">Step 3</p>
+      </div>
+    </div>
+  </div>
     <p>Dashboard grid step 2</p>
+
+  <div class="row core-dashboard">
+    <div class="col-xs-12 col-sm-12 votes-dashboard">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 destination-vote">
+          <canvas id="myChart4" width="200" height="60"
+          data-budgets="<%= @poll_destinations_value %>"
+          data-labels= "<%= @poll_destinations %>" ></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-3 guests-dashboard">
+      <p class="titledash">Guests list</p>
+      <ul class="list-inline boutonremind">
+        <li class="reminder btn-action-black-green">Reminder by Email</li>
+        <li class="reminder btn-action-black-green">Reminder by Phone</li>
+      </ul>
+      <% @event.guests.each do |guest| %>
+        <ul class="list-inline status-guest-list">
+          <li><%= guest.name %></li>
+          <% if guest.status == 0 %>
+            <li class="status-pending"><%= "Pending"  %></li>
+          <% elsif guest.status == 1 %>
+            <li class="status-voted"><%= "Voted" %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+
   <% elsif event.step == 3 %>
+  <div class="row steps">
+    <br>
+    <div class="col-xs-4 col-sm-4 step">
+      <div id="pointer13">
+        <p class="text-center" id="step13">Step 1</p>
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-4 step">
+      <div id="pointer23">
+        <p class="text-center" id="step23">Step 2</p>
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-4 step">
+      <div id="pointer33">
+        <p class="text-center" id="step33">Step 3</p>
+      </div>
+    </div>
+  </div>
     <p>Dashboard grid step 3</p>
   <% else %>
     <p>Your event in close</p>
   <% end %>
   <div class="row">
-    <div class="col-xs-8 col-sm-4 col-xs-offset-2 col-sm-offset-4">
-      <div class="btn-close">Close the vote</div>
+    <div class="col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-3">
+      <div class="btn-close">Close the vote & generate destination</div>
     </div>
   </div>
 </div>

@@ -9,7 +9,7 @@ const initUpdateNavbarOnScroll = () => {
         button.classList.remove('btn-action');
       } else {
         navbar.classList.remove('navbar-wagon-blue');
-        button.classList.toggle('btn-action-white');
+        button.classList.remove('btn-action-white');
         button.classList.add('btn-action');
       }
     });
