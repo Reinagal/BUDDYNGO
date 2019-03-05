@@ -6,9 +6,17 @@
   font-size: 16px;
   text-align: center;
   margin: 10px 0;
+  position: relative;
 }
 
-.selecteddates {
-  padding: 25px;
+#link-delete {
+  position: absolute;
+  top: -15px;
+  right: -13px;
+  color: #FF3A20;
+  font-size: 20px;
+  :hover {
+    text-decoration: none;
+    color: #FF3A20;
+  }
 }
-
