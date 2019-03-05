@@ -9,13 +9,18 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :choices do
-    collection do                       # collection => no restaurant id in URL
-      post 'createthemeschoices'                         # RestaurantsController#top
+  resources :choices, except: [:create]
+
+  resources :polls do
+    resources :choices, only: [:create] do
+      collection do                       # collection => no restaurant id in URL
+        post 'createthemeschoices'                                 # RestaurantsController#top
+      end
+      collection do
+        post 'createdestinationchoices'
+      end
     end
   end
-
-  resources :polls
 
   resources :guests, only: [:destroy]
 end

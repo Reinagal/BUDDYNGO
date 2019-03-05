@@ -47,7 +47,6 @@ class EventsController < ApplicationController
     @poll_budgets_value = []
     @event.budget_repartition_function.sort.to_h.each_value { |value| @poll_budgets_value << value }
     @poll_budgets_value = @poll_budgets_value.join("/")
-
   end
 
   def create
@@ -66,18 +65,22 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    @event.theme = Choice.find(@event.theme_poll_outcome.max_by { |_k, v| v }[0]).theme
-    @event.start_date = Choice.find(@event.date_poll_outcome.max_by { |_k, v| v }[0]).start_date
-    @event.end_date = Choice.find(@event.date_poll_outcome.max_by { |_k, v| v }[0]).end_date
-    @event.budget = @event.budget_poll_outcome.min_by { |k, _v| k }[0]
-    @event.step = 2
-    @event.save
-    redirect_to root_path
+    if @event.step == 1
+      @event.theme = Choice.find(@event.theme_poll_outcome.max_by { |_k, v| v }[0]).theme
+      @event.start_date = Choice.find(@event.date_poll_outcome.max_by { |_k, v| v }[0]).start_date
+      @event.end_date = Choice.find(@event.date_poll_outcome.max_by { |_k, v| v }[0]).end_date
+      @event.budget = @event.budget_poll_outcome.min_by { |k, _v| k }[0]
+      @event.step = 2
+      @event.save
+      redirect_to edit_event_path(@event)
+    else
+      redirect_to root_path
+    end
   end
 
   private
 
   def event_params
-    params.require(:event).permit(:name, :description, :theme, :start_date, :end_date, :step)
+    params.require(:event).permit(:name, :description, :theme, :start_date, :end_date, :step, :destination, :budget)
   end
 end
