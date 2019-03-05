@@ -1,12 +1,23 @@
 .carddate {
-  color: white;
-  background-color: $main-green;
+  color: $main-green;
+  background-color: white;
+  border: 1px $main-green solid;
   border-radius: 5px;
   padding: 5px 10px;
   font-size: 16px;
   text-align: center;
-  margin: 10px 0;
+  padding: 10px;
   position: relative;
+}
+
+.selecteddates {
+  display: flex;
+  justify-content: space-around;
+}
+
+.selectedguests {
+  display: flex;
+  justify-content: space-around;
 }
 
 #link-delete {

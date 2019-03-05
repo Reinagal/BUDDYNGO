@@ -39,15 +39,19 @@ class ChoicesController < ApplicationController
   end
 
   def destroy
-    @choice = Choice.find(params[:id])
-    @event = @choice.poll.event
-    @choice.destroy
-    if @choice.save
+    choice = Choice.find(params[:id])
+    @choice_id = choice.id
+    @choice_destroyed = false
+
+    if choice.destroy!
+      @choice_destroyed = true
       respond_to do |format|
         format.js
       end
     else
-    render :root
+      respond_to do |format|
+        format.js
+      end
     end
   end
 

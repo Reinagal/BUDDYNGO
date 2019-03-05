@@ -17,6 +17,24 @@ class GuestsController < ApplicationController
     end
   end
 
+
+  def destroy
+    guest = Guest.find(params[:id])
+    @guest_id = guest.id
+    @guest_destroyed = false
+
+    if guest.destroy!
+      @guest_destroyed = true
+      respond_to do |format|
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
+
   private
 
   def guest_params
