@@ -1,17 +1,6 @@
 function addGuests() {
-  const insertGuests = document.querySelector('.selecteddates');
-  insertGuests.insertAdjacentHTML('beforebegin', '<p class="dates-title">Your guests</p>');
-  "<% current_user.events.last.guests.each do |guest| %>"
-    insertGuests.insertAdjacentHTML('beforeend', '<%= j render "guests/delete", guest: guest %>');
-  "<% end %>"
+  const insertGuests = document.querySelector('.selectedguests');
+  insertGuests.insertAdjacentHTML('beforeend', '<%= j render "choice_guests", guest: @guest %>');
 }
 
-function refreshForm(innerHTML) {
-  const newEventForm = document.querySelector('.modal-content');
-  newEventForm.outerHTML = innerHTML;
-}
-
-refreshForm('<%= j render "events/formaddguest" %>');
-"<% if current_user.events.last.guests.last != nil %>"
-  addGuests();
-"<% end %>"
+addGuests();

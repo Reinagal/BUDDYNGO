@@ -1,9 +1,4 @@
-function deleteDates() {
-  const deleteDates = document.getElementById(<%= choice.id %>);
-  delete deleteDates;
-}
+<% if @choice_destroyed %>
+  document.getElementById(<%= @choice_id %>).remove();
+<% end %>
 
-deleteDates();
-window.deleteDates();
-
-window.initFlatpickr();
