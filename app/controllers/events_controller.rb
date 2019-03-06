@@ -114,3 +114,20 @@ class EventsController < ApplicationController
     params.require(:event).permit(:name, :description, :theme, :start_date, :end_date, :step, :destination, :budget)
   end
 end
+
+
+ # def email_vote_link
+ #    UserMailer.votepush(self).deliver_now
+ #  end
+
+ #  def email_vote_2_link
+ #    UserMailer.votepush2(self).deliver_now
+ #  end
+
+ #  def sms_vote_link
+ #    SendSmsService.new(self).call
+ #  end
+
+ #  def sms_vote_2_link
+ #    SendSecondSms.new(self).call
+ #  end
