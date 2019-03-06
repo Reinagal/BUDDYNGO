@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :guests do #, [:new, :create]
-      resources :answers
+      resources :answers do
+        collection do
+          get 'recap'
+        end
+      end
     end
   end
 
@@ -17,7 +21,7 @@ Rails.application.routes.draw do
         post 'createthemeschoices'                                 # RestaurantsController#top
       end
       collection do
-        post 'createdestinationchoices'
+        post :create_destination_choices
       end
       collection do
         get 'newdestinationchoices'

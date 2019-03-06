@@ -1,2 +1,20 @@
-<p>coucou</p>
-<p>Event Name: <%= @poll.event.name %></p>
+<div class="container first_poll_results">
+  <h3><%= @poll.event.user.name.capitalize %>, we found you awesome <strong>"<%= @poll.event.theme.name %>"</strong> destinations where the average daily and travel costs are the closests matches to your average budget group</h3>
+
+  <h3><strong>Pick up to 6 destinations</strong> and click on the magic button bellow!</h3>
+
+  <!-- ligne 28, class à changer pour renvoyer vers class -> createdestinationchoices-choice-action + ds l'input, name="answer params[:answer][:destination_ids] -->
+
+  <%= simple_form_for [@poll], url: create_destination_choices_poll_choices_path(@poll), method: :post do |f| %>
+    <div class="list-group">
+      <%= render 'choices/cards', destinations: Destination.where(theme_id: @event.theme_id) %>
+    </div>
+
+    </br>
+
+    <div class="create-answer-action">
+      <%= f.submit "Submit your choices", id: "dirty-button1", class: "btn-action-black-green" %>
+    </div>
+  <% end %>
+</div>
+

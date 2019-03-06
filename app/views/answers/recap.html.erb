@@ -1,0 +1,31 @@
+<div class="wrapper1">
+  <div class="answer-form-1 text-center container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <% if @guest.event_id != @event.id %>
+          <h2 class="text-center">Wrong event!</h2>
+          <div class="not-invited"><%= image_tag "Invited.jpg", alt: "alttext", width: '350px', class:"rounded"  %></div>
+        <% else %>
+          <h2 class="text-center"><%= @event.name %></h2>
+
+          <% if @event.step < 3 %>
+            <h5 class="text-center">You are going too fast. Please come back when you are invited to by the event host...</h5>
+            <div class="too-early"><%= image_tag "tooearly.jpg", alt: "alttext", width: '350px', class:"rounded" %></div>
+
+          <% else %>
+            <h5 class="text-center"><%= @event.destination.name %> here we come!!!</h5>
+            <p class="text-center"><% @guest.name %> please find below a recap of our incoming trip</p>
+              <ul class="text-left">
+                <li class = "list-unstyled">Date: <%= @event.start_date %> - <%= @event.end_date %></li>
+                <li class = "list-unstyled">Destination: <%= @event.destinaton.name %></li>
+                <li class = "list-unstyled">Estimated budget: <%= @event.budget %>€</li>
+              </ul>
+            <p> {logo tricount}
+          <% end %>
+
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
