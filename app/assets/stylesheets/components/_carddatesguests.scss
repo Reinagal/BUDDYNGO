@@ -13,14 +13,24 @@
 
 .selecteddates {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   flex-wrap: wrap;
+}
+
+.selecteddates>* {
+  min-width: 165px;
+  margin: 10px;
 }
 
 .selectedguests {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   flex-wrap: wrap;
+}
+
+.selectedguests>* {
+  min-width: 165px;
+  margin: 10px;
 }
 
 #link-delete {
