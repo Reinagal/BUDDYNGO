@@ -8,17 +8,17 @@
   <div class="modal-body">
     <div class="container">
       <div class="row">
-        <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
           <h4>Choose your themes </h4>
           <%= simple_form_for(Choice.new, url: choices_path(@poll), method: :post, remote: true) do |f| %>
             <div class="theme-choices">
               <div class="row">
               <% Theme.all.each do |theme| %>
-                <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="col-xs-12 col-sm-6">
                   <div class="theme-choice">
                     <input type="checkbox" class="hidden" value="<%= theme.id %>" name="event[theme_ids][]" id="event_theme_ids_<%= theme.id %>">
                     <label for="event_theme_ids_<%= theme.id %>">
-                      <%= image_tag theme.photo, class: "img-theme" %>
+                      <%= image_tag theme.photo, class: "img-theme" %><br>
                       <%= theme.name %>
                     </label>
                   </div>
