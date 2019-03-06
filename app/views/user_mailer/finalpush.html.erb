@@ -1,0 +1,10 @@
+<p>Hi <%= @guest.name %>,</p>
+
+<p><strong>"<%= @guest.event.name %>"</strong> votes are now over, your friends and you decided to go to <strong><%= @guest.event.destination.name %></strong>, from <strong><%= l(@guest.event.start_date, format: "%a %e %b") %> to </strong><strong><%= l(@guest.event.end_date, format: "%a %e %b") %></strong></p>
+
+<%= link_to recap_event_guest_answers_url(@guest.event, @guest) do %>
+  <strong>Click here for the full recap!</strong>
+<% end %>
+<p>Enjoy this trip!</p>
+<p><strong>Buddy'nGo</strong></p>
+
