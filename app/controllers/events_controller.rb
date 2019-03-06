@@ -50,18 +50,16 @@ class EventsController < ApplicationController
     @poll_budgets_value = @poll_budgets_value.join("/")
 
     # Management of the destinations
-    @event.destination_poll_outcome.each_key { |key| @poll_destinations << key }
-    @poll_destinations.map! do |choice_id|
-      Choice.find(choice_id).destination_id
+    if @poll.answers.select { |answer| !answer.destination_ranking.nil? } != []
+      @event.destination_poll_outcome.each_key { |key| @poll_destinations << key }
+      @poll_destinations.map! do |choice_id|
+        Choice.find(choice_id).destination_id
+      end
+      @poll_destinations = @poll_destinations.join("/")
+      @poll_destinations_value = []
+      @event.destination_poll_outcome.each_value { |value| @poll_destinations_value << value }
+      @poll_destinations_value = @poll_destinations_value.join("/")
     end
-    @poll_destinations.map! do |destination_id|
-      Theme.find(destination_id).name
-    end
-    @poll_destinations = @poll_destinations.join("/")
-    @poll_destinations_value = []
-    @event.destination_poll_outcome.each_value { |value| @poll_destinations_value << value }
-    @poll_destinations_value = @poll_destinations_value.join("/")
-
   end
 
   def create
