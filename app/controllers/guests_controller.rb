@@ -2,6 +2,7 @@ class GuestsController < ApplicationController
   def new
     @guest = Guest.new
     @event = current_user.events.last
+
     # @event = Event.find(params[:event_id])
     # @guest = @event.guests.build
   end
