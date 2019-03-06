@@ -56,6 +56,7 @@ class ChoicesController < ApplicationController
 
   def newdestinationchoices
     @poll = Poll.find(params[:poll_id])
+    @event = @poll.event
   end
 
   def destroy

@@ -1,2 +1,26 @@
-<p>coucou</p>
-<p>Event Name: <%= @poll.event.name %></p>
+<div class="container first_poll_results">
+  <h3><%= @poll.event.user.name.capitalize %>, we found you awesome <strong>"<%= @poll.event.theme.name %>"</strong> destinations where the average daily and travel costs are the closests matches to your average budget group</h3>
+
+  <h3><strong>Pick 3 to 5 destinations</strong> and click on the magic button bellow!</h3>
+
+  <!-- ligne 28, class à changer pour renvoyer vers class -> createdestinationchoices-choice-action + ds l'input, name="answer params[:answer][:destination_ids] -->
+
+  <%= simple_form_for [@poll] do |f| %>
+    <div class="list-group">
+      <% Choice.all.select { |choice| choice.poll_id == Poll.find_by(event_id: @event.id).id && choice.choice_type == "destination"}.each do |choice| %>
+        <input type="checkbox" class="hidden list-group-item choice-date" value="<%= choice.id %>" name="answer[chosen_date_ids][]" id="post_category_ids_<%= choice.id %>">
+        <label class="list-group-item choice-date" for="post_category_ids_<%= choice.id %>">
+          <%= render 'choices/cards', destinations: Destination.where(theme_id: @event.theme_id) %>
+        </label>
+      <% end %>
+    </div>
+
+
+    </br>
+
+    <div class="createdestinationchoices-choice-action">
+      <%= f.submit "Submit your choices", id: "dirty-button1", class: "btn-action-black-green" %>
+    </div>
+  <% end %>
+</div>
+
