@@ -9,6 +9,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @events = Event.all
     @event = Event.find(params[:id])
     @poll = Poll.find_by(event_id: params[:id])
 
@@ -18,10 +19,11 @@ class EventsController < ApplicationController
     @poll_budgets = []
     @poll_destinations = []
 
+
     # Management of the dates
     @event.date_poll_outcome.each_key { |key| @poll_dates << key }
     @poll_dates.map! do |choice_id|
-      "#{Choice.find(choice_id).start_date} #{Choice.find(choice_id).end_date}"
+      "#{l(Choice.find(choice_id).start_date, format: "%a %e %b")} - #{l(Choice.find(choice_id).end_date, format: "%a %e %b")}"
     end
     @poll_dates = @poll_dates.join("/")
     @poll_dates_value = []
@@ -54,6 +56,9 @@ class EventsController < ApplicationController
       @event.destination_poll_outcome.each_key { |key| @poll_destinations << key }
       @poll_destinations.map! do |choice_id|
         Choice.find(choice_id).destination_id
+      end
+      @poll_destinations.map! do |destination_id|
+        Destination.find(destination_id).name
       end
       @poll_destinations = @poll_destinations.join("/")
       @poll_destinations_value = []
@@ -102,6 +107,7 @@ class EventsController < ApplicationController
       @event.step = 3
       @event.save
       redirect_to event_path(@event)
+      # send SMS and email 3:
       @event.guests.each do |guest|
         UserMailer.finalpush(guest).deliver_now unless guest.email.nil? || guest.email == ""
         SendFinalSms.new(guest).call unless guest.phone_number.nil? || guest.phone_number == ""

@@ -17,10 +17,14 @@
       <div class="dropdown">
         <a href="", class: "navbar-wagon-item navbar-wagon-link", id: "navbar-wagon-menu", data-toggle="dropdown">My events</a>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <% @events.select { |event| event.user == current_user }.each do |event| %>
-            <li>
-              <%= link_to event.name, event_path(event) %>
-            </li>
+          <% if !Event.all.select { |event| event.user == current_user }.nil? %>
+            <% Event.all.select { |event| event.user == current_user }.each do |event| %>
+              <li>
+                <%= link_to event.name, event_path(event) %>
+              </li>
+            <% end %>
+          <% else %>
+            <li> You have no event </li>
           <% end %>
         </ul>
       </div>
