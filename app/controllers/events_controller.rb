@@ -78,6 +78,12 @@ class EventsController < ApplicationController
     end
   end
 
+  def finish_guest_invits
+    @event = Event.find(params[:event_id])
+    raise
+    redirect_to event_path(@event)
+  end
+
   def update
     @event = Event.find(params[:id])
     @poll = Poll.find_by(event_id: @event.id)

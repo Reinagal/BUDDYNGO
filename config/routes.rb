@@ -4,10 +4,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :events do
+    member do
+      patch :finish_guest_invits
+    end
     resources :guests do #, [:new, :create]
       resources :answers do
         collection do
-          get 'recap'
+          get :recap
         end
       end
     end
@@ -18,13 +21,13 @@ Rails.application.routes.draw do
   resources :polls do
     resources :choices, only: [:create] do
       collection do                       # collection => no restaurant id in URL
-        post 'createthemeschoices'                                 # RestaurantsController#top
+        post :createthemeschoices                                 # RestaurantsController#top
       end
       collection do
         post :create_destination_choices
       end
       collection do
-        get 'newdestinationchoices'
+        get :newdestinationchoices
       end
     end
   end
