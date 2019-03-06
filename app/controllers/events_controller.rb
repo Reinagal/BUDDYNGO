@@ -50,18 +50,16 @@ class EventsController < ApplicationController
     @poll_budgets_value = @poll_budgets_value.join("/")
 
     # Management of the destinations
-    @event.destination_poll_outcome.each_key { |key| @poll_destinations << key }
-    @poll_destinations.map! do |choice_id|
-      Choice.find(choice_id).destination_id
+    if @poll.answers.select { |answer| !answer.destination_ranking.nil? } != []
+      @event.destination_poll_outcome.each_key { |key| @poll_destinations << key }
+      @poll_destinations.map! do |choice_id|
+        Choice.find(choice_id).destination_id
+      end
+      @poll_destinations = @poll_destinations.join("/")
+      @poll_destinations_value = []
+      @event.destination_poll_outcome.each_value { |value| @poll_destinations_value << value }
+      @poll_destinations_value = @poll_destinations_value.join("/")
     end
-    @poll_destinations.map! do |destination_id|
-      Theme.find(destination_id).name
-    end
-    @poll_destinations = @poll_destinations.join("/")
-    @poll_destinations_value = []
-    @event.destination_poll_outcome.each_value { |value| @poll_destinations_value << value }
-    @poll_destinations_value = @poll_destinations_value.join("/")
-
   end
 
   def create
@@ -76,6 +74,17 @@ class EventsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def finish_guest_invits
+    @event = Event.find(params[:id])
+    @event.guests.each do |guest|
+      UserMailer.votepush(guest).deliver_now unless guest.email.nil? || guest.email == ""
+      unless guest.phone_number.nil? || guest.phone_number == ""
+        SendSmsService.new(guest).call
+      end
+    end
+    redirect_to event_path(@event)
   end
 
   def update
@@ -105,3 +114,20 @@ class EventsController < ApplicationController
     params.require(:event).permit(:name, :description, :theme, :start_date, :end_date, :step, :destination, :budget)
   end
 end
+
+
+ # def email_vote_link
+ #    UserMailer.votepush(self).deliver_now
+ #  end
+
+ #  def email_vote_2_link
+ #    UserMailer.votepush2(self).deliver_now
+ #  end
+
+ #  def sms_vote_link
+ #    SendSmsService.new(self).call
+ #  end
+
+ #  def sms_vote_2_link
+ #    SendSecondSms.new(self).call
+ #  end
