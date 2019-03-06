@@ -4,4 +4,9 @@
 
 body {
   background-color: $light-gray;
+  padding: 0 !important;
+}
+
+.container {
+  width: 100%;
 }

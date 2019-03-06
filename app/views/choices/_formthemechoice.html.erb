@@ -8,28 +8,24 @@
 
   <div class="modal-body">
     <div class="container">
-      <div class="row">
-       <div class="col-xs-12 col-sm-6">
-         <%= simple_form_for(Choice.new, url: createthemeschoices_poll_choices_path(@poll), method: :post, remote: true) do |f| %>
-           <div class="theme-choices">
-             <div class="row">
-               <% Theme.all.each do |theme| %>
-                 <div class="col-xs-12 col-sm-5 col-sm-offset-1">
-                   <input type="checkbox" class="hidden" value="<%= theme.id %>" name="theme_ids[]" id="theme_id_<%= theme.id %>">
-                   <label class="theme-choice" for="theme_id_<%= theme.id %>" >
-                     <%= image_tag theme.photo, class: "img-theme" %>
-                     <%= theme.name %>
-                   </label>
-                 </div>
-               <% end %>
-             </div>
+       <%= simple_form_for(Choice.new, url: createthemeschoices_poll_choices_path(@poll), method: :post, remote: true) do |f| %>
+         <div class="theme-choices">
+           <div class="row">
+             <% Theme.all.each do |theme| %>
+               <div class="col-xs-12 col-sm-6">
+                 <input type="checkbox" class="hidden" value="<%= theme.id %>" name="theme_ids[]" id="theme_id_<%= theme.id %>">
+                 <label class="theme-choice" for="theme_id_<%= theme.id %>" >
+                   <%= image_tag theme.photo, class: "img-theme" %>
+                   <%= theme.name %>
+                 </label>
+               </div>
+             <% end %>
            </div>
-           <div class="form-actions">
-             <%= f.button :submit, "Next step", class: "btn btn-action" %>
-           </div>
-         <% end %>
-       </div>
-     </div>
+         </div>
+         <div class="form-actions">
+           <%= f.button :submit, "Next step", class: "btn btn-action" %>
+         </div>
+       <% end %>
     </div>
   </div>
 
