@@ -63,7 +63,7 @@
   </div>
   <div class="row">
     <div class="col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-3">
-      <div class="btn-close"><%= link_to "Close the vote & generate destination", event_path(@event), method: 'patch' %></div>
+      <div class="btn-close"><%= link_to "Close the vote & generate destinations", event_path(@event), method: 'patch' %></div>
     </div>
   </div>
   <% elsif event.step == 2 %>
@@ -143,4 +143,6 @@
   <% else %>
     <p>Your event in close</p>
   <% end %>
+  <div class="btn-close" id="spinnerbtn" data-event_id='<%= @event.id %>'>spinner test</div>
 </div>
+<%= render 'spinner'  %>

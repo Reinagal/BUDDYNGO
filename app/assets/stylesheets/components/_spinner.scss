@@ -82,3 +82,14 @@
     transform: rotate(360deg);
   }
 }
+.spinner-hidden{
+  position: absolute;
+  top:0;
+  opacity: 0;
+}
+
+#textspinner {
+  font-family: $citation-font;
+  color: $dark-green;
+  font-size: 30px;
+}
