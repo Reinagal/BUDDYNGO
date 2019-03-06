@@ -78,11 +78,10 @@ class EventsController < ApplicationController
 
   def finish_guest_invits
     @event = Event.find(params[:id])
+    # SMS and email send 1 :
     @event.guests.each do |guest|
       UserMailer.votepush(guest).deliver_now unless guest.email.nil? || guest.email == ""
-      unless guest.phone_number.nil? || guest.phone_number == ""
-        SendSmsService.new(guest).call
-      end
+      SendSmsService.new(guest).call unless guest.phone_number.nil? || guest.phone_number == ""
     end
     redirect_to event_path(@event)
   end
@@ -114,20 +113,3 @@ class EventsController < ApplicationController
     params.require(:event).permit(:name, :description, :theme, :start_date, :end_date, :step, :destination, :budget)
   end
 end
-
-
- # def email_vote_link
- #    UserMailer.votepush(self).deliver_now
- #  end
-
- #  def email_vote_2_link
- #    UserMailer.votepush2(self).deliver_now
- #  end
-
- #  def sms_vote_link
- #    SendSmsService.new(self).call
- #  end
-
- #  def sms_vote_2_link
- #    SendSecondSms.new(self).call
- #  end
