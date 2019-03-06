@@ -10,21 +10,21 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <a href="" class="navbar-wagon-item navbar-wagon-link" data-toggle="modal" data-target="#modalNewEvent">
+      <a href="" class="navbar-wagon-item navbar-wagon-link sign-up-navbar" data-toggle="modal" data-target="#modalNewEvent">
         New trip
       </a>
 
       <div class="dropdown">
-        <a href="", class: "navbar-wagon-item navbar-wagon-link", id: "navbar-wagon-menu", data-toggle="dropdown">My events</a>
+        <a href="", class: "navbar-wagon-item navbar-wagon-link sign-up-navbar", id: "navbar-wagon-menu", data-toggle="dropdown">My events</a>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <% if !Event.all.select { |event| event.user == current_user }.nil? %>
+          <% if Event.all.select { |event| event.user_id == current_user.id } != [] %>
             <% Event.all.select { |event| event.user == current_user }.each do |event| %>
               <li>
                 <%= link_to event.name, event_path(event) %>
               </li>
             <% end %>
           <% else %>
-            <li> You have no event </li>
+            <li><a href="" class="navbar-wagon-item navbar-wagon-link" data-toggle="modal" data-target="#modalNewEvent">Want to create an event ?</a></li>
           <% end %>
         </ul>
       </div>

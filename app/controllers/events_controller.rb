@@ -79,7 +79,7 @@ class EventsController < ApplicationController
         format.html { redirect_to root_path }
       end
     else
-      render :new
+      render format.js
     end
     # User as a guest too :
   end

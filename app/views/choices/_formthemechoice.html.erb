@@ -12,7 +12,7 @@
          <div class="theme-choices">
            <div class="row">
              <% Theme.all.each do |theme| %>
-               <div class="col-xs-12 col-sm-6">
+               <div class="col-xs-6 col-sm-4">
                  <input type="checkbox" class="hidden" value="<%= theme.id %>" name="theme_ids[]" id="theme_id_<%= theme.id %>">
                  <label class="theme-choice" for="theme_id_<%= theme.id %>" >
                    <%= image_tag theme.photo, class: "img-theme" %>

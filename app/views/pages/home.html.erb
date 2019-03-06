@@ -19,10 +19,19 @@
         <p>Get automatically the best dates compromise and destinations ideas based on your friends feedbacks!</p>
       </div>
     </div>
-    <a href="" class="btn btn-action" data-toggle="modal" data-target="#modalNewEvent">
+    <% if user_signed_in? %>
+      <a href="" class="btn btn-action" data-toggle="modal" data-target="#modalNewEvent">
         Plan your next trip
       </a>
+    <% else %>
+      <a href="" class="btn btn-action" data-toggle="modal" data-target="#modalLoginForm">
+        Plan your next trip
+      </a>
+    <% end %>
     <br>
     <br>
   </div>
 </div>
+
+<%= render 'events/formnewevent' %>
+<%= render 'users/loginform' %>

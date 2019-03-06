@@ -13,8 +13,10 @@
           <%= simple_form_for(Choice.new, url: poll_choices_path(@poll), method: :post, remote: true) do |f| %>
             <%= f.input :start_date, as: :string, required: false, input_html: { id: "range_start" } %>
             <%= f.input :end_date, as: :string, required: false, input_html: { id: "range_end" } %>
-            <%= f.button :submit, "Add dates", class: "btn btn-action" %>
-            <%= link_to "Next step", new_event_guest_path(@event), class: "btn btn-action-black-green disabled", remote: true %>
+            <div class="text-center">
+              <%= f.button :submit, "Add dates", class: "btn btn-action" %>
+              <%= link_to "Next step", new_event_guest_path(@event), class: "btn btn-action-black-green disabled", remote: true %>
+            </div>
           <% end %>
         </div>
       </div>

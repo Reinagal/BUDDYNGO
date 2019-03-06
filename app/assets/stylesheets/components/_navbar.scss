@@ -24,7 +24,7 @@
 
 /* Logo */
 .navbar-wagon-brand img {
-  height: 50px;
+  height: 55px;
 }
 
 /* User Avatar */
@@ -110,24 +110,33 @@
   font-size: 16px;
 }
 
-.dropdown-open a {
-  color: #999999 !important;
+.dropdown-menu > li > a {
+  font-size: 18px !important;
+  font-family: $citation-font !important;
+  font-weight: lighter !important;
 }
 
-.dropdown a {
+.dropdown > a {
+  font-family: $citation-font;
+  font-size: 28px;
+  font-weight: normal;
   color: white;
-  font-size: 14px;
-  margin-bottom: 5px;
   padding: 0;
   &:hover {
     text-decoration: none;
+    text-shadow: 0 0 10px rgb(50, 50, 50);
   }
-}
-
-.dropdown {
-  margin-bottom: 4px;
 }
 
 a:hover, a:active, a:focus {
   text-decoration: none;
+}
+
+.sign-up-navbar {
+  font-family: $citation-font;
+  font-size: 28px;
+  font-weight: normal;
+  &:hover {
+    text-shadow: 0 0 10px rgb(50, 50, 50);
+  }
 }

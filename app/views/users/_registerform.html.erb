@@ -34,8 +34,13 @@
                               required: true,
                               input_html: { autocomplete: "new-password" } %>
                 </div>
-                <div class="form-actions">
-                  <%= f.button :submit, "Signup", class: "btn btn-action" %>
+                <div class="btn-sign-up-login">
+                  <a href="" class="btn btn-signup-login" data-toggle="modal" data-target="#modalLoginForm" data-dismiss="modal">
+                    Login
+                  </a>
+                  <div class="form-actions">
+                    <%= f.button :submit, "Signup", class: "btn btn-action" %>
+                  </div>
                 </div>
               <% end %>
             </div>

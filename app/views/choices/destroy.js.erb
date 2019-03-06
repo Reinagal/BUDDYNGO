@@ -1,4 +1,7 @@
 <% if @choice_destroyed %>
   document.getElementById(<%= @choice_id %>).remove();
+  if( document.querySelector('.selecteddates').innerText == "") {
+    document.querySelector('.btn-action-black-green').classList.add('disabled');
+  };
 <% end %>
 
