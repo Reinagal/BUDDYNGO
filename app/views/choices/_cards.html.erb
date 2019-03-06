@@ -7,8 +7,8 @@
   <% destinations.each do |destination| %>
     <!-- Costs calculation -->
     <% total = days.to_i * destination.average_daily_cost + destination.travel_cost %>
-    <% budget = 350 %>
-    <%# budget = @event.budget %>
+    <%# budget = 350 %>
+    <% budget = @event.budget %>
     <% hash[destination.id]=(total-budget).to_i.abs %>
 
   <% end %>
@@ -19,22 +19,25 @@
   <% sorted_hash.each do |key, _value| %>
     <% destination = Destination.find(key) %>
     <% total = days.to_i * destination.average_daily_cost + destination.travel_cost %>
-      <div class="card-category">
+      <input type="checkbox" class="hidden list-group-item choice-date" value="<%= destination.id %>" name="answer[destination_ids][]" id="post_category_ids_<%= destination.id %>">
+      <label class="list-group-item choice-date" for="post_category_ids_<%= destination.id %>">
+        <div class="card-category">
 
-        <div class="card-image" style="background-image: url(<%= asset_path destination.photo %>)">
-          <ul class="list-inline">
-            <li class="list-inline-item"></li>
-          </ul>
+          <div class="card-image" style="background-image: url(<%= asset_path destination.photo %>)">
+            <ul class="list-inline">
+              <li class="list-inline-item"></li>
+            </ul>
+          </div>
+
+          <div class="card-description">
+            <h2><%= destination.name %></h2>
+            <ul class="list-inline">
+              <li class="list-inline-item">Average global cost: <i class="fas fa-euro-sign"></i>&nbsp;<strong><%= number_with_delimiter(total.to_i, separator: " ") %></strong>/per person <br><em>(travel costs estimates included)</em></li>
+            </ul>
+          </div>
+
         </div>
-
-        <div class="card-description">
-          <h2><%= destination.name %></h2>
-          <ul class="list-inline">
-            <li class="list-inline-item">Average global cost: <i class="fas fa-euro-sign"></i>&nbsp;<strong><%= number_with_delimiter(total.to_i, separator: " ") %></strong>/per person <br><em>(travel costs estimates included)</em></li>
-          </ul>
-        </div>
-
-      </div>
+      </label>
   <% end %>
 
 </div>
