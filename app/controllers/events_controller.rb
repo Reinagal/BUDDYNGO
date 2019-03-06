@@ -61,6 +61,7 @@ class EventsController < ApplicationController
     @poll_destinations_value = []
     @event.destination_poll_outcome.each_value { |value| @poll_destinations_value << value }
     @poll_destinations_value = @poll_destinations_value.join("/")
+
   end
 
   def create

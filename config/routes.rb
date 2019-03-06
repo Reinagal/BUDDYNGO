@@ -21,7 +21,7 @@ Rails.application.routes.draw do
         post 'createthemeschoices'                                 # RestaurantsController#top
       end
       collection do
-        post 'createdestinationchoices'
+        post :create_destination_choices
       end
       collection do
         get 'newdestinationchoices'
