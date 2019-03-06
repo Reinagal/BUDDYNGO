@@ -136,9 +136,13 @@ function initChart4 () {
                 'rgba(58, 175, 169, 0.2)',
                 'rgba(58, 175, 169, 0.2)',
                 'rgba(58, 175, 169, 0.2)',
+                'rgba(58, 175, 169, 0.2)',
+                'rgba(58, 175, 169, 0.2)',
                 'rgba(58, 175, 169, 0.2)'
             ],
             borderColor: [
+                'rgba(43, 122, 120, 1)',
+                'rgba(43, 122, 120, 1)',
                 'rgba(43, 122, 120, 1)',
                 'rgba(43, 122, 120, 1)',
                 'rgba(43, 122, 120, 1)',
@@ -150,7 +154,7 @@ function initChart4 () {
     options: {
       legend:false,
         scales: {
-            yAxes: [{
+            xAxes: [{
                 ticks: {
                     beginAtZero:true
                 }

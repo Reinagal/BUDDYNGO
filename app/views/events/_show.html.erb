@@ -1,5 +1,4 @@
 <div class="container-fluid dashboard">
-  <h1 class="text-center" id="nameEvent"><%= event.name %></h1>
   <% if event.step == 1 %>
   <div class="row steps">
     <br>
@@ -19,44 +18,47 @@
       </div>
     </div>
   </div>
+  <h1 class="text-center" id="nameEvent"><%= event.name %></h1>
   <div class="row core-dashboard">
     <div class="col-xs-12 col-sm-3 guests-dashboard">
-      <p class="titledash">Guests list</p>
-      <ul class="list-inline boutonremind">
-        <li class="reminder btn-action-black-green">Reminder by Email</li>
-        <li class="reminder btn-action-black-green">Reminder by Phone</li>
-      </ul>
-      <% @event.guests.each do |guest| %>
-        <ul class="list-inline status-guest-list">
-          <li><%= guest.name %></li>
-          <% if guest.status == 0 %>
-            <li class="status-pending"><%= "Pending"  %></li>
-          <% elsif guest.status == 1 %>
-            <li class="status-voted"><%= "Voted" %></li>
-          <% end %>
-        </ul>
-      <% end %>
+      <h1 class="maintitle">Guests list</h1>
+      <div class="guestborder">
+        <% @event.guests.each do |guest| %>
+          <ul class="list-inline status-guest-list">
+            <li><%= guest.name %></li>
+            <% if guest.status == 0 %>
+              <li class="status-pending"><%= "Pending"  %></li>
+            <% elsif guest.status == 1 %>
+              <li class="status-voted"><%= "Voted" %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
     </div>
     <div class="col-xs-12 col-sm-9 votes-dashboard">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 date-vote">
-          <p class="titledash">Dates votes</p>
-          <canvas id="myChart" width="400" height="200"
-            data-dates= "<%= @poll_dates_value %>"
-            data-labels= "<%= @poll_dates %>" ></canvas>
+    <h1 class="maintitle">Statistics</h1>
+      <div class="statisticborder">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 date-vote">
+            <p class="titledash">Dates votes</p>
+            <canvas id="myChart" width="400" height="160"
+              data-dates= "<%= @poll_dates_value %>"
+              data-labels= "<%= @poll_dates %>" ></canvas>
+          </div>
+          <div class="col-xs-12 col-sm-6 theme-vote">
+            <p class="titledash">Themes votes</p>
+            <canvas id="myChart2" width="400" height="160"
+              data-themes= "<%= @poll_themes_value %>"
+              data-labels= "<%= @poll_themes %>" ></canvas>
+          </div>
         </div>
-        <div class="col-xs-12 col-sm-6 theme-vote">
-          <p class="titledash">Themes votes</p>
-          <canvas id="myChart2" width="400" height="200"
-            data-themes= "<%= @poll_themes_value %>"
-            data-labels= "<%= @poll_themes %>" ></canvas>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 budget-vote">
-          <canvas id="myChart3" width="200" height="60"
-          data-budgets="<%= @poll_budgets_value %>"
-          data-labels= "<%= @poll_budgets %>" ></canvas>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 budget-vote">
+            <p class="titledash">Budgets</p>
+            <canvas id="myChart3" width="200" height="40"
+            data-budgets="<%= @poll_budgets_value %>"
+            data-labels= "<%= @poll_budgets %>" ></canvas>
+          </div>
         </div>
       </div>
     </div>
@@ -85,28 +87,29 @@
       </div>
     </div>
   </div>
+  <h1 class="text-center" id="nameEvent"><%= event.name %></h1>
   <div class="row core-dashboard">
     <div class="col-xs-12 col-sm-3 guests-dashboard">
-      <p class="titledash">Guests list</p>
-      <ul class="list-inline boutonremind">
-        <li class="reminder btn-action-black-green">Reminder by Email</li>
-        <li class="reminder btn-action-black-green">Reminder by Phone</li>
-      </ul>
-      <% @event.guests.each do |guest| %>
-        <ul class="list-inline status-guest-list">
-          <li><%= guest.name %></li>
-          <% if guest.status == 1 %>
-            <li class="status-pending"><%= "Pending"  %></li>
-          <% elsif guest.status == 2 %>
-            <li class="status-voted"><%= "Voted" %></li>
-          <% end %>
-        </ul>
-      <% end %>
+
+      <h1 class="maintitle">Guests list</h1>
+      <div class="guestborder">
+        <% @event.guests.each do |guest| %>
+          <ul class="list-inline status-guest-list">
+            <li><%= guest.name %></li>
+            <% if guest.status == 1 %>
+              <li class="status-pending"><%= "Pending"  %></li>
+            <% elsif guest.status == 2 %>
+              <li class="status-voted"><%= "Voted" %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+
     </div>
     <div class="col-xs-12 col-sm-9 votes-dashboard">
       <div class="row">
         <div class="col-xs-12 col-sm-6 summary">
-
+          <h1 class="maintitle">Event summary</h1>
             <ul class="text-center summarycont">
               <h6>Date:</h6>
               <li class = "list-unstyled"><%= l(@event.start_date, format: "%b %d, %Y") %> - <%= l(@event.end_date, format: "%b %d, %Y") %></li>
@@ -119,10 +122,13 @@
 
         </div>
         <div class="col-xs-12 col-sm-6 destination-vote">
-          <p class="titledash">Destination votes</p>
-          <canvas id="myChart4" width="200" height="150"
-          data-destinations="<%= @poll_destinations_value %>"
-          data-labels= "<%= @poll_destinations %>" ></canvas>
+          <h1 class="maintitle">Statistics</h1>
+          <div class="statisticborder">
+            <p class="titledash">Destination votes</p>
+            <canvas id="myChart4" width="200" height="170"
+            data-destinations="<%= @poll_destinations_value %>"
+            data-labels= "<%= @poll_destinations %>" ></canvas>
+          </div>
         </div>
       </div>
     </div>
@@ -150,18 +156,59 @@
       </div>
     </div>
   </div>
-  <div class="summarycont">
-    <h5 class="text-center destsentence"><%= @event.destination.name %> here we come!!!</h5>
-    <br>
-    <p class="text-center"> please find below a recap of our incoming trip</p>
-      <ul class="text-center">
-        <h6>Dates:</h6>
-        <li class = "list-unstyled"><%= l(@event.start_date, format: "%b %d, %Y") %> - <%= l(@event.end_date, format: "%b %d, %Y") %></li>
-        <h6>Destination:</h6>
-        <li class = "list-unstyled"><%= @event.destination.name %></li>
-        <h6>Estimated budget:</h6>
-        <li class = "list-unstyled"><%= @event.budget %>€</li>
+  <h1 class="text-center" id="nameEvent"><%= event.name %></h1>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="summarycont">
+        <h5 class="text-center destsentence"><%= @event.destination.name %> here we come!!!</h5>
+        <br>
+        <p class="text-center"> please find below a recap of our incoming trip</p>
+          <ul class="text-center">
+            <h6>Dates:</h6>
+            <li class = "list-unstyled"><%= l(@event.start_date, format: "%b %d, %Y") %> - <%= l(@event.end_date, format: "%b %d, %Y") %></li>
+            <h6>Destination:</h6>
+            <li class = "list-unstyled"><%= @event.destination.name %></li>
+            <h6>Estimated budget:</h6>
+            <li class = "list-unstyled"><%= @event.budget %>€</li>
+          </ul>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <h1>For your trip</h1>
+      <h2>Transport</h2>
+      <ul class="list-inline">
+        <li class="list-unstyled">
+          <%= link_to("https://www.trainline.fr/") do %>
+          <%= image_tag("logotrainline.png", height: 50)  %>
+          <% end %></li>
+          <li  class="list-unstyled">
+            <%= link_to("https://www.skyscanner.fr/") do %>
+            <%= image_tag("logoskyscanner.png", height: 100)  %>
+            <% end %></li>
       </ul>
+      <h2>Accomodation</h2>
+      <ul class="list-inline">
+        <li class="list-unstyled">
+          <%= link_to("https://www.airbnb.fr/") do %>
+          <%= image_tag("logoairbnb.png", height: 50)  %>
+          <% end %></li>
+        <li class="list-unstyled">
+          <%= link_to("https://www.booking.com/index.fr.html") do %>
+          <%= image_tag("logobooking.png", height: 100)  %>
+          <% end %></li>
+      </ul>
+      <h2 class="text-center">Budget</h2>
+      <ul class="list-inline text-center">
+        <li class="list-unstyled">
+        <%= link_to("https://www.leetchi.com") do %>
+        <%= image_tag("logoleetchi.png", height: 100)  %>
+        <% end %></li>
+        <li class="list-unstyled">
+        <%= link_to("https://www.tricount.com/fr/faire-les-comptes-entre-amis") do %>
+        <%= image_tag("logotricount.png", height: 100)  %>
+        <% end %></li>
+      </ul>
+    </div>
   </div>
   <% else %>
     <p>Your event in close</p>

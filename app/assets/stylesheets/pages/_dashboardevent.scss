@@ -325,7 +325,7 @@
 
 .btn-close {
   color: white;
-  background-color: #17252A;
+  background-color: $black-green;
   text-align: center;
   border-radius: 5px;
   padding: 5px 15px;
@@ -357,10 +357,6 @@
   font-family: $citation-font;
 }
 
-.reminder {
-  margin-top: 10px;
-}
-
 .steps {
   margin-bottom: 10px;
 }
@@ -378,11 +374,11 @@
 
 .summarycont {
   background-color: $light-green;
-  margin: 20px;
   border-radius: 5px;
   padding-left: 0px;
-  padding-top: 20px;
-  padding-bottom:20px;
+  padding-top: 50px;
+  height: 500px;
+  margin: 10px;
 }
 
 .mini-img-theme {
@@ -401,5 +397,24 @@
 .summarycont h6 {
   color: $dark-green;
   font-size: 28px;
+  font-family: $citation-font;
+}
+
+.guestborder {
+  border: 2px solid $light-green;
+  border-radius: 5px;
+  padding: 10px;
+  height: 500px;
+}
+
+.statisticborder {
+  border: 2px solid $light-green;
+  border-radius: 5px;
+  padding: 10px;
+  height: 500px;
+}
+.maintitle {
+  color: $dark-green;
+  font-size: 38px;
   font-family: $citation-font;
 }
