@@ -148,6 +148,7 @@ function initChart4 () {
         }]
     },
     options: {
+      legend:false,
         scales: {
             yAxes: [{
                 ticks: {
