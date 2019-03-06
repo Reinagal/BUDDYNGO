@@ -71,6 +71,8 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
     @event.user = current_user
     @poll = Poll.new(event: @event)
+    @guest_user = Guest.new(event: @event, email: @event.user.email, name: @event.user.name, phone_number: @event.user.phone_number)
+    @guest_user.save
     if @event.save && @poll.save
       respond_to do |format|
         format.js
@@ -79,6 +81,7 @@ class EventsController < ApplicationController
     else
       render :new
     end
+    # User as a guest too :
   end
 
   def finish_guest_invits
