@@ -102,6 +102,10 @@ class EventsController < ApplicationController
       @event.step = 3
       @event.save
       redirect_to event_path(@event)
+      @event.guests.each do |guest|
+        UserMailer.finalpush(guest).deliver_now unless guest.email.nil? || guest.email == ""
+        SendFinalSms.new(guest).call unless guest.phone_number.nil? || guest.phone_number == ""
+      end
     else
       redirect_to root_path
     end
