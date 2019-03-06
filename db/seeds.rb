@@ -37,32 +37,32 @@ countryside = Theme.create!(name:"Escape in Regions", photo:"countryscape.png")
 ski = Theme.create!(name:"Ski Trip", photo:"mountainscape.png")
 sea = Theme.create!(name:"Sea, Sex & Sun", photo:"beachscape.png")
 
-puts "Creating events...."
-evg = Event.create!(name: "Ben's bucks party weekend!", description: "As you know Ben is getting married in June. Let's have some fun beforehand...", user: flo)
-vac = Event.create!(name: "Vacances été 2019", description: "Sapiens prudentior post Africani de est quam me ab gloria Laelius a putes te libro senectute tota est loquetur fere de mortem prudentior his est mortem gloria et amicitiae de.", user: nico)
-pont = Event.create!(name: "Pont de mai 2019", description: "Sapiens prudentior post Africani de est quam me ab gloria Laelius a putes te libro senectute tota est loquetur fere de mortem prudentior his est mortem gloria et amicitiae de.", user: flo)
-lesmemes = Event.create!(name: "On prend les mêmes et on recommence", description: "Sapiens prudentior post Africani de est quam me ab gloria Laelius a putes te libro senectute tota est loquetur fere de mortem prudentior his est mortem gloria et amicitiae de.", user: nico)
+# puts "Creating events...."
+# evg = Event.create!(name: "Ben's bucks party weekend!", description: "As you know Ben is getting married in June. Let's have some fun beforehand...", user: flo)
+# vac = Event.create!(name: "Vacances été 2019", description: "Sapiens prudentior post Africani de est quam me ab gloria Laelius a putes te libro senectute tota est loquetur fere de mortem prudentior his est mortem gloria et amicitiae de.", user: nico)
+# pont = Event.create!(name: "Pont de mai 2019", description: "Sapiens prudentior post Africani de est quam me ab gloria Laelius a putes te libro senectute tota est loquetur fere de mortem prudentior his est mortem gloria et amicitiae de.", user: flo)
+# lesmemes = Event.create!(name: "On prend les mêmes et on recommence", description: "Sapiens prudentior post Africani de est quam me ab gloria Laelius a putes te libro senectute tota est loquetur fere de mortem prudentior his est mortem gloria et amicitiae de.", user: nico)
 
-puts "Creating guests...."
-a = Guest.create!(event: evg, email:"flo@yopmail.com", name: "Florent")
-b = Guest.create!(event: evg, email:"guigui@yopmail.com", name: "Guillaume")
-c = Guest.create!(event: evg, email:"olive@yopmail.com", name: "Olivier")
-d = Guest.create!(event: evg, email:"bob@yopmail.com", name: "Bob")
-e = Guest.create!(event: evg, email:"nico@yopmail.com", name: "Nicolas")
-f = Guest.create!(event: evg, email:"leo@yopmail.com", name: "Leo")
-g = Guest.create!(event: evg, email:"joe@yopmail.com", name: "Joe")
-h = Guest.create!(event: evg, email:"michel@yopmail.com", name: "Michel")
-i = Guest.create!(event: pont, email:"flo@yopmail.com", name: "Florent")
-j = Guest.create!(event: pont, email:"emma@yopmail.com", name: "Emma")
-k = Guest.create!(event: pont, email:"sara@yopmail.com", name: "Sara")
-l = Guest.create!(event: lesmemes, email:"nico@yopmail.com", name: "Nico")
-m = Guest.create!(event: lesmemes, email:"julien@yopmail.com", name: "Julien")
-n = Guest.create!(event: lesmemes, email:"chloe@yopmail.com", name: "Chloe")
-o = Guest.create!(event: lesmemes, email:"megan@yopmail.com", name: "Megan")
-q = Guest.create!(event: lesmemes, email:"jean@yopmail.com", name: "Jean")
-r = Guest.create!(event: lesmemes, email:"peter@yopmail.com", name: "Peter")
-s =Guest.create!(event: lesmemes, email:"marjorie@yopmail.com", name: "Marjorie")
-t =Guest.create!(event: lesmemes, email:"olive@yopmail.com", name: "Olive")
+# puts "Creating guests...."
+# a = Guest.create!(event: evg, email:"flo@yopmail.com", name: "Florent")
+# b = Guest.create!(event: evg, email:"guigui@yopmail.com", name: "Guillaume")
+# c = Guest.create!(event: evg, email:"olive@yopmail.com", name: "Olivier")
+# d = Guest.create!(event: evg, email:"bob@yopmail.com", name: "Bob")
+# e = Guest.create!(event: evg, email:"nico@yopmail.com", name: "Nicolas")
+# f = Guest.create!(event: evg, email:"leo@yopmail.com", name: "Leo")
+# g = Guest.create!(event: evg, email:"joe@yopmail.com", name: "Joe")
+# h = Guest.create!(event: evg, email:"michel@yopmail.com", name: "Michel")
+# i = Guest.create!(event: pont, email:"flo@yopmail.com", name: "Florent")
+# j = Guest.create!(event: pont, email:"emma@yopmail.com", name: "Emma")
+# k = Guest.create!(event: pont, email:"sara@yopmail.com", name: "Sara")
+# l = Guest.create!(event: lesmemes, email:"nico@yopmail.com", name: "Nico")
+# m = Guest.create!(event: lesmemes, email:"julien@yopmail.com", name: "Julien")
+# n = Guest.create!(event: lesmemes, email:"chloe@yopmail.com", name: "Chloe")
+# o = Guest.create!(event: lesmemes, email:"megan@yopmail.com", name: "Megan")
+# q = Guest.create!(event: lesmemes, email:"jean@yopmail.com", name: "Jean")
+# r = Guest.create!(event: lesmemes, email:"peter@yopmail.com", name: "Peter")
+# s =Guest.create!(event: lesmemes, email:"marjorie@yopmail.com", name: "Marjorie")
+# t =Guest.create!(event: lesmemes, email:"olive@yopmail.com", name: "Olive")
 
 puts "Creating destinations...."
 london = Destination.create!(name: "London", theme: town, photo: "town.jpg", average_daily_cost: 107, travel_cost: 96)
@@ -109,58 +109,61 @@ manche = Destination.create!(name: "La Manche", theme: countryside, photo: "coun
 vosges = Destination.create!(name: "Les Vosges", theme: countryside, photo: "countryside.jpg", average_daily_cost: 60, travel_cost: 100)
 cote_dor = Destination.create!(name: "La Côte-d'Or", theme: countryside, photo: "countryside.jpg", average_daily_cost: 60, travel_cost: 110)
 
-puts "Creating polls...."
+# puts "Creating polls...."
 
-poll1 = Poll.create!(deadline: "Fri, 01 Mar 2019",event: evg)
-poll2 = Poll.create!(deadline: "Fri, 01 Mar 2020",event: lesmemes)
+# poll1 = Poll.create!(deadline: "Fri, 01 Mar 2019",event: evg)
+# poll2 = Poll.create!(deadline: "Fri, 01 Mar 2020",event: lesmemes)
 
-puts "Creating choices...."
-choice1 = Choice.create!(poll: poll1, choice_type: "theme",theme: town)
-choice2 = Choice.create!(poll: poll1, choice_type: "theme",theme: sea)
-choice3 = Choice.create!(poll: poll1, choice_type: "date",start_date: "Fri, 12 Apr 2019", end_date: "Sun, 14 Apr 2019")
-choice4 = Choice.create!(poll: poll1, choice_type: "date",start_date: "Thu, 19 Apr 2019", end_date: "Sun, 21 Apr 2019")
-choice5 = Choice.create!(poll: poll1, choice_type: "theme",theme: ski)
-choice6 = Choice.create!(poll: poll1, choice_type: "theme",theme: countryside)
-choice7 = Choice.create!(poll: poll1, choice_type: "date",start_date: "Fri, 26 Apr 2019", end_date: "Sun, 28 Apr 2019")
-choice8 = Choice.create!(poll: poll1, choice_type: "date",start_date: "Fri, 3 May 2019", end_date: "Sun, 5 May 2019")
-choice9 = Choice.create!(poll: poll1, choice_type: "date",start_date: "Fri, 10 May 2019", end_date: "Sun, 12 May 2019")
-choice10 = Choice.create!(poll: poll2, choice_type: "theme",theme: sea)
-choice11 = Choice.create!(poll: poll2, choice_type: "theme",theme: town)
-choice12 = Choice.create!(poll: poll2, choice_type: "date",start_date: "Fri, 12 Apr 2020", end_date: "Sun, 14 Apr 2020")
-choice13 = Choice.create!(poll: poll2, choice_type: "date",start_date: "Thu, 19 Apr 2020", end_date: "Sun, 21 Apr 2020")
-choice14 = Choice.create!(poll: poll2, choice_type: "theme",theme: countryside)
-choice15 = Choice.create!(poll: poll2, choice_type: "theme",theme: ski)
-choice16 = Choice.create!(poll: poll2, choice_type: "date",start_date: "Fri, 26 Apr 2020", end_date: "Sun, 28 Apr 2020")
-choice17 = Choice.create!(poll: poll2, choice_type: "date",start_date: "Fri, 3 May 2020", end_date: "Sun, 5 May 2020")
-choice18 = Choice.create!(poll: poll2, choice_type: "date",start_date: "Fri, 10 May 2020", end_date: "Sun, 12 May 2020")
+# puts "Creating choices...."
+# choice1 = Choice.create!(poll: poll1, choice_type: "theme",theme: town)
+# choice2 = Choice.create!(poll: poll1, choice_type: "theme",theme: sea)
+# choice3 = Choice.create!(poll: poll1, choice_type: "date",start_date: "Fri, 12 Apr 2019", end_date: "Sun, 14 Apr 2019")
+# choice4 = Choice.create!(poll: poll1, choice_type: "date",start_date: "Thu, 19 Apr 2019", end_date: "Sun, 21 Apr 2019")
+# choice5 = Choice.create!(poll: poll1, choice_type: "theme",theme: ski)
+# choice6 = Choice.create!(poll: poll1, choice_type: "theme",theme: countryside)
+# choice7 = Choice.create!(poll: poll1, choice_type: "date",start_date: "Fri, 26 Apr 2019", end_date: "Sun, 28 Apr 2019")
+# choice8 = Choice.create!(poll: poll1, choice_type: "date",start_date: "Fri, 3 May 2019", end_date: "Sun, 5 May 2019")
+# choice9 = Choice.create!(poll: poll1, choice_type: "date",start_date: "Fri, 10 May 2019", end_date: "Sun, 12 May 2019")
+# choice10 = Choice.create!(poll: poll2, choice_type: "theme",theme: sea)
+# choice11 = Choice.create!(poll: poll2, choice_type: "theme",theme: town)
+# choice12 = Choice.create!(poll: poll2, choice_type: "date",start_date: "Fri, 12 Apr 2020", end_date: "Sun, 14 Apr 2020")
+# choice13 = Choice.create!(poll: poll2, choice_type: "date",start_date: "Thu, 19 Apr 2020", end_date: "Sun, 21 Apr 2020")
+# choice14 = Choice.create!(poll: poll2, choice_type: "theme",theme: countryside)
+# choice15 = Choice.create!(poll: poll2, choice_type: "theme",theme: ski)
+# choice16 = Choice.create!(poll: poll2, choice_type: "date",start_date: "Fri, 26 Apr 2020", end_date: "Sun, 28 Apr 2020")
+# choice17 = Choice.create!(poll: poll2, choice_type: "date",start_date: "Fri, 3 May 2020", end_date: "Sun, 5 May 2020")
+# choice18 = Choice.create!(poll: poll2, choice_type: "date",start_date: "Fri, 10 May 2020", end_date: "Sun, 12 May 2020")
+# choice19 = Choice.create!(poll: poll2, choice_type: "destination", destination: amsterdam)
+# choice20 = Choice.create!(poll: poll2, choice_type: "destination", destination: london)
+# choice21 = Choice.create!(poll: poll2, choice_type: "destination", destination: barcelona)
 
-puts "Creating answers...."
-answer1 = Answer.create!(guest: l, poll: poll2, theme_ranking: "15,10,11,14", chosen_date: ["12", "16", "18"], budget_max: 350)
-answer2 = Answer.create!(guest: m, poll: poll2, theme_ranking: "15,10,11,14", chosen_date: ["12", "13", "16", "17", "18"], budget_max: 350)
-answer3 = Answer.create!(guest: n, poll: poll2, theme_ranking: "14,10,11,15", chosen_date: ["13", "16", "17", "18"], budget_max: 350)
-answer4 = Answer.create!(guest: o, poll: poll2, theme_ranking: "14,11,10,15", chosen_date: ["12", "18"], budget_max: 275)
-answer5 = Answer.create!(guest: q, poll: poll2, theme_ranking: "11,15,10,14", chosen_date: ["12", "13", "16", "17", "18"], budget_max: 450)
-answer6 = Answer.create!(guest: r, poll: poll2, theme_ranking: "10,11,14,15", chosen_date: ["12"], budget_max: 500)
-answer7 = Answer.create!(guest: s, poll: poll2, theme_ranking: "15,10,11,14", chosen_date: ["12", "13", "17", "18"], budget_max: 250)
-answer8 = Answer.create!(guest: t, poll: poll2, theme_ranking: "10,11,14,15", chosen_date: ["12", "13", "17", "18"], budget_max: 450)
+# puts "Creating answers...."
+# answer1 = Answer.create!(guest: l, poll: poll2, theme_ranking: "15,10,11,14", chosen_date: ["12", "16", "18"], budget_max: 350)
+# answer2 = Answer.create!(guest: m, poll: poll2, theme_ranking: "15,10,11,14", chosen_date: ["12", "13", "16", "17", "18"], budget_max: 350)
+# answer3 = Answer.create!(guest: n, poll: poll2, theme_ranking: "14,10,11,15", chosen_date: ["13", "16", "17", "18"], budget_max: 350)
+# answer4 = Answer.create!(guest: o, poll: poll2, theme_ranking: "14,11,10,15", chosen_date: ["12", "18"], budget_max: 275)
+# answer5 = Answer.create!(guest: q, poll: poll2, theme_ranking: "11,15,10,14", chosen_date: ["12", "13", "16", "17", "18"], budget_max: 450)
+# answer6 = Answer.create!(guest: r, poll: poll2, theme_ranking: "10,11,14,15", chosen_date: ["12"], budget_max: 500)
+# answer7 = Answer.create!(guest: s, poll: poll2, theme_ranking: "15,10,11,14", chosen_date: ["12", "13", "17", "18"], budget_max: 250)
+# answer8 = Answer.create!(guest: t, poll: poll2, theme_ranking: "10,11,14,15", chosen_date: ["12", "13", "17", "18"], budget_max: 450)
 
-puts "Updating status of guests...."
-l.status = 1
-m.status = 1
-n.status = 1
-o.status = 1
-q.status = 1
-r.status = 1
-s.status = 1
-t.status = 1
+# puts "Updating status of guests...."
+# l.status = 1
+# m.status = 1
+# n.status = 1
+# o.status = 1
+# q.status = 1
+# r.status = 1
+# s.status = 1
+# t.status = 1
 
-l.save
-m.save
-n.save
-o.save
-q.save
-r.save
-s.save
-t.save
+# l.save
+# m.save
+# n.save
+# o.save
+# q.save
+# r.save
+# s.save
+# t.save
 
 puts "all seeded!"
