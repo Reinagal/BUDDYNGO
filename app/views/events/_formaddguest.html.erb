@@ -9,7 +9,7 @@
     <div class="selectedguests"></div>
     <div class="container">
       <div class="row">
-        <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
           <%= simple_form_for(Guest.new, url: event_guests_path(@event), method: :post, remote: true) do |f| %>
             <div class="form-inputs">
               <%= f.input :name,

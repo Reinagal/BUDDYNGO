@@ -1,5 +1,5 @@
 <div class="carddate" id="<%= choice.id %>">
-  From <%= choice.start_date %> </br> To <%= choice.end_date %>
+  From <%= l(choice.start_date, format: "%b %d, %Y") %> </br> To <%= l(choice.end_date, format: "%b %d, %Y") %>
   <%= link_to choice_path(choice), method: :delete, id: "link-delete", remote: true do %>
     <i class="fas fa-times-circle"></i>
   <% end %>

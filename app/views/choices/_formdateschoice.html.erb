@@ -9,10 +9,10 @@
     <div class="selecteddates"></div>
     <div class="container">
       <div class="row">
-        <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
           <%= simple_form_for(Choice.new, url: poll_choices_path(@poll), method: :post, remote: true) do |f| %>
-            <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-            <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+            <%= f.input :start_date, as: :string, required: false, input_html: { id: "range_start" } %>
+            <%= f.input :end_date, as: :string, required: false, input_html: { id: "range_end" } %>
             <%= f.button :submit, "Add dates", class: "btn btn-action" %>
             <% if current_user.events.last.polls.last.choices.last.choice_type == "date" %>
               <%= link_to "Next step", new_event_guest_path(@event), class: "btn btn-action", remote: true %>

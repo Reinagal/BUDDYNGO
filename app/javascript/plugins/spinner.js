@@ -1,19 +1,21 @@
+// import $ from 'jquery';
+
 function call(){
-  $.ajax(
+  $.ajax({
     url: '/event/',
     method: 'patch',
-    data: { event_id: btn.dataSet.event_id}
+    data: { event_id: spinnerbtn.dataSet.event_id},
     dataType: 'html'
-  )
+  })
 }
 
 function showSpinner(element_id){
-  document.querySelector(element_id).addEventListener('click',(e)=>{
+  const btn = document.getElementById(element_id)
+  btn.addEventListener('click',(e)=>{
     e.preventDefault()
-    document.getElementById('spinner').classList.add('visible')
+    document.getElementById('spinner-wrapper').classList.remove('spinner-hidden')
     setTimeout(call, 2000)
   })
 }
-showSpinner('spinner')
 
-// export { showSpinner }
+export { showSpinner }
