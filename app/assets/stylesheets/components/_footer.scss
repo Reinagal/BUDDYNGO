@@ -20,3 +20,12 @@
 .footer-links a:hover {
   text-shadow: 0 0 10px rgb(100, 100, 100);
 }
+
+@media(max-width: 720px) {
+  .footer-links {
+    display: none;
+  }
+  .footer {
+    justify-content: center;
+  }
+}

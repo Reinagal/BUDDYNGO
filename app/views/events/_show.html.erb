@@ -95,9 +95,9 @@
       <% @event.guests.each do |guest| %>
         <ul class="list-inline status-guest-list">
           <li><%= guest.name %></li>
-          <% if guest.status == 0 %>
+          <% if guest.status == 1 %>
             <li class="status-pending"><%= "Pending"  %></li>
-          <% elsif guest.status == 1 %>
+          <% elsif guest.status == 2 %>
             <li class="status-voted"><%= "Voted" %></li>
           <% end %>
         </ul>

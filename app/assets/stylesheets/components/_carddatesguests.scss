@@ -15,6 +15,7 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  padding: 0 auto;
 }
 
 .selectedguests {
@@ -26,7 +27,7 @@
 #link-delete {
   position: absolute;
   top: -15px;
-  right: -13px;
+  right: -15px;
   color: #FF3A20;
   font-size: 20px;
   :hover {

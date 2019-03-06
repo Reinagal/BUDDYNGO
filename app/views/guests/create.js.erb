@@ -1,6 +1,14 @@
 function addGuests() {
   const insertGuests = document.querySelector('.selectedguests');
   insertGuests.insertAdjacentHTML('beforeend', '<%= j render "choice_guests", guest: @guest %>');
+  const btnFinish = document.querySelector('.btn-send-invit');
+  btnFinish.classList.remove('disabled');
+}
+
+function refreshForm() {
+  const form = document.getElementById('new_guest');
+  form.reset();
 }
 
 addGuests();
+refreshForm();
