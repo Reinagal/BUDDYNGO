@@ -1,13 +1,24 @@
 <div class="cards">
+  <% hash = {} %>
+  <% end_date = @event.end_date.to_i %>
+  <% start_date = @event.start_date.to_i %>
+  <% days = end_date - start_date %>
+
   <% destinations.each do |destination| %>
     <!-- Costs calculation -->
-    <% end_date = @event.end_date.to_i %>
-    <% start_date = @event.start_date.to_i %>
-    <% days = end_date - start_date %>
     <% total = days.to_i * destination.average_daily_cost + destination.travel_cost %>
-    <% min_budget = @event.budget.to_i*0.8 %>
-    <% max_budget = @event.budget.to_i*1.2 %>
-    <% if total >= min_budget #&& total <= max_budget %>
+    <% budget = 350 %>
+    <%# budget = @event.budget %>
+    <% hash[destination.id]=(total-budget).to_i.abs %>
+
+  <% end %>
+
+  <% sorted_hash = hash.sort_by{ |key ,value| value }%>
+  <% sorted_hash = sorted_hash.first(6) %>
+
+  <% sorted_hash.each do |key, _value| %>
+    <% destination = Destination.find(key) %>
+    <% total = days.to_i * destination.average_daily_cost + destination.travel_cost %>
       <div class="card-category">
 
         <div class="card-image" style="background-image: url(<%= asset_path destination.photo %>)">
@@ -24,6 +35,6 @@
         </div>
 
       </div>
-    <% end %>
   <% end %>
+
 </div>

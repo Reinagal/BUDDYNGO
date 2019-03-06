@@ -5,22 +5,22 @@
 
   <!-- ligne 28, class à changer pour renvoyer vers class -> createdestinationchoices-choice-action + ds l'input, name="answer params[:answer][:destination_ids] -->
 
-  <%= simple_form_for [@event, @guest, @answer] do |f| %>
+  <%= simple_form_for [@poll] do |f| %>
     <div class="list-group">
       <% Choice.all.select { |choice| choice.poll_id == Poll.find_by(event_id: @event.id).id && choice.choice_type == "destination"}.each do |choice| %>
-        <input type="checkbox" class="hidden list-group-item choice-date" value="<%= choice.id %>" name="answer[:answer][:destination_ids]" id="post_category_ids_<%= choice.id %>">
+        <input type="checkbox" class="hidden list-group-item choice-date" value="<%= choice.id %>" name="answer[chosen_date_ids][]" id="post_category_ids_<%= choice.id %>">
         <label class="list-group-item choice-date" for="post_category_ids_<%= choice.id %>">
           <%= render 'choices/cards', destinations: Destination.where(theme_id: @event.theme_id) %>
         </label>
       <% end %>
     </div>
 
+
     </br>
 
     <div class="createdestinationchoices-choice-action">
-      <%= f.submit "Submit your answer", id: "dirty-button1", class: "btn-action-black-green" %>
+      <%= f.submit "Submit your choices", id: "dirty-button1", class: "btn-action-black-green" %>
     </div>
   <% end %>
-
 </div>
 
