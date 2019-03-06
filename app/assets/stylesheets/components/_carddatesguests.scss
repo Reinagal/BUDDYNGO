@@ -8,16 +8,19 @@
   text-align: center;
   padding: 10px;
   position: relative;
+  margin-bottom: 10px;
 }
 
 .selecteddates {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .selectedguests {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 #link-delete {

@@ -1,7 +1,7 @@
 class Guest < ApplicationRecord
   belongs_to :event
   has_many :answers
-  after_create :email_vote_link#, :sms_vote_link
+  # after_create :email_vote_link#, :sms_vote_link
   # after_update :email_vote_2_link#, :sms_vote_2_link
 
   # validates :name, presence: true, length: { minimum: 5 }

@@ -16,6 +16,7 @@ class EventsController < ApplicationController
     @poll_dates = []
     @poll_themes = []
     @poll_budgets = []
+    @poll_destinations = []
 
     # Management of the dates
     @event.date_poll_outcome.each_key { |key| @poll_dates << key }
@@ -37,7 +38,7 @@ class EventsController < ApplicationController
     end
     @poll_themes = @poll_themes.join("/")
     @poll_themes_value = []
-    @event.date_poll_outcome.each_value { |value| @poll_themes_value << value }
+    @event.theme_poll_outcome.each_value { |value| @poll_themes_value << value }
     @poll_themes_value = @poll_themes_value.join("/")
 
     # Management of the budget
@@ -47,6 +48,20 @@ class EventsController < ApplicationController
     @poll_budgets_value = []
     @event.budget_repartition_function.sort.to_h.each_value { |value| @poll_budgets_value << value }
     @poll_budgets_value = @poll_budgets_value.join("/")
+
+    # Management of the destinations
+    @event.destination_poll_outcome.each_key { |key| @poll_destinations << key }
+    @poll_destinations.map! do |choice_id|
+      Choice.find(choice_id).destination_id
+    end
+    @poll_destinations.map! do |destination_id|
+      Theme.find(destination_id).name
+    end
+    @poll_destinations = @poll_destinations.join("/")
+    @poll_destinations_value = []
+    @event.destination_poll_outcome.each_value { |value| @poll_destinations_value << value }
+    @poll_destinations_value = @poll_destinations_value.join("/")
+
   end
 
   def create
@@ -65,6 +80,7 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
+    @poll = Poll.find_by(event_id: @event.id)
     if @event.step == 1
       @event.theme = Choice.find(@event.theme_poll_outcome.max_by { |_k, v| v }[0]).theme
       @event.start_date = Choice.find(@event.date_poll_outcome.max_by { |_k, v| v }[0]).start_date
@@ -72,7 +88,12 @@ class EventsController < ApplicationController
       @event.budget = @event.budget_poll_outcome.min_by { |k, _v| k }[0]
       @event.step = 2
       @event.save
-      redirect_to newdestinationchoices_poll_choices_path(@event.poll)
+      redirect_to newdestinationchoices_poll_choices_path(@poll)
+    elsif @event.step == 2
+      @event.destination = Choice.find(@event.destination_poll_outcome.max_by { |_k, v| v }[0]).destination
+      @event.step = 3
+      @event.save
+      redirect_to event_path(@event)
     else
       redirect_to root_path
     end
