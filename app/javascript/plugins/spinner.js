@@ -1,11 +1,15 @@
 // import $ from 'jquery';
 
 function call(){
+  const token = $( 'meta[name="csrf-token"]' ).attr( 'content' );
+
   $.ajax({
-    url: '/event/',
+    url: `/events/${spinnerbtn.dataset.event_id}`,
     method: 'patch',
-    data: { event_id: spinnerbtn.dataSet.event_id},
-    dataType: 'html'
+    dataType: 'html',
+    beforeSend: function ( xhr ) {
+      xhr.setRequestHeader( 'X-CSRF-Token', token );
+    }
   })
 }
 
@@ -19,3 +23,4 @@ function showSpinner(element_id){
 }
 
 export { showSpinner }
+// document.getElementById('spinnerbtn')
