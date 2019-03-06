@@ -118,7 +118,7 @@
   </div>
   <div class="row">
     <div class="col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-3">
-      <div class="btn-close"><%= link_to "Close the vote & send the result", event_path(@event), method: :path %></div>
+      <div class="btn-close"><%= link_to "Close the vote & send the result", event_path(@event), method: :patch %></div>
     </div>
   <% elsif event.step == 3 %>
   <div class="row steps">
@@ -141,10 +141,10 @@
   </div>
     <p>Dashboard grid step 3</p>
     <h5 class="text-center"><%= @event.destination.name %> here we come!!!</h5>
-            <p class="text-center"><% @guest.name %> please find below a recap of our incoming trip</p>
+            <p class="text-center">Please find below a recap of our incoming trip</p>
               <ul class="text-left">
                 <li class = "list-unstyled">Date: <%= @event.start_date %> - <%= @event.end_date %></li>
-                <li class = "list-unstyled">Destination: <%= @event.destinaton.name %></li>
+                <li class = "list-unstyled">Destination: <%= @event.destination.name %></li>
                 <li class = "list-unstyled">Estimated budget: <%= @event.budget %>€</li>
               </ul>
   <% else %>
