@@ -52,3 +52,14 @@
 .banner2 a {
   margin-top: 130px;
 }
+
+@media(max-width: 720px) {
+  .banner p {
+    display: none;
+  }
+
+  .banner h1 {
+    margin-bottom: 40px;
+    font-size: 30px;
+  }
+}
