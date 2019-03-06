@@ -28,6 +28,7 @@ function initChart () {
         }]
     },
     options: {
+        legend:false,
         scales: {
             xAxes: [{
                 ticks: {
@@ -67,6 +68,7 @@ function initChart2 () {
         }]
     },
     options: {
+      legend:false,
         scales: {
             xAxes: [{
                 ticks: {
@@ -106,6 +108,7 @@ function initChart3 () {
         }]
     },
     options: {
+      legend:false,
         scales: {
             yAxes: [{
                 ticks: {

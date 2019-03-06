@@ -54,7 +54,7 @@ class ChoicesController < ApplicationController
       @event.step = 2
       @event.save
     end
-    redirect_to events_path
+    redirect_to event_path(@event)
   end
 
   def newdestinationchoices

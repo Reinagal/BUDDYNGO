@@ -62,7 +62,7 @@ class Event < ApplicationRecord
   def destination_poll_outcome
     hash = initialize_hash_choices("destination")
     poll_id = Poll.find_by(event_id: id).id
-    Answer.all.select { |answer| answer.poll_id == poll_id }.each do |answer|
+    Answer.all.select { |answer| answer.poll_id == poll_id && !answer.destination_ranking.nil?}.each do |answer|
       answer.destination_ranking.split(",").each_with_index do |key, i|
         hash[key.to_i] += (hash.keys.count - i)
       end
