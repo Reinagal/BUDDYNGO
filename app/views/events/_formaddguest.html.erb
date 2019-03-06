@@ -25,9 +25,9 @@
             </div>
             <%= f.button :submit, "Add guest", class: "btn btn-action" %>
             <% if !current_user.events.last.guests.last.nil? %>
-              <%= link_to "Finish", events_path, class: "btn btn-action" %>
+              <%= link_to "Finish and send invitations", finish_guest_invits_event_path(@event), class: "btn btn-action" %>
             <% else %>
-              <%= link_to "Finish",  events_path, class: "btn btn-action" %>
+              <%= link_to "Finish and send invitations",  finish_guest_invits_event_path(@event), method: :patch, class: "btn btn-action" %>
             <% end %>
           <% end %>
         </div>
