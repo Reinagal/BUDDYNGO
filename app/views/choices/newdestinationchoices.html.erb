@@ -1,7 +1,24 @@
-<div class="container first_poll_results">
-  <h3><%= @poll.event.user.name.capitalize %>, we found you awesome <strong>"<%= @poll.event.theme.name %>"</strong> destinations where the average daily and travel costs are the closests matches to your average budget group</h3>
+<div class="container first_poll_results answer-form-1">
+  <div class="info-desti-choice">
 
-  <h3><strong>Pick up to 6 destinations</strong> and click on the magic button bellow!</h3>
+    <h1 class="text-center" id="nameEvent">
+      <%= @poll.event.name %>
+    </h1>
+    <h5 class="text-center">Regarding your friends votes :</h5>
+    <h5 class="text-center">The favorite dates are from <%= l(@poll.event.start_date, format: "%a %e %b") %> to <%= l(@poll.event.end_date, format: "%a %e %b") %></h5>
+    <img class="icon-theme-choice" src="<%= image_path @poll.event.theme.photo %>" alt="" />
+
+    <h5 class="text-center">
+      And <strong><%= @poll.event.theme.name %></strong> theme won!
+    </h5>
+    <p class="text-center">
+      <%= @poll.event.user.name.capitalize %>, we found you awesome <strong>"<%= @poll.event.theme.name %>"</strong> destinations where the average daily and travel costs are the closests matches to your average budget group
+    </p>
+
+    <p class="text-center">
+      <strong>Pick up to 6 destinations</strong> and click on the magic button bellow!
+    </p>
+  </div>
 
   <!-- ligne 28, class à changer pour renvoyer vers class -> createdestinationchoices-choice-action + ds l'input, name="answer params[:answer][:destination_ids] -->
 
@@ -11,10 +28,13 @@
     </div>
 
     </br>
-
-    <div class="create-answer-action">
-      <%= f.submit "Submit your choices and send final votes requests to your guests", id: "dirty-button1", class: "btn-action-black-green" %>
+    <div class="btn-center">
+      <div class="create-answer-action">
+        <%= f.submit "Submit your choices and send final votes requests to your guests", id: "dirty-button1", class: "btn-action-black-green" %>
+      </div>
     </div>
+
+    <br>
   <% end %>
 </div>
 
