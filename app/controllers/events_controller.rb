@@ -106,11 +106,41 @@ class EventsController < ApplicationController
       @event.budget = @event.budget_poll_outcome.min_by { |k, _v| k }[0]
       @event.step = 2
       @event.save
+      @event.guests.each do |guest|
+        if guest.answers[0].nil?
+          all_dates_id = Choice.all.select { |choice| choice.poll_id == @poll.id && choice.choice_type == "date" }
+          default1 = []
+          all_dates_id.each do |obj|
+            default1 << obj.id
+          end
+          all_themes_id = Choice.all.select { |choice| choice.poll_id == @poll.id && choice.choice_type == "theme" }
+          default2 = []
+          all_themes_id.each do |obj|
+            default2 << obj.id
+          end
+          Answer.create!(poll_id: @poll.id, guest_id: guest.id, chosen_date: default1, budget_max: 1_000_000, theme_ranking: default2.join(","))
+          guest.status = 1
+          guest.save
+        end
+      end
       redirect_to newdestinationchoices_poll_choices_path(@poll)
     elsif @event.step == 2
       @event.destination = Choice.find(@event.destination_poll_outcome.max_by { |_k, v| v }[0]).destination
       @event.step = 3
       @event.save
+      @event.guests.each do |guest|
+        if guest.answers[0].destination_ranking.nil?
+          all_destinations_id = Choice.all.select { |choice| choice.poll_id == @poll.id && choice.choice_type == "destination" }
+          default3 = []
+          all_destinations_id.each do |obj|
+            default3 << obj.id
+          end
+          guest.answers[0].destination_ranking = default3.join(",")
+          guest.answers[0].save
+          guest.status = 2
+          guest.save
+        end
+      end
       redirect_to event_path(@event)
       # send SMS and email 3:
       @event.guests.each do |guest|

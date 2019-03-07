@@ -43,7 +43,10 @@ class ChoicesController < ApplicationController
   def create_destination_choices
     @poll = Poll.find(params[:poll_id])
     @event = @poll.event
-    params[:answer][:destination_ids].each do |destination_id|
+    if params[:answer].nil?
+      render :newdestinationchoices
+    else
+      params[:answer][:destination_ids].each do |destination_id|
       @choice = Choice.new
       @choice.poll = @poll
       @event = @choice.poll.event
@@ -52,12 +55,13 @@ class ChoicesController < ApplicationController
       @choice.save
       @event.step = 2
       @event.save
-    end
-    redirect_to event_path(@event)
-    # SMS and email send 2 :
-    @event.guests.each do |guest|
-      UserMailer.votepush2(guest).deliver_now unless guest.email.nil? || guest.email == ""
-      SendSecondSms.new(guest).call unless guest.phone_number.nil? || guest.phone_number == ""
+      end
+      redirect_to event_path(@event)
+      # SMS and email send 2 :
+      @event.guests.each do |guest|
+        UserMailer.votepush2(guest).deliver_now unless guest.email.nil? || guest.email == ""
+        SendSecondSms.new(guest).call unless guest.phone_number.nil? || guest.phone_number == ""
+      end
     end
   end
 
