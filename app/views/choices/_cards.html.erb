@@ -12,7 +12,7 @@
   <% end %>
 
   <% sorted_hash = hash.sort_by{ |key ,value| value }%>
-  <% sorted_hash = sorted_hash.first(6) %>
+  <% sorted_hash = sorted_hash.first(12) %>
 
   <% sorted_hash.each do |key, _value| %>
     <% destination = Destination.find(key) %>
@@ -30,7 +30,7 @@
           <div class="card-description">
             <h2><%= destination.name %></h2>
             <ul class="list-inline">
-              <li class="list-inline-item">Average global cost: <i class="fas fa-euro-sign"></i>&nbsp;<strong><%= number_with_delimiter(total.to_i, separator: " ") %></strong>/per person <br><em>(travel costs estimates included)</em></li>
+              <li class="list-inline-item">Average cost per person: <i class="fas fa-euro-sign"></i>&nbsp;<strong><%= number_with_delimiter(total.to_i, separator: " ") %></strong><br><em>(travel, accomodation and meals)</em></li>
             </ul>
           </div>
 

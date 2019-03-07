@@ -4,19 +4,15 @@
     <h1 class="text-center" id="nameEvent">
       <%= @poll.event.name %>
     </h1>
-    <h5 class="text-center">Regarding your friends votes :</h5>
-    <h5 class="text-center">The favorite dates are from <%= l(@poll.event.start_date, format: "%a %e %b") %> to <%= l(@poll.event.end_date, format: "%a %e %b") %></h5>
-    <img class="icon-theme-choice" src="<%= image_path @poll.event.theme.photo %>" alt="" />
+    <h5 class="text-center">The dates ranging from </span><%= l(@poll.event.start_date, format: "%a %e %b") %> to <%= l(@poll.event.end_date, format: "%a %e %b") %> and the theme <%= @poll.event.theme.name %></strong> have collected the highest number of votes among your guests!
 
-    <h5 class="text-center">
-      And <strong><%= @poll.event.theme.name %></strong> theme won!
     </h5>
     <p class="text-center">
-      <%= @poll.event.user.name.capitalize %>, we found you awesome <strong>"<%= @poll.event.theme.name %>"</strong> destinations where the average daily and travel costs are the closests matches to your average budget group
+      <%= @poll.event.user.name.capitalize %>, we found you awesome <strong>"<%= @poll.event.theme.name %>"</strong> destinations with estimated budget matching your guests constraints. Pick up some and submit your choices:
     </p>
 
     <p class="text-center">
-      <strong>Pick up to 6 destinations</strong> and click on the magic button bellow!
+
     </p>
   </div>
 
@@ -30,7 +26,7 @@
     </br>
     <div class="btn-center">
       <div class="create-answer-action">
-        <%= f.submit "Submit your choices and send final votes requests to your guests", id: "dirty-button1", class: "btn-action-black-green" %>
+        <%= f.submit "Propose destinations to your guests", id: "dirty-button1", class: "btn-action-black-green" %>
       </div>
     </div>
 
