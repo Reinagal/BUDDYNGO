@@ -16,8 +16,10 @@ class ChoicesController < ApplicationController
         format.html { redirect_to root_path }
       end
     else
-      binding pry
-      render :new
+      respond_to do |format|
+        format.js
+        format.html { redirect_to root_path }
+      end
     end
   end
 
@@ -31,11 +33,14 @@ class ChoicesController < ApplicationController
       @choice.theme_id = theme_id
       if @choice.save
         respond_to do |format|
-        format.js
-        format.html { redirect_to root_path }
+          format.js
+          format.html { redirect_to root_path }
         end
       else
-      render :new
+        respond_to do |format|
+          format.js
+          format.html { redirect_to root_path }
+        end
       end
     end
   end

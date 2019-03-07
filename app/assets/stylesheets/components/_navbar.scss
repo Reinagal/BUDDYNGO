@@ -140,3 +140,13 @@ a:hover, a:active, a:focus {
     text-shadow: 0 0 10px rgb(50, 50, 50);
   }
 }
+
+.empty-header {
+  background: #3AAFA9;
+  display: flex;
+  align-items: center;
+  height: 70px;
+  padding: 0px 50px;
+  color: white;
+  justify-content: center;
+}

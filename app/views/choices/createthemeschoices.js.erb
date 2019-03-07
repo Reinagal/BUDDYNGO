@@ -1,11 +1,3 @@
-function addDates() {
-  const insertDates = document.querySelector('.selecteddates');
-  insertDates.insertAdjacentHTML('beforebegin', '<p class="dates-title">Your chosen dates</p>');
-    '<% current_user.events.last.polls.last.choices.where("choice_type" == "date").each do |choice| %>'
-      insertDates.insertAdjacentHTML('beforeend', '<div class="carddate col-xs-6 col-sm-4">From <%= choice.start_date %> </br> To <%= choice.end_date %></div>');
-    '<% end %>'
-}
-
 function refreshForm(innerHTML) {
   const newEventForm = document.querySelector('.modal-content');
   newEventForm.outerHTML = innerHTML;

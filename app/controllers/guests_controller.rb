@@ -11,10 +11,16 @@ class GuestsController < ApplicationController
     @event = Event.find(params[:event_id])
     @guest = @event.guests.build(guest_params)
     @guest.event = @event
-    @guest.save
-    respond_to do |format|
-      format.js
-      format.html { redirect_to root_path }
+    if @guest.save
+      respond_to do |format|
+        format.js
+        format.html { redirect_to root_path }
+      end
+    else
+      respond_to do |format|
+        format.js
+        format.html { redirect_to root_path }
+      end
     end
   end
 
