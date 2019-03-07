@@ -378,7 +378,8 @@
   padding-left: 0px;
   padding-top: 50px;
   height: 500px;
-  margin: 10px;
+  margin: 20px;
+  margin-left: 5px;
 }
 
 .mini-img-theme {
@@ -417,4 +418,29 @@
   color: $dark-green;
   font-size: 38px;
   font-family: $citation-font;
+}
+
+.dashtitle3 {
+  color: $dark-green;
+  font-size: 32px;
+  font-family: $citation-font;
+  font-weight: bold;
+}
+.dashtitle4 {
+  color: $dark-green;
+  font-size: 28px;
+  font-family: $citation-font;
+}
+.endinfo {
+  border: 2px solid $light-green;
+  border-radius: 5px;
+  padding: 10px;
+  padding-left: 0px;
+  height: 500px;
+  margin-top: 20px;
+  margin-left: -20px;
+}
+
+.brandlogo {
+  margin: -20px;
 }
