@@ -15,10 +15,10 @@ class AnswersController < ApplicationController
     @answer.theme_ranking = params[:answer][:theme_ranking]
     @answer.chosen_date = params[:answer][:chosen_date_ids]
     @answer.guest_id = @guest.id
-    @guest.status = 1
     @answer.save
-    @guest.save
-    if @answer.save && @guest.save
+    if @answer.save
+      @guest.status = 1
+      @guest.save
       redirect_to new_event_guest_answer_path(@event, @guest)
     else
       render :new
