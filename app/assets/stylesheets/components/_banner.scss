@@ -3,8 +3,6 @@
   background-position: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   text-align: center;
   height: 100vh;
   background-image: linear-gradient(rgba(100, 100, 100, 0.3), rgba(100, 100, 100, 0.1)), asset-url('banner.jpg')
@@ -37,4 +35,7 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
-
+#title {
+  padding-top: 260px;
+  padding-bottom: 190px;
+}
