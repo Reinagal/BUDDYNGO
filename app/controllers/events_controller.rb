@@ -79,7 +79,9 @@ class EventsController < ApplicationController
         format.html { redirect_to root_path }
       end
     else
-      render format.js
+      respond_to do |format|
+        format.js
+      end
     end
     # User as a guest too :
   end
