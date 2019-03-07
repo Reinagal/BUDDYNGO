@@ -87,7 +87,7 @@ nancy = Destination.create!(name: "Nancy", theme: region, photo: "nancy.jpg", av
 la_rochelle = Destination.create!(name: "La Rochelle", theme: region, photo: "la_rochelle.jpg", average_daily_cost: 80, travel_cost: 120)
 dijon = Destination.create!(name: "Dijon", theme: region, photo: "dijon.jpg", average_daily_cost: 80, travel_cost: 100)
 clermont = Destination.create!(name: "Clermont-Ferrand", theme: region, photo: "clermont.jpg", average_daily_cost: 80, travel_cost: 100)
-rennes = Destination.create!(name: "Rennes", theme: region, photo: ".jpg", average_daily_cost: 90, travel_cost: 100)
+rennes = Destination.create!(name: "Rennes", theme: region, photo: "rennes.jpg", average_daily_cost: 90, travel_cost: 100)
 
 cannes = Destination.create!(name: "Cannes", theme: beach, photo: "cannes.jpg", average_daily_cost: 144, travel_cost: 166)
 calvi = Destination.create!(name: "Calvi", theme: beach, photo: "calvi.jpg", average_daily_cost: 174, travel_cost: 256)
@@ -128,7 +128,7 @@ monaco = Destination.create!(name: "Monaco", theme: premium, photo: "monaco.jpg"
 dubai = Destination.create!(name: "Dubai", theme: premium, photo: "dubai.jpg", average_daily_cost: 350, travel_cost: 800)
 trianon = Destination.create!(name: "Le Trianon with Carlos", theme: premium, photo: "trianon.jpg", average_daily_cost: 450, travel_cost: 100)
 leicestershire = Destination.create!(name: "Like a Lord in Leiceshire", theme: premium, photo: "leicestershire.jpg", average_daily_cost: 500, travel_cost: 350)
-palmeraie = Destination.create!(name: "Palmeraie with DKS", theme: premium, photo: "palmeraie.jpg", average_daily_cost: 450, travel_cost: 500)
+palmeraie = Destination.create!(name: "Palmeraie with DSK", theme: premium, photo: "palmeraie.jpg", average_daily_cost: 450, travel_cost: 500)
 cr7 = Destination.create!(name: "Formentera with CR7", theme: premium, photo: "cr7.jpg", average_daily_cost: 350, travel_cost: 300 )
 yacht = Destination.create!(name: "Book a Yacht with MyPhocea", theme: premium, photo: "yacht.jpg", average_daily_cost: 5000, travel_cost: 200)
 bunga = Destination.create!(name: "Bunga Bunga in Sardinia", theme: premium, photo: "bunga.jpg", average_daily_cost: 10000, travel_cost: 250)

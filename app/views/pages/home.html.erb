@@ -5,8 +5,8 @@
     <div class="all-arguments">
       <div class="argument">
         <%= image_tag 'arg1-whistle.png', class:"img-home sifflet"%>
-        <h3>Create your event</h3>
-        <p>Set up your event, suggest themes and dates</p>
+        <h3>Create your trip</h3>
+        <p>Set up your trip, suggest themes and dates</p>
       </div>
       <div class="argument">
         <%= image_tag 'arg2-invit.png', class:"img-home"%>
@@ -20,12 +20,12 @@
       </div>
     </div>
     <% if user_signed_in? %>
-      <a href="" class="btn btn-action" data-toggle="modal" data-target="#modalNewEvent">
-        Plan your next trip
+      <a href="" class="btn btn-action-black-green" data-toggle="modal" data-target="#modalNewEvent">
+        Plan your next trip with them
       </a>
     <% else %>
-      <a href="" class="btn btn-action" data-toggle="modal" data-target="#modalLoginForm">
-        Plan your next trip
+      <a href="" class="btn btn-action-black-green" data-toggle="modal" data-target="#modalLoginForm">
+        Plan your next trip with them
       </a>
     <% end %>
     <br>

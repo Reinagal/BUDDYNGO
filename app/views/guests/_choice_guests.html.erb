@@ -1,5 +1,11 @@
 <div class="carddate" id="<%= guest.id %>">
-  <%= guest.name %> </br> <%= guest.phone_number %>
+  <p><i class="fas fa-user-alt"></i>&nbsp;<%= guest.name %></p>
+  <% if guest.phone_number != "" %>
+    <p><i class="fas fa-phone"></i>&nbsp;<%= guest.phone_number %></p>
+  <% end %>
+  <% if guest.email != "" %>
+    <p><i class="fas fa-at"></i>&nbsp;<%= guest.email %></p>
+  <% end %>
   <%= link_to event_guest_path(guest.event, guest), method: :delete, id: "link-delete", remote: true do %>
     <i class="fas fa-times-circle"></i>
   <% end %>
