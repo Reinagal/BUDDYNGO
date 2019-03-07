@@ -20,7 +20,7 @@
   </div>
   <ul class="list-inline titlebtn">
     <li class="text-center list-unstyled" id="nameEvent"><%= event.name %></li>
-    <li class = "btn btn-action-black-green list-unstyled" ><%= link_to "Close the vote & generate destinations", event_path(@event), method: 'patch' %></li>
+    <li class = "btn btn-action-black-green list-unstyled" ><%= link_to "Close the vote & generate destinations", spinner_path(event) %></li>
   </ul>
   <div class="row core-dashboard">
     <div class="col-xs-12 col-sm-3 guests-dashboard">

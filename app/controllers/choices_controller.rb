@@ -73,6 +73,9 @@ class ChoicesController < ApplicationController
   def newdestinationchoices
     @poll = Poll.find(params[:poll_id])
     @event = @poll.event
+    respond_to do |format|
+      format.html
+    end
   end
 
   def destroy
