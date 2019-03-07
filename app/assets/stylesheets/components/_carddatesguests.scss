@@ -3,12 +3,22 @@
   background-color: white;
   border: 1px $main-green solid;
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: 2px 10px;
   font-size: 16px;
   text-align: center;
-  padding: 10px;
   position: relative;
   margin-bottom: 10px;
+  text-align: center;
+}
+
+.carddate p {
+  text-shadow: none;
+  color: $main-green;
+  font-size: 16px;
+  min-width: 200px;
+  margin: 0;
+  padding: 0;
+  display: true !important;
 }
 
 .selecteddates {
@@ -24,7 +34,7 @@
 
 .selectedguests {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
   flex-wrap: wrap;
 }
 
