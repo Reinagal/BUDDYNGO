@@ -71,14 +71,19 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
     @event.user = current_user
     @poll = Poll.new(event: @event)
+    @guest_user = Guest.new(event: @event, email: @event.user.email, name: @event.user.name, phone_number: @event.user.phone_number)
+    @guest_user.save
     if @event.save && @poll.save
       respond_to do |format|
         format.js
         format.html { redirect_to root_path }
       end
     else
-      render :new
+      respond_to do |format|
+        format.js
+      end
     end
+    # User as a guest too :
   end
 
   def finish_guest_invits
@@ -107,6 +112,11 @@ class EventsController < ApplicationController
       @event.step = 3
       @event.save
       redirect_to event_path(@event)
+      # send SMS and email 3:
+      @event.guests.each do |guest|
+        UserMailer.finalpush(guest).deliver_now unless guest.email.nil? || guest.email == ""
+        SendFinalSms.new(guest).call unless guest.phone_number.nil? || guest.phone_number == ""
+      end
     else
       redirect_to root_path
     end

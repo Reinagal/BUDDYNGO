@@ -1,12 +1,12 @@
 <%= render 'shared/banner' %>
 <div class="wrapper">
   <div class="container home-args">
-    <h2>The collaborative decision-making way</h2>
+    <h2>Facilitate the decision-making of your group trips</h2>
     <div class="all-arguments">
       <div class="argument">
-        <%= image_tag 'arg1-whistle.png', class:"img-home"%>
+        <%= image_tag 'arg1-whistle.png', class:"img-home sifflet"%>
         <h3>Create your event</h3>
-        <p>Set up your event, choose destinations types and suggest dates</p>
+        <p>Set up your event, suggest themes and dates</p>
       </div>
       <div class="argument">
         <%= image_tag 'arg2-invit.png', class:"img-home"%>
@@ -16,13 +16,22 @@
       <div class="argument">
         <%= image_tag 'arg3-finger.png', class:"img-home"%>
         <h3>Let the magic happen</h3>
-        <p>Get automatically the best dates compromise and destinations ideas based on your friends preferences!</p>
+        <p>Get automatically the best dates compromise and destinations ideas based on your friends feedbacks!</p>
       </div>
     </div>
-    <a href="" class="btn btn-action" data-toggle="modal" data-target="#modalNewEvent">
+    <% if user_signed_in? %>
+      <a href="" class="btn btn-action" data-toggle="modal" data-target="#modalNewEvent">
         Plan your next trip
       </a>
+    <% else %>
+      <a href="" class="btn btn-action" data-toggle="modal" data-target="#modalLoginForm">
+        Plan your next trip
+      </a>
+    <% end %>
     <br>
     <br>
   </div>
 </div>
+
+<%= render 'events/formnewevent' %>
+<%= render 'users/loginform' %>

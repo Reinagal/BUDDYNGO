@@ -60,3 +60,13 @@
 #centralModalSuccess {
   display: block;
 }
+
+.modal-title {
+  font-family: $citation-font;
+  font-size: 40px;
+  font-weight: normal !important;
+}
+
+.btn-send-invit {
+  margin-top: 20px;
+}

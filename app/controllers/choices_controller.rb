@@ -10,13 +10,13 @@ class ChoicesController < ApplicationController
     @choice.poll = @poll
     @event = @choice.poll.event
     @choice.choice_type = "date"
-
     if @choice.save
       respond_to do |format|
         format.js
         format.html { redirect_to root_path }
       end
     else
+      binding pry
       render :new
     end
   end
