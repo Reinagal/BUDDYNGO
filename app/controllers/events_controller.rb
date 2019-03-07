@@ -19,7 +19,6 @@ class EventsController < ApplicationController
     @poll_budgets = []
     @poll_destinations = []
 
-
     # Management of the dates
     @event.date_poll_outcome.each_key { |key| @poll_dates << key }
     @poll_dates.map! do |choice_id|
