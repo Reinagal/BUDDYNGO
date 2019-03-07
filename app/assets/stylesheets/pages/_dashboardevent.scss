@@ -320,8 +320,8 @@
 }
 #nameEvent {
   color: $dark-green;
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-top: 20px;
+  // margin-bottom: 20px;
   font-family: $citation-font;
   font-size: 52px;
 }
@@ -375,9 +375,10 @@
   font-family: $citation-font;
 }
 .infoimporttitle {
-  color: $dark-green;
+  color: $black-green;
   font-size: 48px;
   font-family: $citation-font;
+  font-weight: bold;
 }
 .summarycont {
   background-color: $light-green;
@@ -394,7 +395,7 @@
   border-radius: 5px;
   padding-left: 0px;
   // padding-top: 50px;
-  height: 500px;
+  height: 535px;
   margin: 20px;
   margin-left: 5px;
   margin-top: 20px;
@@ -421,27 +422,28 @@
 }
 
 .guestborder {
-  border: 2px solid $light-green;
+  border: 2px solid #A5A5A5;
   border-radius: 5px;
   padding: 10px;
   height: 500px;
 }
 
 .statisticborder {
-  border: 2px solid $light-green;
+  border: 2px solid #A5A5A5;
   border-radius: 5px;
   padding: 10px;
   height: 500px;
+  margin-bottom: 20px;
 }
 .maintitle {
-  color: $dark-green;
+  color: #253C44;
   font-size: 38px;
   font-family: $citation-font;
 }
 
 .dashtitle3 {
-  color: $dark-green;
-  font-size: 32px;
+  color: $black-green;
+  font-size: 48px;
   font-family: $citation-font;
   font-weight: bold;
 }
@@ -455,7 +457,7 @@
   border-radius: 5px;
   padding: 10px;
   padding-left: 0px;
-  height: 500px;
+  height: 535px;
   margin-top: 20px;
   margin-left: -20px;
 }

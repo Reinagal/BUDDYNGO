@@ -18,10 +18,9 @@
       </div>
     </div>
   </div>
-  <ul class="list-inline titlebtn">
-    <li class="text-center list-unstyled" id="nameEvent"><%= event.name %></li>
-    <li class = "list-unstyled" ><%= link_to "Close the vote & generate destinations", event_path(@event), method: 'patch', class: "btn btn-action-black-green" %></li>
-  </ul>
+  <!-- <ul class="list-inline titlebtn"> -->
+  <div class="text-center list-unstyled" id="nameEvent"><%= event.name %></div>
+  <!-- </ul> -->
   <div class="row core-dashboard">
     <div class="col-xs-12 col-sm-3 guests-dashboard">
       <h1 class="maintitle">Guests list</h1>
@@ -39,17 +38,17 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-9 votes-dashboard">
-    <h1 class="maintitle">Statistics</h1>
+    <h1 class="maintitle">Votes</h1>
       <div class="statisticborder">
         <div class="row">
           <div class="col-xs-12 col-sm-6 date-vote">
-            <p class="titledash">Dates votes</p>
+            <p class="titledash">Dates</p>
             <canvas id="myChart" width="400" height="160"
               data-dates= "<%= @poll_dates_value %>"
               data-labels= "<%= @poll_dates %>" ></canvas>
           </div>
           <div class="col-xs-12 col-sm-6 theme-vote">
-            <p class="titledash">Themes scores</p>
+            <p class="titledash">Themes</p>
             <canvas id="myChart2" width="400" height="160"
               data-themes= "<%= @poll_themes_value %>"
               data-labels= "<%= @poll_themes %>" ></canvas>
@@ -65,6 +64,7 @@
         </div>
       </div>
     </div>
+    <div class="text-center"><%= link_to "Next step", event_path(@event), method: 'patch', class: "btn btn-action-black-green" %></div>
   </div>
 
   <% elsif event.step == 2 %>
@@ -86,10 +86,10 @@
       </div>
     </div>
   </div>
-  <ul class="list-inline titlebtn">
-    <li class="text-center list-unstyled" id="nameEvent"><%= event.name %></li>
-    <li class ="list-unstyled" ><%= link_to "Close the vote & send the result", event_path(@event), method: :patch, class: "btn btn-action-black-green" %></li>
-  </ul>
+  <!-- <ul class="list-inline titlebtn"> -->
+  <div class="text-center list-unstyled" id="nameEvent"><%= event.name %></div>
+
+  <!-- </ul> -->
   <div class="row core-dashboard">
     <div class="col-xs-12 col-sm-3 guests-dashboard">
       <h1 class="maintitle">Guests list</h1>
@@ -119,13 +119,14 @@
               <li class = "list-unstyled"> <%= @event.theme.name %></li>
               <h6>Estimated budget:</h6>
               <li class = "list-unstyled"><%= @event.budget %>€</li>
+              <br>
+              <div class="text-center" ><%= link_to "Final step", event_path(@event), method: :patch, class: "btn btn-action-black-green" %></div>
             </ul>
-
         </div>
         <div class="col-xs-12 col-sm-6 destination-vote">
-          <h1 class="maintitle">Statistics</h1>
+          <h1 class="maintitle">Destinations votes</h1>
           <div class="statisticborder">
-            <p class="titledash">Destination scores</p>
+            <!-- <p class="titledash">Destination scores</p> -->
             <canvas id="myChart4" width="200" height="170"
             data-destinations="<%= @poll_destinations_value %>"
             data-labels= "<%= @poll_destinations %>" ></canvas>
@@ -133,6 +134,7 @@
         </div>
       </div>
     </div>
+
   </div>
 
   <% elsif event.step == 3 %>
