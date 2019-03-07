@@ -315,12 +315,15 @@
   font-size: 28px;
   font-family: $citation-font;
 }
-
+.container-fluid.dashboard{
+  margin-bottom: 20px;
+}
 #nameEvent {
   color: $dark-green;
-  margin-top: 10px;
+  margin-top: 0px;
   margin-bottom: 0px;
   font-family: $citation-font;
+  font-size: 52px;
 }
 
 .btn-close {
@@ -366,12 +369,16 @@
   border-radius: 5px;
 }
 
-.summary h6 {
+.infoimport {
   color: $dark-green;
   font-size: 28px;
   font-family: $citation-font;
 }
-
+.infoimporttitle {
+  color: $dark-green;
+  font-size: 48px;
+  font-family: $citation-font;
+}
 .summarycont {
   background-color: $light-green;
   border-radius: 5px;
@@ -380,6 +387,17 @@
   height: 500px;
   margin: 20px;
   margin-left: 5px;
+  margin-top: 0px;
+}
+.summarycont2 {
+  background-color: $light-green;
+  border-radius: 5px;
+  padding-left: 0px;
+  // padding-top: 50px;
+  height: 500px;
+  margin: 20px;
+  margin-left: 5px;
+  margin-top: 20px;
 }
 
 .mini-img-theme {
@@ -393,6 +411,7 @@
   font-weight: bold;
   color: $dark-green;
   font-family: $citation-font;
+  padding-left: 30px;
 }
 
 .summarycont h6 {
@@ -443,4 +462,21 @@
 
 .brandlogo {
   margin: -20px;
+}
+.brandlogo2 {
+  margin-left: 30px;
+  &:hover {
+    // transform: skew(-10deg);
+    transform: scale(1.3);
+    transition: 0.5s ease;
+  }
+}
+.imagedesti{
+  height: 250px;
+  border-radius: 5px;
+}
+.titlebtn {
+  margin-bottom: -35px;
+  display: flex;
+  justify-content: space-between;
 }
