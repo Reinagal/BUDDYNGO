@@ -25,12 +25,12 @@ if(document.getElementById("myChart4")){
   initChart4();
 }
 
-// import { showSpinner } from "../plugins/spinner";
-// document.addEventListener("DOMContentLoaded", function(event) {
-//   if(document.getElementById('spinnerbtn')){
-//     showSpinner('spinnerbtn')
-//   }
-// });
+import { showSpinner } from "../plugins/spinner";
+document.addEventListener("DOMContentLoaded", function(event) {
+  if(document.getElementById('spinner')){
+    showSpinner()
+  }
+});
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 initUpdateNavbarOnScroll();

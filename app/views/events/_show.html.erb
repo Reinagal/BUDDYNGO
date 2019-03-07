@@ -64,7 +64,7 @@
         </div>
       </div>
     </div>
-    <div class="text-center"><%= link_to "Next step", event_path(@event), method: 'patch', class: "btn btn-action-black-green" %></div>
+    <div class="text-center"><%= link_to "Next step", spinner_path(event), method: 'patch', class: "btn btn-action-black-green" %></div>
   </div>
 
   <% elsif event.step == 2 %>

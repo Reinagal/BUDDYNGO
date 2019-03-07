@@ -122,7 +122,14 @@ class EventsController < ApplicationController
           guest.save
         end
       end
-      redirect_to newdestinationchoices_poll_choices_path(@poll)
+      respond_to do |format|
+        format.js
+        format.html
+      end
+      # return redirect_to newdestinationchoices_poll_choices_path(@poll)
+      # redirect_to newdestinationchoices_poll_choices_url(@poll)
+      # newdestinationchoices_poll_choices GET    /polls/:poll_id/choices/newdestinationchoices(.:format)                                  choices#newdestinationchoices
+
     elsif @event.step == 2
       @event.destination = Choice.find(@event.destination_poll_outcome.max_by { |_k, v| v }[0]).destination
       @event.step = 3
