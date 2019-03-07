@@ -7,23 +7,21 @@ class Guest < ApplicationRecord
   after_create :format_phone_number
 
   def mail_or_phone_number
-    if self.phone_number == "" && self.email == ""
+    if phone_number == "" && email == ""
       errors.add("You have to add an email or a phone number")
     end
   end
 
   def valid_french_phone_number
-    if self.phone_number
-      if !self.phone_number.match(/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/)
-        errors.add("Please enter a valid french phone number")
+    unless phone_number.blank?
+      if !phone_number.match(/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/)
+        errors.add(:phone_number, "Please enter a valid french phone number")
       end
-    else
-      true
     end
   end
 
   def format_phone_number
-    if self.phone_number
+    unless phone_number.blank?
       stripped_phone_number = self.phone_number.gsub(' ','')
       case
         when stripped_phone_number.start_with?('+33')
@@ -37,5 +35,4 @@ class Guest < ApplicationRecord
       end
     end
   end
-
 end
