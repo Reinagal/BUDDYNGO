@@ -15,7 +15,7 @@
       </a>
 
       <div class="dropdown">
-        <a href="", class: "navbar-wagon-item navbar-wagon-link sign-up-navbar", id: "navbar-wagon-menu", data-toggle="dropdown">My events</a>
+        <a href="", class: "navbar-wagon-item navbar-wagon-link sign-up-navbar", id: "navbar-wagon-menu", data-toggle="dropdown">My trips</a>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <% if Event.all.select { |event| event.user_id == current_user.id && event.guests.last.status != 0} != [] %>
             <% Event.all.select { |event| event.user == current_user && event.guests.last.status != 0}.each do |event| %>
@@ -69,7 +69,7 @@
           </a></li>
           <li>
             <%= link_to events_path do %>
-              <i class="far fa-calendar-alt"></i> My events
+              <i class="far fa-calendar-alt"></i> My trips
             <% end %>
           </li>
           <li>
