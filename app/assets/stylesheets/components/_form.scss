@@ -15,3 +15,26 @@
     margin-bottom: 20px
   }
 }
+
+.btn-signup-login {
+  color: $main-green;
+  font-size: 32px;
+  font-family: $citation-font;
+  padding: 0 15px;
+  &:hover {
+    color: $main-green;
+    text-shadow: 0 0 10px rgb(200, 200, 200);
+  }
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.btn-sign-up-login {
+  display: flex;
+  justify-content: center;
+}
+
+.form-actions {
+  text-align: center;
+}

@@ -5,6 +5,9 @@ class Event < ApplicationRecord
   has_many :guests
   has_many :polls
 
+  validates :name, presence: true
+  validates :description, presence: true
+
   def initialize_hash_choices(choice_type)
     hash = {}
     poll_id = Poll.find_by(event_id: id).id

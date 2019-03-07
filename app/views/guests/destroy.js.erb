@@ -1,4 +1,6 @@
 <% if @guest_destroyed %>
   document.getElementById(<%= @guest_id %>).remove();
+  if( document.querySelector('.selectedguests').innerText == "") {
+    document.querySelector('.btn-send-invit').classList.add('disabled');
+  }
 <% end %>
-

@@ -7,7 +7,7 @@
   font-family: $citation-font;
   font-size: 32px;
   &:hover {
-    box-shadow: 0 0 10px rgb(100, 100, 100);
+    box-shadow: 0 0 10px rgb(50, 50, 50);
     color: white;
   }
   &:focus {
@@ -20,10 +20,11 @@
   background-color: white;
   border-radius: 5px;
   padding: 0 15px;
+  font-family: $citation-font;
   font-size: 32px;
   transition: box-shadow 0.2s ease;
   &:hover {
-    box-shadow: 0 0 10px rgb(100, 100, 100);
+    box-shadow: 0 0 10px rgb(50, 50, 50);
     color: #3AAFA9;
   }
   &:focus {
@@ -40,7 +41,7 @@
   font-family: $citation-font;
   font-size: 32px;
   &:hover {
-    box-shadow: 0 0 10px rgb(100, 100, 100);
+    box-shadow: 0 0 10px rgb(50, 50, 50);
     color: white;
   }
   &:focus {

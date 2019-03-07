@@ -6,7 +6,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Sign Up</h4>
       </div>
       <div class="modal-body">
         <div class="container">
@@ -34,8 +34,13 @@
                               required: true,
                               input_html: { autocomplete: "new-password" } %>
                 </div>
-                <div class="form-actions">
-                  <%= f.button :submit, "Signup", class: "btn btn-action" %>
+                <div class="btn-sign-up-login" style="padding: 15px 0;">
+                  <a href="" class="btn btn-signup-login" data-toggle="modal" data-target="#modalLoginForm" data-dismiss="modal">
+                    Login
+                  </a>
+                  <div class="form-actions">
+                    <%= f.button :submit, "Signup", class: "btn btn-action" %>
+                  </div>
                 </div>
               <% end %>
             </div>
