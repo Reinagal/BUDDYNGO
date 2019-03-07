@@ -87,7 +87,7 @@ nancy = Destination.create!(name: "Nancy", theme: region, photo: "nancy.jpg", av
 la_rochelle = Destination.create!(name: "La Rochelle", theme: region, photo: "la_rochelle.jpg", average_daily_cost: 80, travel_cost: 120)
 dijon = Destination.create!(name: "Dijon", theme: region, photo: "dijon.jpg", average_daily_cost: 80, travel_cost: 100)
 clermont = Destination.create!(name: "Clermont-Ferrand", theme: region, photo: "clermont.jpg", average_daily_cost: 80, travel_cost: 100)
-rennes = Destination.create!(name: "Rennes", theme: region, photo: ".jpg", average_daily_cost: 90, travel_cost: 100)
+rennes = Destination.create!(name: "Rennes", theme: region, photo: "rennes.jpg", average_daily_cost: 90, travel_cost: 100)
 
 cannes = Destination.create!(name: "Cannes", theme: beach, photo: "cannes.jpg", average_daily_cost: 144, travel_cost: 166)
 calvi = Destination.create!(name: "Calvi", theme: beach, photo: "calvi.jpg", average_daily_cost: 174, travel_cost: 256)
