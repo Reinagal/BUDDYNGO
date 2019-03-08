@@ -1,7 +1,7 @@
 function addDates() {
   const insertDates = document.querySelector('.selecteddates');
   insertDates.insertAdjacentHTML('beforeend', '<%= j render "choice_dates", choice: @choice %>');
-  const btnNext = document.querySelector('.btn-action-black-green');
+  const btnNext = document.querySelector('.btn-next-step-modal');
   btnNext.classList.remove('disabled');
 }
 
