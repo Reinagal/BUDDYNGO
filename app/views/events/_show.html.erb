@@ -118,6 +118,7 @@
               <li class = "list-unstyled"><%= image_tag @event.theme.photo, class: "mini-img-theme" %></li>
               <li class = "list-unstyled"> <%= @event.theme.name %></li>
               <h6>Estimated budget:</h6>
+
               <li class = "list-unstyled"><%= @event.budget %>€</li>
               <br>
               <div class="text-center" ><%= link_to "Final step", event_path(@event), method: :patch, class: "btn btn-action-black-green" %></div>
@@ -167,7 +168,9 @@
             <!-- <p>Dates:</p> -->
             <li class = "list-unstyled infoimport"><%= l(@event.start_date, format: "%b %d, %Y") %> - <%= l(@event.end_date, format: "%b %d, %Y") %></li>
             <!-- <p>Estimated budget:</p> -->
-            <li class = "list-unstyled infoimport">Estimated budget: <%= @event.budget %>€</li>
+            <% days = (@event.end_date - @event.start_date).to_i %>
+            <% total2 = days.to_i * @event.destination.average_daily_cost + @event.destination.travel_cost %>
+            <li class = "list-unstyled infoimport">Estimated budget: <%= total2 %>€</li>
             <!-- <p>Destination:</p> -->
             <br>
             <img class="imagedesti" src="<%= image_path @event.destination.photo %>" alt="" />
