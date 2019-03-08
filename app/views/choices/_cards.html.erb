@@ -12,7 +12,7 @@
   <% end %>
 
   <% sorted_hash = hash.sort_by{ |key ,value| value }%>
-  <% sorted_hash = sorted_hash.first(12) %>
+  <% sorted_hash = sorted_hash.first(9) %>
 
   <% sorted_hash.each do |key, _value| %>
     <% destination = Destination.find(key) %>
